@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ status_code }} – {{ error_description }}</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 4rem;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 0.25rem;
+    }
+    a:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Error {{ status_code }}</h1>
+  <p>{{ error_description }}</p>
+
+<!--   TODO add URL of Home-->
+  <a href="/">Return Home</a>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!-- templates/market/stock_chart.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <title>{{ symbol }} Interactive Chart</title>
+</head>
+<body>
+
+  <h1>{{ symbol }} — Interactive Candlestick Chart</h1>
+  <div id="chart" style="width:100%;height:600px;"></div>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <script>
+    const chartData = {{ chart_json|safe }};
+    Plotly.newPlot('chart', chartData.data, chartData.layout);
+  </script>
+
+</body>
+</html>
