@@ -8,7 +8,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, "geo_algo/local_env.env"))
 
 SECRET_KEY = 'django-insecure-j2e(v&w4(rjfgcp-*&@4-j@)$efxhhg2(tfp951amhb=4^r#+%'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
@@ -84,6 +84,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "static/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

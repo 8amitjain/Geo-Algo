@@ -69,7 +69,7 @@ def stock_chart(request):
     )
     persistor.persist()
 
-    # TODO Create a cron for EMA cross over checks and angle line touch check every 15 mins - double check all logics.
+    # TODO Create and test and verify functionally cron for EMA cross over checks and angle line touch check every 15 mins - double check all logics.
     # BUY call
 
     return render(request, "market/stock_chart.html", {
@@ -105,16 +105,16 @@ def candlestick_chart(request):
         "symbol": symbol,
     })
 
+# Create both model list view and details view
+# Create user login - basic - Admin creates user - any user can login
 
-# Aws server set time to IST
-# sudo timedatectl set-timezone Asia/Kolkata
-# $ timedatectl
-#                       Local time: Sun 2025-06-22 14:07:00 IST
-#                   Universal time: Sun 2025-06-22 08:37:00 UTC
-#                         RTC time: Sun 2025-06-22 08:37:00
-#                        Time zone: Asia/Kolkata (IST, +0530)
-#        System clock synchronized: yes
-#  systemd-timesyncd.service active: yes
-#                  RTC in local TZ: no
+
 # CRON Command
-# */15 9-15 * * 1-5 /path/to/venv/bin/python /path/to/project/manage.py check_ema_crossover >> /path/to/logs/ema_crossover.log 2>&1
+# */15 9-15 * * MON-FRI /path/to/venv/bin/python /path/to/project/manage.py check_ema_crossover >> /path/to/logs/ema_crossover.log 2>&1
+
+
+# Deploy and test cron jobs logic and function
+# http://13.126.174.197/market/
+# http://13.126.174.197/market/chart.png?symbol=SBI+Life+Insurance&security_id=21808&start_price=low&start_date=2025-03-12&price_to_bar_ratio=4&angles=45,63.251&start_bar=1846
+# http://13.126.174.197/admin/market/trendlinecheck/
+

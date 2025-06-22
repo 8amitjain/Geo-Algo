@@ -11,35 +11,34 @@ from market.models import TrendLine, TrendLineCheck
 from market.dhan import DHANClient, TrendLine as CoreTrendLine
 
 
-# RUN every 15 MIN.
 class TrendLineChecker:
     """
-    Re-computes each stored TrendLine’s line_data (now including yesterday),
-    updates the model, and then records whether yesterday’s price touched it.
+    Recomputes each stored TrendLine’s line_data through the last bar,
+    then, every 15 min during market hours, fetches the most-recent 15m
+    bar and marks whether it touched the trend line (±0.5% tolerance).
     """
 
-    def __init__(self, api_token: str, api_token_data: str):
-        # api_token for metadata/listing (not used here),
-        # api_token_data for full OHLC history
-        self.client_data = DHANClient(access_token=api_token_data)
+    def __init__(self, api_token_data: str):
+        # only need the history & intraday client
+        self.client = DHANClient(access_token=api_token_data)
 
     def run(self) -> None:
-        # TODO - Add 0.5% up or down allowance for bar touch
-        # TODO Check every 15 mins for candle touch
-        # we want to check the bar *for yesterday* (market data up to yesterday)
-        yesterday = timezone.localtime().date() - timedelta(days=2)
+        now = timezone.localtime()
 
-        # pick all lines that start on/before yesterday and haven't yet been touched
+        # 1) Which lines we care about: those that start on/before today,
+        #    and for which *today’s* check hasn’t yet been marked touched
+        today = now.date()
         to_check = TrendLine.objects.filter(
-            start_date__lte=yesterday
+            start_date__lte=today
         ).exclude(
+            checks__date=today,
             checks__touched=True
         )
 
+        # 2) For each line, recompute its full line_data (so the last price is up-to-date)
         for tl in to_check:
-            # 1) Recompute full line_data from listing → last bar
-            full_df = self.client_data.get_full_history(tl.security_id)
-            angle = tl.angles[0]             # your model stores one-angle-per-record
+            full_df = self.client.get_full_history(tl.security_id)
+            angle = tl.angles[0]
             ratio = tl.price_to_bar_ratio
 
             core_tl = CoreTrendLine(
@@ -48,65 +47,78 @@ class TrendLineChecker:
                 angle_deg=angle,
                 price_to_bar_ratio=ratio,
             )
-            xs, ys = core_tl.get_points()
 
-            # rebuild JSON payload (date strings + prices)
-            new_line_data = [
+            # rebuild JSON line_data
+            xs, ys = core_tl.get_points()
+            tl.line_data = [
                 {"date": dt.strftime("%Y-%m-%d"), "value": float(val)}
                 for dt, val in zip(core_tl.dates, ys)
             ]
-
-            # 2) Save updated line_data back to the model
-            tl.line_data = new_line_data
             tl.save(update_fields=["line_data"])
 
-            # 3) Extract yesterday’s trend price
-            date_str = yesterday.strftime("%Y-%m-%d")
-            rec = next((p for p in new_line_data if p["date"] == date_str), None)
-            if rec is None:
-                # no data point for yesterday
+            # 3) figure out today’s theoretical line‐price at *this* bar
+            #    find the entry in line_data for today (if it exists)
+            rec = next(
+                (pt for pt in tl.line_data if pt["date"] == today.strftime("%Y-%m-%d")),
+                None
+            )
+            if not rec:
+                # no price point for today → skip
                 continue
 
             line_price = Decimal(str(rec["value"]))
 
-            # 4) Fetch actual OHLC for yesterday
-            df = self.client_data.get_ticker_data(
+            # 4) Fetch the latest 15-minute bar (end = now, start = now-15m)
+            end_ts = now.strftime("%Y-%m-%d %H:%M:%S")
+            start_ts = (now - timedelta(minutes=15)).strftime("%Y-%m-%d %H:%M:%S")
+
+            intraday = self.client.get_intraday_ohlc(
                 security_id=tl.security_id,
-                from_date=date_str,
+                interval=15,
+                start_date=start_ts,
+                end_date=end_ts,
             )
-            # assume the first row corresponds to 'date_str'
-            actual_low = Decimal(str(df["low"].iloc[0]))
-            actual_high = Decimal(str(df["high"].iloc[0]))
+            if intraday.empty:
+                continue
 
-            # 5) Determine if 'touched'
-            touched = (
-                actual_low <= line_price <= actual_high
-            )
+            # assume the *last* row is the most-recent 15m bar
+            bar_low = Decimal(str(intraday["low"].iat[-1]))
+            bar_high = Decimal(str(intraday["high"].iat[-1]))
 
-            # 6) Record the check
+            # 5) ±0.5% tolerance
+            tol = (line_price * Decimal("0.005")).quantize(Decimal("0.0001"))
+            lower_bnd = line_price - tol
+            upper_bnd = line_price + tol
+
+            touched = (bar_low <= upper_bnd) and (bar_high >= lower_bnd)
+
+            # 6) Record the check for *today*
             TrendLineCheck.objects.update_or_create(
                 trend_line=tl,
-                date=yesterday,
+                date=today,
                 defaults={
-                    "line_price":    line_price,
-                    "actual_price":  actual_low,
-                    "touched":       touched,
+                    "line_price":   line_price,
+                    "actual_low":   bar_low,
+                    "actual_high":  bar_high,
+                    "touched":      touched,
                 },
             )
+            if touched:
+                print(f"[{now.strftime('%H:%M')}] TrendLine {tl.id} touched at {line_price} (bar {start_ts}–{end_ts})")
 
 
 class Command(BaseCommand):
-    help = "Recompute stored trend-lines through yesterday and check if price touched."
+    help = "Recompute trend-lines and check every 15 min whether the latest 15m bar touches them."
 
     def handle(self, *args, **options):
-        now = timezone.localtime()
-        if not (time(9, 30) <= now.time() <= time(15, 0)):
+        now = timezone.localtime().time()
+        # only run during market hours: 09:30 – 15:00 IST
+        if not (time(9, 30) <= now <= time(15, 0)):
             return
 
-        else:
-            checker = TrendLineChecker(
-                api_token=settings.AMIT_TRADING_DHAN_ACCESS_TOKEN,
-                api_token_data=settings.DATA_DHAN_ACCESS_TOKEN
-            )
-            checker.run()
-            self.stdout.write(self.style.SUCCESS("Trend lines re-computed and checked."))
+        checker = TrendLineChecker(
+            api_token_data=settings.DATA_DHAN_ACCESS_TOKEN
+        )
+        checker.run()
+        self.stdout.write(self.style.SUCCESS("Trend lines re-computed and checked."))
+
