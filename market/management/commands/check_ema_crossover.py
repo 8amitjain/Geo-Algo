@@ -6,6 +6,7 @@ from geo_algo import settings
 from market.models import TrendLineCheck
 from market.dhan import DHANClient
 from market.indicators import EMAIndicator
+from market.utils import send_notification_email
 
 
 class EMACrossoverChecker:
@@ -20,12 +21,13 @@ class EMACrossoverChecker:
 
     def run(self) -> None:
         now = timezone.localtime()
-        day_ago = now - timedelta(days=2)
+        day_ago = now - timedelta(days=1)
 
         recent_checks = TrendLineCheck.objects.filter(
             touched=True,
             checked_at__gte=day_ago,
         )
+        # TODO ADD BOUGHT FALSE
         for chk in recent_checks:
             # 1) Determine the 90-day window ending today at 15:00
             # start_dt_full: datetime = datetime.combine(chk.date, time.min)
@@ -81,9 +83,27 @@ class EMACrossoverChecker:
                 else:
                     if row["EMA5"] > row["EMA26"]:
                         crossover_time = timestamp
+                        close_price = row["close"]
                         break
 
             if crossover_time:
+                # Format subject and body with real variables
+                symbol = chk.trend_line.symbol
+                subject = f"📈 EMA Crossover for {symbol} at {crossover_time.strftime('%d/%m/%Y %I:%M %p')}"
+                body = (
+                    f"EMA(5) has crossed above EMA(26) for **{symbol}**.\n\n"
+                    f"• Time of crossover: {crossover_time.strftime('%d/%m/%Y %I:%M %p')}\n"
+                    f"• Price at crossover: {close_price:.2f}\n"
+                    f"• Detected by TrendLineCheck ID: {chk.id}\n"
+                )
+
+                # send the email
+                send_notification_email(
+                    subject=subject,
+                    message=body,
+                    recipient_list=["8amitjain@gmail.com"],
+                )
+
                 print(f"EMA crossover detected for {chk.trend_line} at {crossover_time}")
 
 

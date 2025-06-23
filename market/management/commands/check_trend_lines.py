@@ -9,6 +9,7 @@ from django.utils import timezone
 from geo_algo import settings
 from market.models import TrendLine, TrendLineCheck
 from market.dhan import DHANClient, TrendLine as CoreTrendLine
+from market.utils import send_notification_email
 
 
 class TrendLineChecker:
@@ -107,6 +108,16 @@ class TrendLineChecker:
                 },
             )
             if touched:
+                subject = f"Trend Line Touched: {tl.symbol} @ {now.strftime('%d/%m/%Y %I:%M %p')}"
+                body = (
+                    f"The price bar from {start_ts}–{end_ts}"
+                    f"touched your {angle}° line at {line_price}.\n"
+                    f"Actual low/high: {bar_low}/{bar_high}."
+                )
+                # replace with whoever should get notified
+                recipients = ["8amitjain@gmail.com"]
+                send_notification_email(subject, body, recipients)
+
                 print(f"[{now.strftime('%H:%M')}] TrendLine {tl.id} touched at {line_price} (bar {start_ts}–{end_ts})")
 
 

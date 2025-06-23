@@ -94,3 +94,12 @@ ANAND_TRADING_DHAN_ACCESS_TOKEN = env("ANAND_TRADING_DHAN_ACCESS_TOKEN")
 ANAND_CLIENT_ID = env("ANAND_CLIENT_ID")
 DATA_DHAN_ACCESS_TOKEN = env("DATA_DHAN_ACCESS_TOKEN")
 DATA_CLIENT_ID = env("DATA_CLIENT_ID")
+
+
+DEFAULT_FROM_EMAIL = "amit.intelus@gmail.com"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "amit.intelus@gmail.com"
+EMAIL_HOST_PASSWORD = "loxjtkgrjhgoarus"
