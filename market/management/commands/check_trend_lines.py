@@ -31,7 +31,7 @@ class TrendLineChecker:
         to_check = TrendLine.objects.filter(
             start_date__lte=today
         ).exclude(
-            checks__date=today,
+            # checks__date=today,
             checks__touched=True
         )
 
@@ -62,11 +62,13 @@ class TrendLineChecker:
                 (pt for pt in tl.line_data if pt["date"] == today.strftime("%Y-%m-%d")),
                 None
             )
+            print(rec, "rec")
             if not rec:
                 # no price point for today → skip
                 continue
 
             line_price = Decimal(str(rec["value"]))
+            print(line_price, "line_price")
 
             # 4) Fetch the latest 15-minute bar (end = now, start = now-15m)
             end_ts = now.strftime("%Y-%m-%d %H:%M:%S")
@@ -84,22 +86,23 @@ class TrendLineChecker:
             # assume the *last* row is the most-recent 15m bar
             bar_low = Decimal(str(intraday["low"].iat[-1]))
             bar_high = Decimal(str(intraday["high"].iat[-1]))
+            bar_close = Decimal(str(intraday["open"].iat[-1]))
+            print(bar_high, bar_low, bar_close)
 
             # 5) ±0.5% tolerance
             tol = (line_price * Decimal("0.005")).quantize(Decimal("0.0001"))
             lower_bnd = line_price - tol
             upper_bnd = line_price + tol
-
-            touched = (bar_low <= upper_bnd) and (bar_high >= lower_bnd)
-
+            print(lower_bnd, upper_bnd)
+            touched = (bar_low <= upper_bnd) or (bar_high >= lower_bnd)
+            print(touched)
             # 6) Record the check for *today*
             TrendLineCheck.objects.update_or_create(
                 trend_line=tl,
                 date=today,
                 defaults={
                     "line_price":   line_price,
-                    "actual_low":   bar_low,
-                    "actual_high":  bar_high,
+                    "actual_price":   bar_close,
                     "touched":      touched,
                 },
             )
@@ -112,6 +115,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         now = timezone.localtime().time()
+        print(now)
         # only run during market hours: 09:30 – 15:00 IST
         if not (time(9, 30) <= now <= time(15, 0)):
             return

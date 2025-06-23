@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from typing import List, Union
 from .indicators import EMAIndicator
+from pandas.tseries.offsets import BDay
 
 
 class InteractiveChartPlotter:
@@ -69,20 +70,27 @@ class InteractiveChartPlotter:
         )
 
         # ── 2) Trend-lines ────────────────────────────────────────────────
-        end_ts = self.df["timestamp"].iat[self.end_bar]
-        total_bars = self.end_bar - self.start_bar
+        hist_end_ts = self.df["timestamp"].iat[self.end_bar]
+        hist_bars = self.end_bar - self.start_bar
+
+        # compute the "7 business-days ahead" timestamp
+        future_end_ts = hist_end_ts + BDay(7)
 
         colors = ["blue", "orange", "purple", "teal"]
         for angle, color in zip(self.angles, colors):
             slope = math.tan(math.radians(angle)) * self.ratio
-            end_price = self.start_price + slope * total_bars
 
+            # extend the bar-offset by 7 more bars
+            total_offset = hist_bars + 7
+            future_end_price = self.start_price + slope * total_offset
+
+            # draw from the original start → 7-days-ahead
             fig.add_trace(
                 go.Scatter(
-                    x=[self.start_ts, end_ts],
-                    y=[self.start_price, end_price],
+                    x=[self.start_ts, future_end_ts],
+                    y=[self.start_price, future_end_price],
                     mode="lines",
-                    name=f"{angle}° Trend",
+                    name=f"{angle}° Trend (+7 bdays)",
                     line=dict(color=color, width=2, dash="solid"),
                     showlegend=True,
                 ),

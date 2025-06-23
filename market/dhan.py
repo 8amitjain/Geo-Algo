@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from typing import List, Tuple, Union, Any, Dict
 import threading
 from dateutil.relativedelta import relativedelta
+from pandas.tseries.offsets import BDay
 
 import matplotlib
 import matplotlib.pyplot as plt
@@ -141,41 +142,47 @@ class TrendLine:
         df = full_df.copy()
         df.index = pd.to_datetime(df.index)
 
-        # 2) figure out which bar the user wants
+        # 2) find the nearest bar for the user’s start_date
         ts = pd.to_datetime(start_date)
         self.start_bar = df.index.get_indexer([ts], method="nearest")[0]
         self.start_ts = df.index[self.start_bar]
         self.start_price = float(df["low"].iat[self.start_bar])
 
-        # 3) now force the end bar to be the very last bar
+        # 3) last historical bar
         self.end_bar = len(df) - 1
 
-        # 4) compute slope = tan(angle) * price_to_bar_ratio
+        # 4) slope in price‐per‐bar
         self.angle_deg = angle_deg
         self.slope = math.tan(math.radians(angle_deg)) * price_to_bar_ratio
 
-        # 5) slice the dates from start through end
-        self.dates = df.index[self.start_bar : self.end_bar + 1]
-        if self.dates.empty:
+        # 5) slice dates from start → end
+        hist_dates = df.index[self.start_bar: self.end_bar + 1]
+        if hist_dates.empty:
             raise ValueError(f"No data on or after {start_date!r}")
+
+        # 6) extend by 7 business days
+        #    start = one business day after last historical date
+        future_start = hist_dates[-1] + BDay(1)
+        future_dates = pd.bdate_range(start=future_start, periods=7)
+
+        # 7) combine historical + future
+        #    this will be used by get_points()
+        self.dates = hist_dates.append(future_dates)
 
     def get_points(self) -> Tuple[List[float], List[float]]:
         """
         Returns:
-          xs: list of matplotlib date-numbers from start to last bar
+          xs: list of matplotlib date‐numbers (for all dates)
           ys: list of trend prices = start_price + slope * bar_offset
         """
-        # number of bars from start through end
-        length = self.end_bar - self.start_bar + 1
-
-        # 1) build your offsets 0,1,2,...,length-1
-        offsets = list(range(length))
-
-        # 2) compute each price exactly as Pine does
-        ys = [self.start_price + off * self.slope
-               for off in offsets]
-
-        # 3) convert the timestamp slice into date-numbers
+        # 1) convert all dates → matplotlib float days
         xs = mdates.date2num(self.dates.to_pydatetime())
+
+        # 2) bar offsets 0,1,2,… up through history + 7 days
+        offsets = list(range(len(xs)))
+
+        # 3) compute each price
+        ys = [self.start_price + off * self.slope for off in offsets]
+
         return xs, ys
 
