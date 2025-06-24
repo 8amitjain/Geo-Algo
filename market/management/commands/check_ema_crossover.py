@@ -26,8 +26,9 @@ class EMACrossoverChecker:
         recent_checks = TrendLineCheck.objects.filter(
             touched=True,
             checked_at__gte=day_ago,
+            purchased=False
         )
-        # TODO ADD BOUGHT FALSE
+
         for chk in recent_checks:
             # 1) Determine the 90-day window ending today at 15:00
             # start_dt_full: datetime = datetime.combine(chk.date, time.min)
@@ -87,6 +88,10 @@ class EMACrossoverChecker:
                         break
 
             if crossover_time:
+                # Update the object purchased.
+                chk.purchased = True
+                chk.save()
+
                 # Format subject and body with real variables
                 symbol = chk.trend_line.symbol
                 subject = f"📈 EMA Crossover for {symbol} at {crossover_time.strftime('%d/%m/%Y %I:%M %p')}"
@@ -103,6 +108,8 @@ class EMACrossoverChecker:
                     message=body,
                     recipient_list=["8amitjain@gmail.com"],
                 )
+
+                # TODO ADD BUY CODE
 
                 print(f"EMA crossover detected for {chk.trend_line} at {crossover_time}")
 

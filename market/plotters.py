@@ -24,7 +24,7 @@ class InteractiveChartPlotter:
         angles: List[float],
         price_to_bar_ratio: float,
         start_price_value: str,
-        start_bar: int
+        start_date: Union[str, pd.Timestamp],
     ) -> None:
         # 1) ensure timestamp column
         df = df.copy()
@@ -35,12 +35,15 @@ class InteractiveChartPlotter:
         self.symbol = symbol
 
         # 2) use the supplied start_bar index
-        if not (0 <= start_bar < len(df)):
-            raise ValueError(f"start_bar {start_bar} out of range [0, {len(df)-1}]")
-        self.start_bar = start_bar
-        self.start_ts = df.loc[start_bar, "timestamp"]
-        # pick the column (e.g. "low" or "close") for the starting price
-        self.start_price = float(df.loc[start_bar, start_price_value])
+        # 2) locate the start bar by timestamp
+        ts = pd.to_datetime(start_date)
+        # find the insertion index where timestamp >= ts
+        idx = df["timestamp"].searchsorted(ts, side="left")
+        if idx >= len(df):
+            raise ValueError(f"start_date {start_date!r} is past end of data.")
+        self.start_bar = int(idx)
+        self.start_ts = df.at[self.start_bar, "timestamp"]
+        self.start_price = float(df.at[self.start_bar, start_price_value])
 
         # 3) parameters for trend-lines
         self.angles = angles
@@ -69,35 +72,53 @@ class InteractiveChartPlotter:
             row=1, col=1
         )
 
-        # ── 2) Trend-lines ────────────────────────────────────────────────
-        hist_end_ts = self.df["timestamp"].iat[self.end_bar]
-        hist_bars = self.end_bar - self.start_bar
-
-        # compute the "7 business-days ahead" timestamp
-        future_end_ts = hist_end_ts + BDay(7)
+        # 2) Trend-lines ────────────────────────────────────────────────
+        # 2) Prepare the full list of timestamps (history + 7 business days)
+        hist_idx = pd.DatetimeIndex(
+            self.df["timestamp"].iloc[self.start_bar: self.end_bar + 1]
+        )
+        future_idx = pd.bdate_range(
+            start=hist_idx[-1] + BDay(1),
+            periods=7
+        )
+        all_dates = hist_idx.union(future_idx)
+        future_end_ts = all_dates[-1]  # the 7-days-out timestamp
 
         colors = ["blue", "orange", "purple", "teal"]
         for angle, color in zip(self.angles, colors):
             slope = math.tan(math.radians(angle)) * self.ratio
 
-            # extend the bar-offset by 7 more bars
-            total_offset = hist_bars + 7
-            future_end_price = self.start_price + slope * total_offset
+            # compute the price at each offset 0…N
+            offsets = list(range(len(all_dates)))
+            all_prices = [self.start_price + slope * off for off in offsets]
 
-            # draw from the original start → 7-days-ahead
+            # 2a) Straight two-point line (will render perfectly straight with rangebreaks)
             fig.add_trace(
                 go.Scatter(
                     x=[self.start_ts, future_end_ts],
-                    y=[self.start_price, future_end_price],
+                    y=[self.start_price, all_prices[-1]],
                     mode="lines",
-                    name=f"{angle}° Trend (+7 bdays)",
-                    line=dict(color=color, width=2, dash="solid"),
-                    showlegend=True,
+                    name=f"{angle}° Trend",
+                    line=dict(color=color, width=2),
                 ),
-                row=1, col=1,
+                row=1, col=1
+            )
+
+            # 2b) Hover markers at every point
+            fig.add_trace(
+                go.Scatter(
+                    x=all_dates,
+                    y=all_prices,
+                    mode="markers",
+                    name=f"{angle}° points",
+                    marker=dict(color=color, size=4),
+                    hovertemplate="%{x|%d/%m/%Y}: %{y:.2f}<extra></extra>",
+                ),
+                row=1, col=1
             )
 
         # ── 3) Layout & controls ───────────────────────────────────────────
+
         fig.update_layout(
             title=f"{self.symbol} — Candlestick & Angle Trends",
             xaxis=dict(
@@ -113,6 +134,7 @@ class InteractiveChartPlotter:
                     ]
                 ),
             ),
+
             yaxis=dict(title="Price"),
             hovermode="x unified",
             legend=dict(title="Legend"),

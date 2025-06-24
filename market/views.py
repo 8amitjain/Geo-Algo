@@ -45,16 +45,13 @@ def stock_chart(request):
     start_price = request.GET.get('start_price', 'low')
     security_id = request.GET.get('security_id')
     start_date = request.GET.get('start_date')
-    start_bar = int(request.GET.get('start_bar'))
     ratio = int(request.GET.get('price_to_bar_ratio', 1))
     angles = [float(a) for a in request.GET.get('angles', '45,65').split(',')]
 
     client = DHANClient(settings.DATA_DHAN_ACCESS_TOKEN)
     df = client.get_full_history(security_id)
 
-    # df = client.get_ticker_data(security_id, start_date)
-    # print(df, "df")
-    plotter = InteractiveChartPlotter(df, symbol, angles, ratio, start_price, start_bar + 1)
+    plotter = InteractiveChartPlotter(df, symbol, angles, ratio, start_price, start_date)
     fig = plotter.build_figure()
     chart_json = fig.to_json()
 
@@ -69,8 +66,6 @@ def stock_chart(request):
     )
     persistor.persist()
 
-    # TODO Create and test and verify functionally cron for EMA cross over checks and angle line touch check every 15 mins - double check all logics.
-    # BUY call
 
     return render(request, "market/stock_chart.html", {
             "chart_json": chart_json,
@@ -110,7 +105,8 @@ def candlestick_chart(request):
 
 
 # CRON Command
-# */15 9-15 * * MON-FRI /path/to/venv/bin/python /path/to/project/manage.py check_ema_crossover >> /path/to/logs/ema_crossover.log 2>&1
+# */15 9-15 * * MON-FRI /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py check_ema_crossover >> /home/ubuntu/Geo-Algo/logs/ema_crossover.log 2>&1
+# */15 9-15 * * MON-FRI /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py check_trend_lines >> /home/ubuntu/Geo-Algo/logs/check_trend_lines.log 2>&1
 
 
 # Deploy and test cron jobs logic and function
