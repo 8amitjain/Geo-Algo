@@ -65,3 +65,430 @@ Trend lines re-computed and checked.
 15:15:04.119528
 15:30:03.834852
 15:45:03.553375
+09:00:04.606748
+09:15:03.359586
+09:30:04.095842
+{'date': '2025-06-25', 'value': 1680.5} rec
+1680.5 line_price
+1840.0 1839.9 1840.0
+1672.0975 1688.9025
+True
+[09:30] TrendLine 51 touched at 1680.5 (bar 2025-06-25 09:15:04–2025-06-25 09:30:04)
+{'date': '2025-06-25', 'value': 1680.5} rec
+1680.5 line_price
+1840.3 1839.9 1840.0
+1672.0975 1688.9025
+True
+[09:30] TrendLine 53 touched at 1680.5 (bar 2025-06-25 09:15:04–2025-06-25 09:30:04)
+{'date': '2025-06-25', 'value': 1952.0739658493403} rec
+1952.0739658493403 line_price
+1840.3 1839.9 1840.0
+1942.3135658493403 1961.8343658493403
+True
+[09:30] TrendLine 54 touched at 1952.0739658493403 (bar 2025-06-25 09:15:04–2025-06-25 09:30:04)
+{'date': '2025-06-25', 'value': 1993.35} rec
+1993.35 line_price
+1975.9 1974.7 1974.9
+1983.3832 2003.3168
+True
+[09:30] TrendLine 55 touched at 1993.35 (bar 2025-06-25 09:15:04–2025-06-25 09:30:04)
+{'date': '2025-06-25', 'value': 2217.6937109190203} rec
+2217.6937109190203 line_price
+1975.9 1974.7 1974.9
+2206.6052109190203 2228.7822109190203
+True
+[09:30] TrendLine 56 touched at 2217.6937109190203 (bar 2025-06-25 09:15:04–2025-06-25 09:30:04)
+Trend lines re-computed and checked.
+09:45:04.161505
+Trend lines re-computed and checked.
+10:00:03.967700
+Trend lines re-computed and checked.
+10:15:03.685681
+Trend lines re-computed and checked.
+10:30:03.469701
+Trend lines re-computed and checked.
+10:45:04.201125
+Trend lines re-computed and checked.
+11:00:03.987503
+Trend lines re-computed and checked.
+11:15:03.937494
+Trend lines re-computed and checked.
+11:30:03.701398
+Trend lines re-computed and checked.
+11:45:03.520866
+Trend lines re-computed and checked.
+12:00:03.379923
+Trend lines re-computed and checked.
+12:15:04.215346
+Trend lines re-computed and checked.
+12:30:03.996420
+Trend lines re-computed and checked.
+12:45:03.723689
+Trend lines re-computed and checked.
+13:00:03.539742
+Trend lines re-computed and checked.
+13:15:03.805581
+Trend lines re-computed and checked.
+13:30:03.646556
+Trend lines re-computed and checked.
+13:45:03.467897
+Trend lines re-computed and checked.
+14:00:03.308164
+Trend lines re-computed and checked.
+14:15:04.099843
+Trend lines re-computed and checked.
+14:30:03.909634
+Trend lines re-computed and checked.
+14:45:04.139852
+Trend lines re-computed and checked.
+15:00:03.863803
+15:15:03.560118
+15:30:03.333173
+15:45:04.006242
+09:00:03.920134
+09:15:04.821543
+09:30:03.534071
+Trend lines re-computed and checked.
+09:45:04.278610
+Trend lines re-computed and checked.
+10:00:03.936695
+Trend lines re-computed and checked.
+10:15:03.699496
+Trend lines re-computed and checked.
+10:30:03.444235
+Trend lines re-computed and checked.
+10:45:04.152643
+Trend lines re-computed and checked.
+11:00:03.916678
+Trend lines re-computed and checked.
+11:15:03.731966
+Trend lines re-computed and checked.
+11:30:03.453038
+Trend lines re-computed and checked.
+11:45:04.223402
+Trend lines re-computed and checked.
+12:00:03.952417
+Trend lines re-computed and checked.
+12:15:03.706357
+Trend lines re-computed and checked.
+12:30:03.534578
+Trend lines re-computed and checked.
+12:45:03.318733
+Trend lines re-computed and checked.
+13:00:04.208968
+Trend lines re-computed and checked.
+13:15:03.958595
+Trend lines re-computed and checked.
+13:30:03.639316
+Trend lines re-computed and checked.
+13:45:03.436670
+Trend lines re-computed and checked.
+14:00:04.217361
+Trend lines re-computed and checked.
+14:15:04.010932
+Trend lines re-computed and checked.
+14:30:03.777136
+Trend lines re-computed and checked.
+14:45:03.601806
+Trend lines re-computed and checked.
+15:00:03.395790
+15:15:04.208945
+15:30:03.936648
+15:45:03.677601
+09:00:04.753932
+09:15:03.526250
+09:30:03.261579
+Trend lines re-computed and checked.
+09:45:04.061258
+Trend lines re-computed and checked.
+10:00:03.839517
+Trend lines re-computed and checked.
+10:15:03.622699
+Trend lines re-computed and checked.
+10:30:03.437444
+Trend lines re-computed and checked.
+10:45:04.160223
+Trend lines re-computed and checked.
+11:00:03.882479
+Trend lines re-computed and checked.
+11:15:03.529374
+Trend lines re-computed and checked.
+11:30:04.188544
+Trend lines re-computed and checked.
+11:45:03.978425
+Trend lines re-computed and checked.
+12:00:03.605178
+Trend lines re-computed and checked.
+12:15:03.272589
+Trend lines re-computed and checked.
+12:30:03.940290
+Trend lines re-computed and checked.
+12:45:03.662318
+Trend lines re-computed and checked.
+13:00:03.379848
+Trend lines re-computed and checked.
+13:15:04.094450
+Trend lines re-computed and checked.
+13:30:03.753797
+Trend lines re-computed and checked.
+13:45:03.428795
+Trend lines re-computed and checked.
+14:00:04.119508
+Trend lines re-computed and checked.
+14:15:03.813918
+Trend lines re-computed and checked.
+14:30:03.510821
+Trend lines re-computed and checked.
+14:45:04.267118
+Trend lines re-computed and checked.
+15:00:03.931414
+15:15:03.583450
+15:30:03.341896
+15:45:03.970122
+09:00:04.917247
+09:15:03.596807
+09:30:03.313107
+Trend lines re-computed and checked.
+09:45:04.069191
+Trend lines re-computed and checked.
+10:00:03.771103
+Trend lines re-computed and checked.
+10:15:03.484238
+Trend lines re-computed and checked.
+10:30:04.172651
+Trend lines re-computed and checked.
+10:45:03.805891
+Trend lines re-computed and checked.
+11:00:03.482094
+Trend lines re-computed and checked.
+11:15:04.161972
+Trend lines re-computed and checked.
+11:30:03.827473
+Trend lines re-computed and checked.
+11:45:03.480038
+Trend lines re-computed and checked.
+12:00:04.121879
+Trend lines re-computed and checked.
+12:15:03.768248
+Trend lines re-computed and checked.
+12:30:03.395267
+Trend lines re-computed and checked.
+12:45:04.011864
+Trend lines re-computed and checked.
+13:00:03.685296
+Trend lines re-computed and checked.
+13:15:03.249873
+Trend lines re-computed and checked.
+13:30:03.927010
+Trend lines re-computed and checked.
+13:45:03.553381
+Trend lines re-computed and checked.
+14:00:04.193408
+Trend lines re-computed and checked.
+14:15:03.789897
+Trend lines re-computed and checked.
+14:30:03.435326
+Trend lines re-computed and checked.
+14:45:04.080986
+Trend lines re-computed and checked.
+15:00:03.706410
+15:15:03.282758
+15:30:03.983959
+15:45:03.528972
+09:00:03.231311
+09:15:03.902807
+09:30:03.541539
+Trend lines re-computed and checked.
+09:45:04.193840
+Trend lines re-computed and checked.
+10:00:03.779482
+Trend lines re-computed and checked.
+10:15:03.387652
+Trend lines re-computed and checked.
+10:30:04.070277
+Trend lines re-computed and checked.
+10:45:03.686474
+Trend lines re-computed and checked.
+11:00:03.237675
+Trend lines re-computed and checked.
+11:15:03.880339
+Trend lines re-computed and checked.
+11:30:03.491697
+Trend lines re-computed and checked.
+11:45:04.157183
+Trend lines re-computed and checked.
+12:00:03.791707
+Trend lines re-computed and checked.
+12:15:03.448276
+Trend lines re-computed and checked.
+12:30:04.155716
+Trend lines re-computed and checked.
+12:45:03.821386
+Trend lines re-computed and checked.
+13:00:03.437247
+Trend lines re-computed and checked.
+13:15:04.073902
+Trend lines re-computed and checked.
+13:30:03.727660
+Trend lines re-computed and checked.
+13:45:03.332438
+Trend lines re-computed and checked.
+14:00:03.874227
+Trend lines re-computed and checked.
+14:15:03.608598
+Trend lines re-computed and checked.
+14:30:04.173175
+Trend lines re-computed and checked.
+14:45:03.809337
+Trend lines re-computed and checked.
+15:00:03.545521
+15:15:04.872183
+15:30:03.470568
+15:45:04.182201
+09:00:05.291014
+09:15:04.124528
+09:30:03.749099
+Trend lines re-computed and checked.
+09:45:03.390870
+Trend lines re-computed and checked.
+10:00:04.031097
+Trend lines re-computed and checked.
+10:15:03.673927
+Trend lines re-computed and checked.
+10:30:03.243179
+Trend lines re-computed and checked.
+10:45:03.938189
+Trend lines re-computed and checked.
+11:00:03.550845
+Trend lines re-computed and checked.
+11:15:04.150748
+Trend lines re-computed and checked.
+11:30:04.481964
+Trend lines re-computed and checked.
+11:45:04.126092
+Trend lines re-computed and checked.
+12:00:03.783383
+Trend lines re-computed and checked.
+12:15:03.375198
+Trend lines re-computed and checked.
+12:30:04.128151
+Trend lines re-computed and checked.
+12:45:03.728606
+Trend lines re-computed and checked.
+13:00:03.471285
+Trend lines re-computed and checked.
+13:15:04.033662
+Trend lines re-computed and checked.
+13:30:03.738799
+Trend lines re-computed and checked.
+13:45:03.387142
+Trend lines re-computed and checked.
+14:00:03.970630
+Trend lines re-computed and checked.
+14:15:03.664504
+Trend lines re-computed and checked.
+14:30:03.291557
+Trend lines re-computed and checked.
+14:45:03.878967
+Trend lines re-computed and checked.
+15:00:03.508481
+15:15:04.035972
+15:30:03.703535
+15:45:03.284744
+09:00:05.270723
+09:15:03.875397
+09:30:03.496800
+Trend lines re-computed and checked.
+09:45:04.965883
+Trend lines re-computed and checked.
+10:00:03.652095
+Trend lines re-computed and checked.
+10:15:03.291611
+Trend lines re-computed and checked.
+10:30:03.955622
+Trend lines re-computed and checked.
+10:45:03.548446
+Trend lines re-computed and checked.
+11:00:04.171770
+Trend lines re-computed and checked.
+11:15:03.813252
+Trend lines re-computed and checked.
+11:30:03.527692
+Trend lines re-computed and checked.
+11:45:04.096696
+Trend lines re-computed and checked.
+12:00:03.683685
+Trend lines re-computed and checked.
+12:15:03.352205
+Trend lines re-computed and checked.
+12:30:03.965673
+Trend lines re-computed and checked.
+12:45:03.601522
+Trend lines re-computed and checked.
+13:00:03.258842
+Trend lines re-computed and checked.
+13:15:03.979811
+Trend lines re-computed and checked.
+13:30:03.615855
+Trend lines re-computed and checked.
+13:45:03.191130
+Trend lines re-computed and checked.
+14:00:03.843732
+Trend lines re-computed and checked.
+14:15:03.461072
+Trend lines re-computed and checked.
+14:30:04.099687
+Trend lines re-computed and checked.
+14:45:03.771738
+Trend lines re-computed and checked.
+15:00:03.349713
+15:15:03.958836
+15:30:03.596966
+15:45:03.228205
+09:00:05.240702
+09:15:03.859021
+09:30:03.483025
+Trend lines re-computed and checked.
+09:45:04.205261
+Trend lines re-computed and checked.
+10:00:03.766758
+Trend lines re-computed and checked.
+10:15:03.342292
+Trend lines re-computed and checked.
+10:30:04.033894
+Trend lines re-computed and checked.
+10:45:03.661670
+Trend lines re-computed and checked.
+11:00:03.330240
+Trend lines re-computed and checked.
+11:15:03.910016
+Trend lines re-computed and checked.
+11:30:03.617592
+Trend lines re-computed and checked.
+11:45:03.294704
+Trend lines re-computed and checked.
+12:00:03.841716
+Trend lines re-computed and checked.
+12:15:03.610919
+Trend lines re-computed and checked.
+12:30:03.354556
+Trend lines re-computed and checked.
+12:45:03.933603
+Trend lines re-computed and checked.
+13:00:03.574147
+Trend lines re-computed and checked.
+13:15:03.236764
+Trend lines re-computed and checked.
+13:30:03.898012
+Trend lines re-computed and checked.
+13:45:03.538229
+Trend lines re-computed and checked.
+14:00:04.105999
+Trend lines re-computed and checked.
+14:15:03.710552
+Trend lines re-computed and checked.
+14:30:03.395737
+Trend lines re-computed and checked.
+14:45:04.020330
+Trend lines re-computed and checked.
+15:00:03.654816
