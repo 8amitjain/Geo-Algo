@@ -76,3 +76,12 @@
   ></script>
 </body>
 </html>
+
+# stage the updated .gitignore
+git add .gitignore
+
+# remove just the cached __pycache__ directory
+git rm -r --cached market/__pycache__
+
+# commit the change
+git commit -m "Remove market/__pycache__ from repo and update .gitignore"
