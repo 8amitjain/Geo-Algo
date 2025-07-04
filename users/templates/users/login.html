@@ -1,0 +1,132 @@
+{# templates/market/login.html #}
+{% extends "market/base.html" %}
+{% load static %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block content %}
+<main class="container d-flex justify-content-center mt-4" style="min-height: 100vh;">
+  <div class="w-100" style="max-width: 420px;">
+<!--    <div class="text-center mb-4">-->
+<!--      <img-->
+<!--        src="{% static 'icons/logo-01.png' %}"-->
+<!--        alt="Logo"-->
+<!--        class="img-fluid"-->
+<!--        style="max-width: 230px;"-->
+<!--      >-->
+<!--    </div>-->
+
+    <h1 class="h4 text-center mb-2">Sign In</h1>
+    <p class="text-center text-secondary mb-4">Enter your email and password</p>
+
+    <form method="post" onsubmit="saveCredentials()">
+      {% csrf_token %}
+
+      {% if messages %}
+        <div class="alert alert-danger">
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if form.errors %}
+        <div class="alert alert-danger">
+          Invalid email or password.
+        </div>
+      {% endif %}
+
+      <div class="mb-3">
+        <label for="id_email" class="form-label">Email</label>
+        <input
+          type="email"
+          id="id_email"
+          name="email"
+          class="form-control"
+          placeholder="your@example.com"
+          required
+        >
+      </div>
+
+      <div class="mb-3">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <label for="id_password" class="form-label mb-0">Password</label>
+<!--          <a href="{% url 'password_reset' %}" class="small">Forgot password?</a>-->
+        </div>
+        <div class="input-group">
+          <input
+            type="password"
+            id="id_password"
+            name="password"
+            class="form-control"
+            placeholder="Your password"
+            autocomplete="off"
+            required
+          >
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            data-toggle-password-input
+            aria-label="Toggle password visibility"
+          >
+            👁
+          </button>
+        </div>
+      </div>
+
+      <div class="form-check mb-3">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="rememberMe"
+        >
+        <label class="form-check-label" for="rememberMe">
+          Remember me
+        </label>
+      </div>
+
+      <div class="d-grid mb-3">
+        <button type="submit" class="btn btn-primary">
+          Sign in
+        </button>
+      </div>
+
+      <p class="text-center text-muted mb-0">
+<!--        Don’t have an account? <a href="{% url 'register' %}">Sign up</a>-->
+      </p>
+    </form>
+  </div>
+</main>
+
+<script>
+  function saveCredentials() {
+    const email = document.getElementById("id_email").value;
+    const pwd   = document.getElementById("id_password").value;
+    if (document.getElementById("rememberMe").checked) {
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", pwd);
+    } else {
+      localStorage.removeItem("email");
+      localStorage.removeItem("password");
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const storedEmail = localStorage.getItem("email");
+    const storedPwd   = localStorage.getItem("password");
+    if (storedEmail && storedPwd) {
+      document.getElementById("id_email").value    = storedEmail;
+      document.getElementById("id_password").value = storedPwd;
+      document.getElementById("rememberMe").checked = true;
+    }
+
+    // Toggle password visibility
+    document.querySelector("[data-toggle-password-input]")
+      .addEventListener("click", (e) => {
+        const pwd = document.getElementById("id_password");
+        pwd.type = pwd.type === "password" ? "text" : "password";
+      });
+  });
+</script>
+{% endblock %}

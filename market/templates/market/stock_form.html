@@ -1,57 +1,113 @@
-<form method="get" action="{% url 'stock_chart' %}">
-  <!-- 1) Search box -->
-  <label for="symbol-search">Search Symbol:</label>
-  <input
-    type="text"
-    id="symbol-search"
-    placeholder="Type to filter…"
-    style="margin-bottom:8px; display:block;"
-  />
-  <br>
-  <!-- 2) Your existing select -->
-  <label for="symbol-select">Symbol:</label>
-  <select name="symbol" id="symbol-select" size="5" style="width:200px;">
-    {% for sym in instrument_list %}
-      <option
-        value="{{ sym.symbol }}"
-        data-security-id="{{ sym.security_id }}"
-      >
-        {{ sym.symbol }}
-      </option>
-    {% endfor %}
-  </select>
-  <br>
+{% extends "market/base.html" %}
+{% block title %}Generate Stock Chart{% endblock %}
 
+{% block content %}
+<div class="row">
+  <div class="col-md-6">
 
-  <!-- 3) Hidden security_id -->
-  <input type="hidden" name="security_id" id="security-id"/><br/>
+    <form method="get" action="{% url 'market:stock_chart' %}">
+      <!-- Symbol Search -->
+      <div class="mb-3">
+        <label for="symbol-search" class="form-label">Search Symbol</label>
+        <input
+          type="text"
+          id="symbol-search"
+          class="form-control"
+          placeholder="Type to filter…"
+        >
+      </div>
 
-  <!-- 4) The rest of your inputs -->
-  <label for="start_price_select">Start Price:</label>
-  <select name="start_price" id="start_price_select" size="5" style="width:200px;">
-      <option  value="open">open</option>
-      <option  value="high">high</option>
-      <option  value="low">low</option>
-      <option  value="close">close</option>
-  </select>
+      <!-- Symbol Select -->
+      <div class="mb-3">
+        <label for="symbol-select" class="form-label">Symbol</label>
+        <select
+          name="symbol"
+          id="symbol-select"
+          class="form-select"
+          size="5"
+        >
+          {% for sym in instrument_list %}
+            <option
+              value="{{ sym.symbol }}"
+              data-security-id="{{ sym.security_id }}"
+            >
+              {{ sym.symbol }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+      <input type="hidden" name="security_id" id="security-id">
 
-  <label>Bar Index Start Date:
-    <input type="date" name="start_date" required>
-  </label><br/>
-  <label>Price-to-Bar Ratio:
-    <input type="number" name="price_to_bar_ratio" required>
-  </label><br/>
-  <label>Angles (comma-sep):
-    <input type="text" name="angles" value="45,63.25">
-  </label><br/>
+      <!-- Start Price -->
+      <div class="mb-3">
+        <label for="start_price_select" class="form-label">Start Price</label>
+        <select
+          name="start_price"
+          id="start_price_select"
+          class="form-select"
+        >
+          <option value="open">Open</option>
+          <option value="high">High</option>
+          <option value="low">Low</option>
+          <option value="close">Close</option>
+        </select>
+      </div>
 
-  <button type="submit">Generate Chart</button>
-</form>
+      <!-- Start Date -->
+      <div class="mb-3">
+        <label for="start_date" class="form-label">Bar Index Start Date</label>
+        <input
+          type="date"
+          name="start_date"
+          id="start_date"
+          class="form-control"
+          required
+        >
+      </div>
 
-{% if request.GET %}
-  <h3>Chart for {{ request.GET.symbol }}</h3>
-  <img src="{% url 'stock_chart' %}?{{ request.GET.urlencode }}" alt="Stock chart">
-{% endif %}
+      <!-- Price-to-Bar Ratio -->
+      <div class="mb-3">
+        <label for="price_to_bar_ratio" class="form-label">Price-to-Bar Ratio</label>
+        <input
+          type="number"
+          name="price_to_bar_ratio"
+          id="price_to_bar_ratio"
+          class="form-control"
+          required
+        >
+      </div>
+
+      <!-- Angles -->
+      <div class="mb-3">
+        <label for="angles" class="form-label">Angles (comma-sep)</label>
+        <input
+          type="text"
+          name="angles"
+          id="angles"
+          class="form-control"
+          value="45,63.25"
+        >
+      </div>
+
+      <button type="submit" class="btn btn-primary">Generate Chart</button>
+      <br>
+      <br>
+      <br>
+    </form>
+
+    {% if request.GET %}
+      <div class="mt-4">
+        <h3>Chart for {{ request.GET.symbol }}</h3>
+        <img
+          src="{% url 'market:stock_chart' %}?{{ request.GET.urlencode }}"
+          class="img-fluid border"
+          alt="Stock chart"
+        >
+      </div>
+    {% endif %}
+
+  </div>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectEl    = document.getElementById('symbol-select');
   const hiddenInput = document.getElementById('security-id');
 
-  // 1) Filter options as you type
+  // 1) Filter the dropdown as you type
   searchInput.addEventListener('input', () => {
     const filter = searchInput.value.toLowerCase();
     Array.from(selectEl.options).forEach(opt => {
@@ -67,14 +123,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 2) Sync hidden security_id whenever selection changes
+  // 2) Sync the hidden security_id field
   function updateSecurityId() {
-    const sel = selectEl.options[selectEl.selectedIndex];
+    const sel = selectEl.options[ selectEl.selectedIndex ];
     hiddenInput.value = sel?.dataset.securityId || '';
   }
   selectEl.addEventListener('change', updateSecurityId);
 
-  // 3) Initialize hidden field on load
+  // 3) Initialize on load
   if (selectEl.selectedIndex >= 0) updateSecurityId();
 });
 </script>
+{% endblock %}

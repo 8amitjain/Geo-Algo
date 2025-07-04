@@ -1,0 +1,118 @@
+{# templates/market/trendline_list.html #}
+{% extends "market/base.html" %}
+{% block title %}Trend Lines{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-4 py-3">
+  <h1 class="mb-4">Trend Lines</h1>
+
+  <!-- FILTER FORM -->
+  <form method="get" class="row g-3 mb-4">
+    <div class="col-md-3">
+      <label class="form-label">Symbol</label>
+      <input
+        type="text"
+        name="symbol"
+        value="{{ filters.symbol }}"
+        class="form-control"
+        placeholder="e.g. TCS"
+      >
+    </div>
+    <div class="col-md-2">
+      <label class="form-label">Start Date</label>
+      <input
+        type="date"
+        name="start_date"
+        value="{{ filters.start_date }}"
+        class="form-control"
+      >
+    </div>
+    <div class="col-md-2">
+      <label class="form-label">Created At</label>
+      <input
+        type="date"
+        name="created_at"
+        value="{{ filters.created_at }}"
+        class="form-control"
+      >
+    </div>
+    <div class="col-md-2">
+      <label class="form-label">Touched?</label>
+      <select name="touched" class="form-select">
+        <option value="">Any</option>
+        <option value="yes" {% if filters.touched == 'yes' %}selected{% endif %}>Yes</option>
+        <option value="no"  {% if filters.touched == 'no'  %}selected{% endif %}>No</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label class="form-label">Purchased?</label>
+      <select name="purchased" class="form-select">
+        <option value="">Any</option>
+        <option value="yes" {% if filters.purchased == 'yes' %}selected{% endif %}>Yes</option>
+        <option value="no"  {% if filters.purchased == 'no'  %}selected{% endif %}>No</option>
+      </select>
+    </div>
+    <div class="col-md-1 d-flex align-items-end">
+      <button type="submit" class="btn btn-primary w-100">Filter</button>
+    </div>
+  </form>
+
+  <!-- RESULTS TABLE -->
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Symbol</th>
+          <th>Start Date</th>
+          <th>Angles (°)</th>
+          <th>Ratio</th>
+          <th>Created</th>
+          <th>Touched?</th>
+          <th>Purchased?</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tl in trendlines %}
+          <tr>
+            <td>{{ tl.symbol }}</td>
+            <td>{{ tl.start_date }}</td>
+            <td>{{ tl.angles|join:", " }}</td>
+            <td>{{ tl.price_to_bar_ratio }}</td>
+            <td>{{ tl.created_at|date:"Y-m-d H:i" }}</td>
+            <td>
+              {% if tl.is_touched %}
+                ✔
+              {% else %}
+                ✘
+              {% endif %}
+            </td>
+            <td>
+              {% if tl.is_purchased %}
+                ✔
+              {% else %}
+                ✘
+              {% endif %}
+            </td>
+            <td>
+              <a
+                href="{% url 'market:stock_chart' %}?symbol={{ tl.symbol|urlencode }}&security_id={{ tl.security_id }}&start_price=low&start_date={{ tl.start_date }}&price_to_bar_ratio={{ tl.price_to_bar_ratio }}&angles={{ tl.angles|join:',' }}"
+                class="btn btn-sm btn-outline-primary"
+              >View Chart</a>
+
+              <a
+                href="{% url 'market:stock_chart_ema' %}?security_id={{ tl.security_id }}&interval=15&date={{ tl.start_date }}"
+                class="btn btn-sm btn-outline-secondary"
+              >View EMA Crossover</a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="8" class="text-center">No trend lines found.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

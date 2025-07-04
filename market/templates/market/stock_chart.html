@@ -1,21 +1,21 @@
-<!-- templates/market/stock_chart.html -->
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <title>{{ symbol }} Interactive Chart</title>
-</head>
-<body>
+{# templates/market/stock_chart.html #}
+{% extends "market/base.html" %}
+{% block title %}{{ symbol }} – Interactive Chart{% endblock %}
 
-  <h1>{{ symbol }} — Interactive Candlestick Chart</h1>
-  <div id="chart" style="width:100%;height:600px;"></div>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% block content %}
+<h1 class="p-3 mb-0">{{ symbol }} — Interactive Candlestick Chart</h1>
+<div id="chart" style="width:100%; height:600px;"></div>
 
-  <script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
     const chartData = {{ chart_json|safe }};
-    Plotly.newPlot('chart', chartData.data, chartData.layout);
-  </script>
-
-</body>
-</html>
+    Plotly.newPlot(
+      'chart',
+      chartData.data,
+      chartData.layout,
+      { responsive: true }
+    );
+  });
+</script>
+{% endblock %}

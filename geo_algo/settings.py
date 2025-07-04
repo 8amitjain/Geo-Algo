@@ -21,6 +21,8 @@ INSTALLED_APPS = [
 
     'market',
     'dhan',
+    'home',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -103,3 +105,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "amit.intelus@gmail.com"
 EMAIL_HOST_PASSWORD = "loxjtkgrjhgoarus"
+
+# User
+LOGIN_URL = '/users/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+AUTH_USER_MODEL = 'users.User'
