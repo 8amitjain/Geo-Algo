@@ -10,6 +10,7 @@ from geo_algo import settings
 from market.models import TrendLine, TrendLineCheck
 from market.dhan import DHANClient, TrendLine as CoreTrendLine
 from market.utils import send_notification_email
+from variables.utils import vibration_point_detail
 
 
 class TrendLineChecker:
@@ -91,12 +92,15 @@ class TrendLineChecker:
             print(bar_high, bar_low, bar_close)
 
             # 5) ±0.5% tolerance
-            tol = (line_price * Decimal("0.005")).quantize(Decimal("0.0001"))
+            vibration_point = vibration_point_detail()  # TODO add checks if in decimal or throw error over mail
+            tol = (line_price * Decimal(vibration_point)).quantize(Decimal("0.0001"))
             lower_bnd = line_price - tol
             upper_bnd = line_price + tol
             print(lower_bnd, upper_bnd)
-            touched = (bar_low <= upper_bnd) or (bar_high >= lower_bnd)
+            # touched = (bar_low <= upper_bnd) or (bar_high >= lower_bnd)
+            touched = (bar_high >= lower_bnd) and (bar_low <= upper_bnd)
             print(touched)
+
             # 6) Record the check for *today*
             TrendLineCheck.objects.update_or_create(
                 trend_line=tl,
@@ -115,7 +119,7 @@ class TrendLineChecker:
                     f"Actual low/high: {bar_low}/{bar_high}."
                 )
                 # replace with whoever should get notified
-                recipients = ["8amitjain@gmail.com"]
+                recipients = settings.EMAIL_RECIPIENTS
                 send_notification_email(subject, body, recipients)
 
                 print(f"[{now.strftime('%H:%M')}] TrendLine {tl.id} touched at {line_price} (bar {start_ts}–{end_ts})")

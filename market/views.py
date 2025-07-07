@@ -2,8 +2,6 @@ from geo_algo import settings
 from .plotters import InteractiveChartPlotter, EMACandlestickPlotter
 from .services import TrendLinePersistenceService
 from .dhan import DHANClient
-from .indicators import EMAIndicator
-from matplotlib.dates import DateFormatter, MinuteLocator
 from django.contrib.auth.decorators import login_required
 
 import io

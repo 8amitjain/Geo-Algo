@@ -1,26 +1,27 @@
 import pandas as pd
+from variables.models import DEMASetting
 
 
-class EMAIndicator:
-    """
-    Computes exponential moving averages (EMA) for a given DataFrame.
-    Provides EMA(5) and EMA(26) by default.
-    """
+class DEMAIndicator:
+    @staticmethod
+    def dema(series: pd.Series, span: int) -> pd.Series:
+        """
+        Double Exponential Moving Average:
+          DEMA = 2 * EMA(span) - EMA_of_EMA(span)
+        """
+        ema1 = series.ewm(span=span, adjust=False).mean()
+        ema2 = ema1.ewm(span=span, adjust=False).mean()
+        return 2 * ema1 - ema2
 
     @staticmethod
-    def add_emas(df: pd.DataFrame, price_col: str = "close") -> pd.DataFrame:
+    def add_demas(df: pd.DataFrame, price_col: str = "close") -> pd.DataFrame:
         """
-        Given a DataFrame indexed by timestamp (or any index) and with a column
-        named `price_col`, returns a new DataFrame with two additional columns:
-          - 'EMA5'  : EMA with span = 5
-          - 'EMA26' : EMA with span = 26
-
-        The original DataFrame is not modified; a copy with the new columns is returned.
-
-        Example:
-            df_with_emas = EMAIndicator.add_emas(df, price_col="close")
+        Reads all EMASetting objects and adds DEMA columns for each span‐pair.
         """
-        df = df.copy()
-        df["EMA5"] = df[price_col].ewm(span=5, adjust=False).mean()
-        df["EMA26"] = df[price_col].ewm(span=26, adjust=False).mean()
-        return df
+
+        out = df.copy()
+        for setting in DEMASetting.objects.all():
+            f, s = setting.fast_span, setting.slow_span
+            out[f"DEMA{f}"] = DEMAIndicator.dema(out[price_col], span=f)
+            out[f"DEMA{s}"] = DEMAIndicator.dema(out[price_col], span=s)
+        return out

@@ -18,11 +18,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
 
     'market',
     'dhan',
     'home',
     'users',
+    'variables',
 ]
 
 MIDDLEWARE = [
@@ -56,10 +58,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'geo_algo.wsgi.application'
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'geo_algo',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': '13.126.174.197',
+        'PORT': '5432',
     }
 }
 
@@ -105,6 +118,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "amit.intelus@gmail.com"
 EMAIL_HOST_PASSWORD = "loxjtkgrjhgoarus"
+EMAIL_RECIPIENTS = ["8amitjain@gmail.com", "anandkene3073@gmail.com"]
 
 # User
 LOGIN_URL = '/users/login/'

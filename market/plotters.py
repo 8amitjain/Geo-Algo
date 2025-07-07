@@ -5,7 +5,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from typing import List, Union
-from .indicators import EMAIndicator
+from .indicators import DEMASetting
 from pandas.tseries.offsets import BDay
 
 
@@ -177,7 +177,7 @@ class EMACandlestickPlotter:
 
     def build_figure(self) -> go.Figure:
         # 1) Compute EMAs
-        df_ema = EMAIndicator.add_emas(self.df, price_col="close")
+        df_ema = DEMASetting.add_emas(self.df, price_col="close")
 
         # 2) Create subplot
         fig = make_subplots(rows=1, cols=1, shared_xaxes=True)

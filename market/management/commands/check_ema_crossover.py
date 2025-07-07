@@ -1,127 +1,118 @@
-from datetime import timedelta, time, datetime
+from datetime import timedelta, time
+
 from django.core.management.base import BaseCommand
 from django.utils import timezone
+from django.conf import settings
+import pandas as pd
 
-from geo_algo import settings
 from market.models import TrendLineCheck
+from variables.models import DEMASetting
 from market.dhan import DHANClient
-from market.indicators import EMAIndicator
+from market.indicators import DEMAIndicator
 from market.utils import send_notification_email
 
 
 class EMACrossoverChecker:
-    """
-    For each TrendLineCheck marked touched in the past day, fetch 15-minute bars
-    covering the last 90 days (to seed the EMA), then detect any new EMA(5/26)
-    crossover that occurs today only.
-    """
-
     def __init__(self, access_token: str):
         self.client = DHANClient(access_token=access_token)
 
     def run(self) -> None:
         now = timezone.localtime()
-        day_ago = now - timedelta(days=1)
-
-        recent_checks = TrendLineCheck.objects.filter(
+        recent = TrendLineCheck.objects.filter(
             touched=True,
-            checked_at__gte=day_ago,
-            purchased=False
+            purchased=False,
         )
 
-        for chk in recent_checks:
-            # 1) Determine the 90-day window ending today at 15:00
-            # start_dt_full: datetime = datetime.combine(chk.date, time.min)
+        for chk in recent:
+            trade_date = chk.checked_at.date()
 
-            start_dt_full = chk.checked_at
-            trading_date = start_dt_full.date()
-            window_start = start_dt_full - timedelta(days=90)
-            # force window_start to 09:30 of that day
-            window_start = window_start.replace(hour=9, minute=30, second=0, microsecond=0)
+            # fetch intraday 15m bars from 90d ago through market-close today
+            window_start = (
+                chk.checked_at - timedelta(days=90)
+            ).replace(hour=9, minute=30, second=0, microsecond=0)
+            window_end = f"{trade_date} 15:00:00"
 
-            window_end = trading_date.strftime("%Y-%m-%d") + " 15:00:00"
-
-            # 2) Fetch 15-minute OHLC from 90 days ago through today at 15:00
-            df_15m = self.client.get_intraday_ohlc(
+            df = self.client.get_intraday_ohlc(
                 security_id=chk.trend_line.security_id,
                 interval=15,
                 start_date=window_start.strftime("%Y-%m-%d %H:%M:%S"),
                 end_date=window_end
             )
-            if df_15m.empty:
+            if df.empty or len(df) < 2:
                 continue
 
-            # 3) Compute EMAs on the full 90-day history
-            df_ema = EMAIndicator.add_emas(df_15m, price_col="close")
+            # compute all DEMA series
+            df_d = DEMAIndicator.add_demas(df, price_col="close")
 
-            # 4) Slice out only 'today' bars (from 09:30 to 15:00)
-            df_today = df_ema.loc[
-                df_ema.index.date == trading_date
-            ]
-            if df_today.empty:
+            # restrict to today’s bars
+            today_bars = df_d.loc[df_d.index.date == trade_date]
+            if len(today_bars) < 2:
                 continue
 
-            ema5 = df_today["EMA5"]
-            ema26 = df_today["EMA26"]
+            # grab the last two bars
+            prev_bar = today_bars.iloc[-2]
+            last_bar = today_bars.iloc[-1]
 
-            # 5) Ensure we only look for a fresh crossover: EMA5 must have been below EMA26
-            #    at the very first timestamp of today (if both exist)
-            if len(ema5) == 0 or len(ema26) == 0:
-                continue
+            crossed_at = None
+            cross_price = None
+            used_pair = None
 
-            first_idx = df_today.index[0]
-            if ema5.loc[first_idx] > ema26.loc[first_idx]:
-                # Already above at market open – skip if no new crossover
-                was_below = False
-            else:
-                was_below = True
+            # check each configured DEMASetting
+            for setting in DEMASetting.objects.all():
+                f, s = setting.fast_span, setting.slow_span
+                col_f, col_s = f"DEMA{f}", f"DEMA{s}"
 
-            crossover_time = None
-            for timestamp, row in df_today.iterrows():
-                if not was_below:
-                    if row["EMA5"] < row["EMA26"]:
-                        was_below = True
-                else:
-                    if row["EMA5"] > row["EMA26"]:
-                        crossover_time = timestamp
-                        close_price = row["close"]
-                        break
+                print(col_f, col_s)
+                print(f, s)
+                print()
 
-            if crossover_time:
-                # Update the object purchased.
+                # ensure both DEMAs exist on the last two bars
+                if pd.isna(prev_bar[col_f]) or pd.isna(prev_bar[col_s]) or pd.isna(last_bar[col_f]) or pd.isna(last_bar[col_s]):
+                    continue
+
+                # was below on the penultimate bar, and above on the last?
+                print(prev_bar[col_f], prev_bar[col_s])
+                if last_bar[col_f] > last_bar[col_s]:
+                    # fast is above slow right now
+                    crossed_at = last_bar.name
+                    cross_price = last_bar["close"]
+                    used_pair = (f, s)
+                    break
+
+            if crossed_at:
+                # mark as done so we don’t alert again
                 chk.purchased = True
-                chk.save()
+                chk.save(update_fields=["purchased"])
 
-                # Format subject and body with real variables
+                # send email
                 symbol = chk.trend_line.symbol
-                subject = f"📈 EMA Crossover for {symbol} at {crossover_time.strftime('%d/%m/%Y %I:%M %p')}"
-                body = (
-                    f"EMA(5) has crossed above EMA(26) for **{symbol}**.\n\n"
-                    f"• Time of crossover: {crossover_time.strftime('%d/%m/%Y %I:%M %p')}\n"
-                    f"• Price at crossover: {close_price:.2f}\n"
-                    f"• Detected by TrendLineCheck ID: {chk.id}\n"
+                f, s = used_pair
+                subject = (
+                    f"📈 DEMA {f}/{s} Crossover for {symbol} at "
+                    f"{crossed_at.strftime('%d/%m/%Y %I:%M %p')}"
                 )
-
-                # send the email
+                body = (
+                    f"TrendLineCheck ID {chk.id} detected a crossover:\n\n"
+                    f" – Pair: DEMA({f}) / DEMA({s})\n"
+                    f" – Time: {crossed_at:%d/%m/%Y %I:%M %p}\n"
+                    f" – Price: {cross_price:.2f}\n"
+                )
                 send_notification_email(
                     subject=subject,
                     message=body,
-                    recipient_list=["8amitjain@gmail.com"],
+                    recipient_list=settings.EMAIL_RECIPIENTS
                 )
-
-                # TODO ADD BUY CODE
-
-                print(f"EMA crossover detected for {chk.trend_line} at {crossover_time}")
+                print(subject)
 
 
 class Command(BaseCommand):
-    help = "Check for new 15-min EMA crossover on today’s bars after a trend-line was touched."
+    help = "Check for DEMA crossovers on the last bar of TrendLineChecks."
 
     def handle(self, *args, **options):
         now = timezone.localtime()
-        if not (time(9, 30) <= now.time() <= time(15, 0)):
-            return
+        # only run during market hours
+        if time(9, 30) <= now.time() <= time(15, 0):
+            EMACrossoverChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+            self.stdout.write(self.style.SUCCESS("DEMA crossover check complete."))
         else:
-            checker = EMACrossoverChecker(access_token=settings.DATA_DHAN_ACCESS_TOKEN)
-            checker.run()
-            self.stdout.write(self.style.SUCCESS("EMA crossover check complete."))
+            self.stdout.write("Outside market hours; skipping crossover check.")
