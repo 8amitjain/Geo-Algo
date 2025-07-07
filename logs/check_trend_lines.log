@@ -492,3 +492,86 @@ Trend lines re-computed and checked.
 14:45:04.020330
 Trend lines re-computed and checked.
 15:00:03.654816
+15:15:03.436960
+15:30:04.549437
+15:45:04.340902
+09:00:05.190121
+09:15:03.968201
+09:30:03.715551
+{'date': '2025-07-07', 'value': 1712.5} rec
+1712.5 line_price
+1796.3 1796.3 1796.3
+1703.9375 1721.0625
+True
+[09:30] TrendLine 7 touched at 1712.5 (bar 2025-07-07 09:15:03–2025-07-07 09:30:03)
+{'date': '2025-07-07', 'value': 2015.560802469554} rec
+2015.560802469554 line_price
+1797.0 1796.3 1796.3
+2005.483002469554 2025.638602469554
+True
+[09:30] TrendLine 8 touched at 2015.560802469554 (bar 2025-07-07 09:15:03–2025-07-07 09:30:03)
+{'date': '2025-07-07', 'value': 8990.0} rec
+8990.0 line_price
+9021.5 9009.0 9021.5
+8945.0500 9034.9500
+True
+[09:30] TrendLine 9 touched at 8990.0 (bar 2025-07-07 09:15:03–2025-07-07 09:30:03)
+Trend lines re-computed and checked.
+09:45:03.323216
+Trend lines re-computed and checked.
+10:00:03.941855
+Trend lines re-computed and checked.
+10:15:04.207770
+Trend lines re-computed and checked.
+10:30:03.902746
+{'date': '2025-07-07', 'value': 1473.6} rec
+1473.6 line_price
+1486.9 1481.5 1483.2
+1466.2320 1480.9680
+True
+[10:30] TrendLine 10 touched at 1473.6 (bar 2025-07-07 10:15:03–2025-07-07 10:30:03)
+{'date': '2025-07-07', 'value': 1707.9382636535431} rec
+1707.9382636535431 line_price
+1486.5 1486.4 1486.5
+1699.3985636535431 1716.4779636535431
+True
+[10:30] TrendLine 11 touched at 1707.9382636535431 (bar 2025-07-07 10:15:03–2025-07-07 10:30:03)
+Trend lines re-computed and checked.
+10:45:04.295905
+Trend lines re-computed and checked.
+11:00:03.925384
+Trend lines re-computed and checked.
+11:15:03.634433
+Trend lines re-computed and checked.
+11:30:03.331441
+Trend lines re-computed and checked.
+11:45:03.820930
+Trend lines re-computed and checked.
+12:00:03.490213
+Trend lines re-computed and checked.
+12:15:04.170845
+Trend lines re-computed and checked.
+12:30:03.879612
+Trend lines re-computed and checked.
+12:45:03.500525
+Trend lines re-computed and checked.
+13:00:04.215949
+Trend lines re-computed and checked.
+13:15:03.847945
+Trend lines re-computed and checked.
+13:30:03.538708
+Trend lines re-computed and checked.
+13:45:03.594441
+Trend lines re-computed and checked.
+14:00:03.317200
+Trend lines re-computed and checked.
+14:15:03.997344
+Trend lines re-computed and checked.
+14:30:04.534331
+Trend lines re-computed and checked.
+14:45:04.122563
+Trend lines re-computed and checked.
+15:00:03.801529
+15:15:03.491801
+15:30:04.120718
+15:45:03.785478
