@@ -3,8 +3,8 @@ from django.contrib.postgres.fields import ArrayField
 
 
 class TrendLine(models.Model):
-    symbol = models.CharField(max_length=20, help_text="Ticker symbol, e.g. 'TCS'")
-    security_id = models.CharField(max_length=20, help_text="DHAN security ID for the symbol")  # DO not show in list
+    symbol = models.CharField(max_length=200, help_text="Ticker symbol, e.g. 'TCS'")
+    security_id = models.CharField(max_length=200, help_text="DHAN security ID for the symbol")  # DO not show in list
     start_date = models.DateField(help_text="Date at which the trend line begins")
     angles = ArrayField(
         base_field=models.FloatField(),
