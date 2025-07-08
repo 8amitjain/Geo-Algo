@@ -12,7 +12,7 @@ class TrendLine(models.Model):
         null=True,
         help_text="List of trend-line angles in degrees (e.g. [45, 65])",
     )
-    price_to_bar_ratio = models.IntegerField(help_text="Price-per-bar ratio used to compute the slope")
+    price_to_bar_ratio = models.DecimalField(max_digits=20, decimal_places=4, help_text="Price-per-bar ratio used to compute the slope")
     start_price = models.DecimalField(max_digits=20, decimal_places=4, help_text="Exact close price on start_date")
     line_data = models.JSONField(blank=True, null=True)  # DO not show in list
     created_at = models.DateTimeField(auto_now_add=True, help_text="When this TrendLine record was created")

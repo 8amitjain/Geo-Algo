@@ -46,7 +46,7 @@ def stock_chart(request):
     start_price = request.GET.get('start_price', 'low')
     security_id = request.GET.get('security_id')
     start_date = request.GET.get('start_date')
-    ratio = int(request.GET.get('price_to_bar_ratio', 1))
+    ratio = float(request.GET.get('price_to_bar_ratio', 1))
     angles = [float(a) for a in request.GET.get('angles', '45,65').split(',')]
 
     client = DHANClient(settings.DATA_DHAN_ACCESS_TOKEN)

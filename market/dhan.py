@@ -17,6 +17,7 @@ import csv
 import websocket
 import json
 from requests import HTTPError
+import uuid
 
 matplotlib.use("Agg")  # headless plotting
 
@@ -24,8 +25,9 @@ matplotlib.use("Agg")  # headless plotting
 class DHANClient:
     BASE_URL = "https://api.dhan.co/v2/"
 
-    def __init__(self, access_token: str):
+    def __init__(self, access_token: str, dhan_client_id=None):
         self.access_token = access_token
+        # self.dhan_client_id = dhan_client_id
         self.session = requests.Session()
         self.session.headers.update({"access-token": access_token})
 
@@ -122,6 +124,45 @@ class DHANClient:
         df.set_index("timestamp", inplace=True)
 
         return df[["open", "high", "low", "close", "volume"]]
+
+    def place_order(
+            self,
+            dhan_client_id: str,
+            security_id: str,
+            transaction_type: str,  # "BUY" or "SELL"
+            quantity: int,
+            price: float = None,
+            order_type: str = "MARKET",  # or "LIMIT"
+            product_type: str = "CNC",  # or "CNC" or "MARGIN" or "INTRADAY"
+            exchange_segment: str = "NSE_EQ",  # or "BSE"
+            validity: str = "DAY"
+    ) -> dict:
+        url = f"{self.BASE_URL}/orders"
+
+        payload = {
+            "dhanClientId": dhan_client_id,
+            "transactionType": transaction_type.upper(),
+            "exchangeSegment": exchange_segment,
+            "productType": product_type,
+            "orderType": order_type,
+            "validity": validity,
+            "securityId": security_id,
+            "quantity": quantity,
+            "price": float(price),
+            "triggerPrice": float(price),
+            "afterMarketOrder": False,
+            # "amoTime": "PRE_OPEN"
+            # "amoTime": "",
+            # "boProfitValue": "",
+            # "boStopLossValue": ""
+        }
+        print(payload)
+        response = self.session.post(url, json=payload)
+
+        if response.status_code == 200:
+            return response.json()
+        else:
+            raise Exception(f"Order placement failed: {response.status_code} – {response.text}")
 
 
 class TrendLine:
