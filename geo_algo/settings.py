@@ -71,8 +71,8 @@ DATABASES = {
         'NAME': 'geo_algo',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        # 'HOST': '13.126.174.197',
-        'HOST': '127.0.0.1',
+        'HOST': '13.126.174.197',
+        # 'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
@@ -119,7 +119,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "amit.intelus@gmail.com"
 EMAIL_HOST_PASSWORD = "loxjtkgrjhgoarus"
-EMAIL_RECIPIENTS = ["8amitjain@gmail.com", ]#"anandkene3073@gmail.com"]
+EMAIL_RECIPIENTS = ["8amitjain@gmail.com", "anandkene3073@gmail.com"]
 
 # User
 LOGIN_URL = '/users/login/'

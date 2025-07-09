@@ -43,6 +43,8 @@ class DHANClient:
     def get_symbols(self) -> Union[List[Any], Dict[str, Union[int, Any]]]:
         """Return union of available stock symbols."""
         try:
+            # https://images.dhan.co/api-data/api-scrip-master.csv # TODO get short code name from here
+            # resp = self.session.get(f"{self.BASE_URL}instrument/NSE_EQ/")
             resp = self.session.get(f"{self.BASE_URL}instrument/NSE_EQ/")
             resp.raise_for_status()
             text = resp.text
