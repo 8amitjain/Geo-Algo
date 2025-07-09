@@ -1,11 +1,9 @@
-# market/plotters.py
-
 import math
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from typing import List, Union
-from .indicators import DEMASetting
+from .indicators import DEMAIndicator
 from pandas.tseries.offsets import BDay
 
 
@@ -52,10 +50,27 @@ class InteractiveChartPlotter:
         # 4) last bar index
         self.end_bar = len(df) - 1
 
+    def get_holiday_gaps(self):
+        dates = self.df["timestamp"].dt.normalize().drop_duplicates().sort_values()
+        holidays = []
+        for prev, curr in zip(dates[:-1], dates[1:]):
+            delta = (curr - prev).days
+            if delta > 1:
+                # add all missing days (excluding weekends)
+                holidays.extend(
+                    pd.date_range(prev + pd.Timedelta(days=1), curr - pd.Timedelta(days=1), freq="B")
+                )
+        return [d.strftime("%Y-%m-%d") for d in holidays]
+
     def build_figure(self) -> go.Figure:
         # create a single-panel subplot
         fig = make_subplots(rows=1, cols=1, shared_xaxes=True)
+        # Drop rows with missing OHLC data
+        df_clean = self.df.dropna(subset=["open", "high", "low", "close"])
+        self.df = df_clean
+        # self.df["date_str"] = self.df["timestamp"].dt.strftime("%Y-%m-%d")
 
+        print(self.df['timestamp'].tail())
         # ── 1) Candlesticks ────────────────────────────────────────────────
         fig.add_trace(
             go.Candlestick(
@@ -83,6 +98,7 @@ class InteractiveChartPlotter:
         )
         all_dates = hist_idx.union(future_idx)
         future_end_ts = all_dates[-1]  # the 7-days-out timestamp
+        hist_dates = self.df["timestamp"].iloc[self.start_bar: self.end_bar + 1].tolist()
 
         colors = ["blue", "orange", "purple", "teal"]
         for angle, color in zip(self.angles, colors):
@@ -104,7 +120,7 @@ class InteractiveChartPlotter:
                 row=1, col=1
             )
 
-            # 2b) Hover markers at every point
+            # # 2b) Hover markers at every point
             fig.add_trace(
                 go.Scatter(
                     x=all_dates,
@@ -118,6 +134,48 @@ class InteractiveChartPlotter:
             )
 
         # ── 3) Layout & controls ───────────────────────────────────────────
+        #
+
+        visible_bars = 75
+        price_range = self.ratio * visible_bars
+
+        # Price bounds based on ratio
+        ymin = self.start_price - price_range / 2
+        ymax = self.start_price + price_range / 2
+
+        # Time bounds and pad for zoom-out
+        x_start = self.df["timestamp"].iloc[self.start_bar]
+        x_end_idx = min(self.start_bar + visible_bars, len(self.df) - 1)
+        x_end = self.df["timestamp"].iloc[x_end_idx]
+
+        x_min = self.df["timestamp"].iloc[0]
+        x_max = self.df["timestamp"].iloc[-1]
+        x_pad = (x_max - x_min) * 0.5
+
+        fig.update_layout(
+            title=f"{self.symbol} — Fully Zoomable Chart with Angle Slope Frame",
+            xaxis=dict(
+                range=[x_start - x_pad, x_end + x_pad],
+                type="date",
+                fixedrange=False,
+                rangebreaks=[
+                    dict(bounds=["sat", "mon"]),
+                    dict(values=self.get_holiday_gaps())
+                ],
+                title="Date",
+                autorange=False
+            ),
+            yaxis=dict(
+                range=[ymin - price_range, ymax + price_range],
+                fixedrange=False,
+                autorange=False,
+                title="Price"
+            ),
+            dragmode="pan",  # ✅ enable pan on both axes
+            hovermode="x unified",
+            legend=dict(title="Legend"),
+            margin=dict(l=50, r=50, t=50, b=50),
+        )
 
         fig.update_layout(
             title=f"{self.symbol} — Candlestick & Angle Trends",
@@ -127,9 +185,9 @@ class InteractiveChartPlotter:
                 rangeslider=dict(visible=True),
                 rangeselector=dict(
                     buttons=[
-                        dict(count=7,  label="1w", step="day",   stepmode="backward"),
-                        dict(count=1,  label="1m", step="month", stepmode="backward"),
-                        dict(count=3,  label="3m", step="month", stepmode="backward"),
+                        dict(count=7, label="1w", step="day", stepmode="backward"),
+                        dict(count=1, label="1m", step="month", stepmode="backward"),
+                        dict(count=3, label="3m", step="month", stepmode="backward"),
                         dict(step="all"),
                     ]
                 ),
@@ -177,7 +235,7 @@ class EMACandlestickPlotter:
 
     def build_figure(self) -> go.Figure:
         # 1) Compute EMAs
-        df_ema = DEMASetting.add_emas(self.df, price_col="close")
+        df_ema = DEMAIndicator.add_emas(self.df, price_col="close")
 
         # 2) Create subplot
         fig = make_subplots(rows=1, cols=1, shared_xaxes=True)

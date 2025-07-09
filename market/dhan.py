@@ -194,7 +194,7 @@ class TrendLine:
 
         # 4) slope in price‐per‐bar
         self.angle_deg = angle_deg
-        self.slope = math.tan(math.radians(angle_deg)) * price_to_bar_ratio
+        self.slope = math.tan(math.radians(angle_deg)) * float(price_to_bar_ratio)
 
         # 5) slice dates from start → end
         hist_dates = df.index[self.start_bar: self.end_bar + 1]
