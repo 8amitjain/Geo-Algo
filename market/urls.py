@@ -11,4 +11,7 @@ urlpatterns = [
 
     path("trendlines/", views.trendline_list, name="trendline_list"),
 
+    path("buy/", views.buy_stock_view, name="buy_stock"),
+    path("sell/", views.sell_stock_view, name="sell_stock"),
+
 ]

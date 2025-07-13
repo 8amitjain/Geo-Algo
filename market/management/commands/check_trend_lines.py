@@ -129,15 +129,14 @@ class Command(BaseCommand):
     help = "Recompute trend-lines and check every 15 min whether the latest 15m bar touches them."
 
     def handle(self, *args, **options):
-        now = timezone.localtime().time()
-        print(now)
-        # only run during market hours: 09:30 – 15:00 IST
-        if not (time(9, 30) <= now <= time(15, 0)):
-            return
-
-        checker = TrendLineChecker(
-            api_token_data=settings.DATA_DHAN_ACCESS_TOKEN
-        )
-        checker.run()
-        self.stdout.write(self.style.SUCCESS("Trend lines re-computed and checked."))
+        now = timezone.localtime()
+        if settings.DEBUG:
+            TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+        else:
+            # # only run during market hours
+            if time(9, 30) <= now.time() <= time(15, 0):
+                TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+                self.stdout.write(self.style.SUCCESS("Trend lines re-computed and checked."))
+            else:
+                self.stdout.write("Outside market hours; skipping crossover check.")
 

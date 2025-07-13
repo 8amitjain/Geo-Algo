@@ -1,21 +1,18 @@
-from geo_algo import settings
 from .plotters import InteractiveChartPlotter, EMACandlestickPlotter
 from .services import TrendLinePersistenceService
 from .dhan import DHANClient
-from django.contrib.auth.decorators import login_required
+from .utils import buy_sell_stock
+from .models import TrendLine, TrendLineCheck
 
-import io
+from geo_algo import settings
+
 from datetime import datetime, timedelta
-import pandas as pd
-import matplotlib
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
-from matplotlib.dates import DateFormatter, DayLocator
-from mplfinance.original_flavor import candlestick_ohlc
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.shortcuts import render
-from .models import *
+from django.shortcuts import redirect
 
+import matplotlib
 matplotlib.use("Agg")
 
 
@@ -30,6 +27,7 @@ Django calls stock_chart, generates a PNG on-the-fly, and the <img> tag displays
 This keeps your DHAN logic DRY (you’re re-using the same client/plotter classes), and all secrets stay in .env.
 """
 # http://127.0.0.1:8000/market/chart.png?symbol=SBI+Life+Insurance&security_id=21808&start_price=low&start_date=2025-03-12&price_to_bar_ratio=4&angles=45,63.251&start_bar=1846
+
 
 @login_required
 def stock_form(request):
@@ -112,6 +110,7 @@ def trendline_list(request):
     created = request.GET.get("created_at", "").strip()
     touched = request.GET.get("touched", "")
     purchased = request.GET.get("purchased", "")
+    angle = request.GET.get("angle", "")
 
     # --- apply filters ---
     if symbol:
@@ -144,6 +143,9 @@ def trendline_list(request):
             checks__purchased=want
         ).distinct()
 
+    if angle:
+        qs = qs.filter(angles__icontains=angle)
+
     # pass current filter values back to template
     context = {
         "trendlines": qs.order_by("-created_at"),
@@ -153,9 +155,41 @@ def trendline_list(request):
             "created_at": created,
             "touched": touched,
             "purchased": purchased,
+            "angle": angle,
         }
     }
     return render(request, "market/trendline_list.html", context)
+
+
+def buy_stock_view(request):
+    if request.method == "POST":
+        try:
+            risk = float(request.POST["risk_per_unit"])
+            price = float(request.POST["cross_price"])
+            sec_id = request.POST["security_id"]
+            symbol = request.POST["symbol"]
+
+            print(risk, price, sec_id, symbol)
+            buy_sell_stock(risk_per_unit=risk, cross_price=price, security_id=sec_id, symbol=symbol, transaction_type="BUY")
+            messages.success(request, f"Buy order placed for {symbol}")
+        except Exception as e:
+            messages.error(request, f"Error placing buy order: {e}")
+    return redirect(request.META.get("HTTP_REFERER", "/"))
+
+
+def sell_stock_view(request):
+    if request.method == "POST":
+        try:
+            risk = float(request.POST["risk_per_unit"])
+            price = float(request.POST["cross_price"])
+            sec_id = request.POST["security_id"]
+            symbol = request.POST["symbol"]
+
+            buy_sell_stock(risk_per_unit=risk, cross_price=price, security_id=sec_id, symbol=symbol, transaction_type="SELL")
+            messages.success(request, f"Sell order placed for {symbol}")
+        except Exception as e:
+            messages.error(request, f"Error placing sell order: {e}")
+    return redirect(request.META.get("HTTP_REFERER", "/"))
 
 
 # Create both model list view and details view

@@ -7,7 +7,9 @@ env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, "geo_algo/local_env.env"))
 
 SECRET_KEY = 'django-insecure-j2e(v&w4(rjfgcp-*&@4-j@)$efxhhg2(tfp951amhb=4^r#+%'
-DEBUG = True
+# DEBUG = True
+DEBUG = False
+print(DEBUG)
 ALLOWED_HOSTS = ['*']
 
 
@@ -64,15 +66,15 @@ WSGI_APPLICATION = 'geo_algo.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-
+host = '127.0.0.1' if DEBUG else '13.126.174.197'
+# host = '13.126.174.197' if DEBUG else '13.126.174.197'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'geo_algo',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': '13.126.174.197',
-        # 'HOST': '127.0.0.1',
+        'HOST': host,
         'PORT': '5432',
     }
 }
@@ -119,7 +121,11 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "amit.intelus@gmail.com"
 EMAIL_HOST_PASSWORD = "loxjtkgrjhgoarus"
-EMAIL_RECIPIENTS = ["8amitjain@gmail.com", "anandkene3073@gmail.com"]
+
+if DEBUG:
+    EMAIL_RECIPIENTS = ["8amitjain@gmail.com"]
+else:
+    EMAIL_RECIPIENTS = ["8amitjain@gmail.com", "anandkene3073@gmail.com"]
 
 # User
 LOGIN_URL = '/users/login/'

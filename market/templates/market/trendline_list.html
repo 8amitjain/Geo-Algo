@@ -19,6 +19,16 @@
       >
     </div>
     <div class="col-md-2">
+      <label class="form-label">Angle</label>
+      <input
+        type="text"
+        name="angle"
+        value="{{ filters.angle }}"
+        class="form-control"
+        placeholder="e.g. 45"
+      >
+    </div>
+    <div class="col-md-2">
       <label class="form-label">Start Date</label>
       <input
         type="date"
@@ -105,6 +115,19 @@
 <!--                class="btn btn-sm btn-outline-secondary"-->
 <!--              >View EMA Crossover</a>-->
             </td>
+<!--            <td>-->
+<!--              &lt;!&ndash; Add Buy & Sell buttons &ndash;&gt;-->
+<!--              <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#buyModal"-->
+<!--                      data-symbol="{{ tl.symbol }}"-->
+<!--                      data-security_id="{{ tl.security_id }}">-->
+<!--                Buy-->
+<!--              </button>-->
+<!--              <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#sellModal"-->
+<!--                      data-symbol="{{ tl.symbol }}"-->
+<!--                      data-security_id="{{ tl.security_id }}">-->
+<!--                Sell-->
+<!--              </button>-->
+<!--            </td>-->
           </tr>
         {% empty %}
           <tr>
@@ -115,4 +138,47 @@
     </table>
   </div>
 </div>
+
+<!-- Buy Modal -->
+<div class="modal fade" id="buyModal" tabindex="-1" aria-labelledby="buyModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form method="POST" action="{% url 'market:buy_stock' %}">
+      {% csrf_token %}
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="buyModalLabel">Buy Stock</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" name="security_id" id="buy-security-id">
+          <input type="hidden" name="symbol" id="buy-symbol">
+          <div class="mb-3">
+            <label for="risk_per_unit" class="form-label">Risk Per Unit</label>
+            <input type="number" step="0.01" name="risk_per_unit" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="cross_price" class="form-label">Cross Price</label>
+            <input type="number" step="0.01" name="cross_price" class="form-control" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Confirm Buy</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  const buyModal = document.getElementById('buyModal');
+  buyModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget;
+    const securityId = button.getAttribute('data-security_id');
+    const symbol = button.getAttribute('data-symbol');
+    buyModal.querySelector('#buy-security-id').value = securityId;
+    buyModal.querySelector('#buy-symbol').value = symbol;
+  });
+</script>
+
+
 {% endblock %}

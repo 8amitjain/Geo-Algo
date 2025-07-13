@@ -140,7 +140,6 @@ class DHANClient:
             validity: str = "DAY"
     ) -> dict:
         url = f"{self.BASE_URL}/orders"
-
         payload = {
             "dhanClientId": dhan_client_id,
             "transactionType": transaction_type.upper(),
@@ -152,7 +151,7 @@ class DHANClient:
             "quantity": quantity,
             "price": float(price),
             "triggerPrice": float(price),
-            "afterMarketOrder": False,
+            "afterMarketOrder": True,
             # "amoTime": "PRE_OPEN"
             # "amoTime": "",
             # "boProfitValue": "",
@@ -160,11 +159,61 @@ class DHANClient:
         }
         print(payload)
         response = self.session.post(url, json=payload)
-
         if response.status_code == 200:
             return response.json()
         else:
+            print(f"Order placement failed: {response.status_code} – {response.text}")
             raise Exception(f"Order placement failed: {response.status_code} – {response.text}")
+
+    def sell_stock(
+            self,
+            risk_per_unit: float,
+            cross_price: float,
+            security_id: str,
+            symbol: str,
+            dhan_access_token: str,
+            dhan_client_id: str,
+            max_risk: float = 500.0,
+    ) -> None:
+        """
+        Places a SELL order using the Dhan API.
+
+        Args:
+            risk_per_unit (float): Difference between sell price and SL.
+            cross_price (float): Market price to sell at.
+            security_id (str): Dhan security ID.
+            symbol (str): Human-readable symbol (for logs/emails).
+            dhan_access_token (str): Auth token for Dhan client.
+            dhan_client_id (str): Dhan client ID.
+            max_risk (float): Total capital risked (default: ₹500).
+        """
+        try:
+            if risk_per_unit <= 0:
+                print(f"[❌] Invalid risk_per_unit={risk_per_unit}. Cannot sell {symbol}.")
+                return
+
+            qty = math.floor(max_risk / risk_per_unit)
+            if qty == 0:
+                print(f"[❌] Calculated quantity is 0 for {symbol}; skipping.")
+                return
+
+            client = DHANClient(access_token=dhan_access_token)
+            client.place_order(
+                dhan_client_id=dhan_client_id,
+                security_id=security_id,
+                transaction_type="SELL",
+                quantity=qty,
+                price=cross_price,
+                order_type="MARKET",  # Can change to "LIMIT"
+                product_type="CNC",  # Or INTRADAY/MARGIN if needed
+                exchange_segment="NSE_EQ",
+                validity="DAY"
+            )
+
+            print(f"[✅] SELL order placed for {qty} shares of {symbol} at approx ₹{cross_price:.2f}")
+
+        except Exception as e:
+            print(f"[⚠️] Failed to place SELL order for {symbol}: {e}")
 
 
 class TrendLine:
