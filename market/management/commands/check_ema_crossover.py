@@ -1,4 +1,4 @@
-from datetime import timedelta, time
+from datetime import timedelta, time, datetime
 
 from django.core.management.base import BaseCommand
 from django.utils import timezone
@@ -24,7 +24,7 @@ class EMACrossoverChecker:
         recent = TrendLineCheck.objects.filter(
             touched=True,
             purchased=False,
-            date=today,
+            # date=today,
         )
         print(recent, "recent")
         for chk in recent:
@@ -32,9 +32,8 @@ class EMACrossoverChecker:
             trade_date = today #- timedelta(days=2)
             print(trade_date)
             # fetch intraday 15m bars from 90d ago through market-close today
-            window_start = (
-                today - timedelta(days=90)
-            ).replace(hour=9, minute=30, second=0, microsecond=0)
+            # print(toda)
+            window_start = datetime.combine(today - timedelta(days=90), datetime.min.time()).replace(hour=9, minute=30, second=0)
             window_end = f"{trade_date} 15:00:00"
 
             df = self.client.get_intraday_ohlc(
