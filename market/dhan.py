@@ -151,7 +151,7 @@ class DHANClient:
             "quantity": quantity,
             "price": float(price),
             "triggerPrice": float(price),
-            "afterMarketOrder": True,
+            "afterMarketOrder": False,
             # "amoTime": "PRE_OPEN"
             # "amoTime": "",
             # "boProfitValue": "",
