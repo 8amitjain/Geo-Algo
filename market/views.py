@@ -76,10 +76,10 @@ def stock_chart(request):
 def candlestick_chart(request):
     symbol = request.GET.get("symbol", "TCS")
     security_id = request.GET.get("security_id")
-    start_date = request.GET.get("start_date", "2025-06-02")
+    # start_date = request.GET.get("start_date", "2025-06-02")
     interval = int(request.GET.get("interval", "15"))
-
-    early = datetime.strptime(start_date, "%Y-%m-%d") - timedelta(days=90)
+    start_date = datetime.now()
+    early = datetime.strptime(str(start_date)[:10], "%Y-%m-%d") - timedelta(days=90)
     start_dt = f"{early.strftime('%Y-%m-%d')} 09:30:00"
     end_date = f"{start_date} 15:00:00"
 

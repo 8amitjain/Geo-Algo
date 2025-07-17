@@ -110,10 +110,10 @@
                 class="btn btn-sm btn-outline-primary"
               >View Chart</a>
 
-<!--              <a-->
-<!--                href="{% url 'market:stock_chart_ema' %}?security_id={{ tl.security_id }}&interval=15&date={{ tl.start_date }}"-->
-<!--                class="btn btn-sm btn-outline-secondary"-->
-<!--              >View EMA Crossover</a>-->
+              <a
+                href="{% url 'market:stock_chart_ema' %}?symbol={{ tl.symbol|urlencode }}&security_id={{ tl.security_id }}&interval=15&date={{ tl.start_date }}"
+                class="btn btn-sm btn-outline-secondary"
+              >View EMA Crossover</a>
             </td>
 <!--            <td>-->
 <!--              &lt;!&ndash; Add Buy & Sell buttons &ndash;&gt;-->

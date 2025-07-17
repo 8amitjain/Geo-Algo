@@ -9,9 +9,7 @@ from django.conf import settings
 import pandas as pd
 
 from market.models import TrendLineCheck
-from variables.models import DEMASetting
 from market.dhan import DHANClient
-from market.indicators import DEMAIndicator
 from users.models import User
 import math
 

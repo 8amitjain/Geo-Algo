@@ -4,7 +4,7 @@ from django.db import models
 class VibrationPoint(models.Model):
     vibration_point_value = models.DecimalField(
         max_digits=5,
-        decimal_places=2,
+        decimal_places=3,
         help_text="% buffer/allowance for buy signals"
     )
     last_modified = models.DateTimeField(
@@ -16,12 +16,12 @@ class VibrationPoint(models.Model):
         return f"{self.vibration_point_value}%"
 
 
-class DEMASetting(models.Model):
+class EMASetting(models.Model):
     """
     Defines one pair of spans for a Double-EMA crossover check.
     """
-    fast_span = models.PositiveIntegerField(help_text="Fast DEMA span (e.g. 5)")
-    slow_span = models.PositiveIntegerField(help_text="Slow DEMA span (e.g. 26)")
+    fast_span = models.PositiveIntegerField(help_text="Fast EMA span (e.g. 5)")
+    slow_span = models.PositiveIntegerField(help_text="Slow EMA span (e.g. 26)")
     last_modified = models.DateTimeField(auto_now=True)
 
     class Meta:
@@ -29,4 +29,4 @@ class DEMASetting(models.Model):
         ordering = ["fast_span"]
 
     def __str__(self):
-        return f"DEMA {self.fast_span}/{self.slow_span}"
+        return f"EMA {self.fast_span}/{self.slow_span}"

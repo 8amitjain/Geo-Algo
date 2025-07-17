@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from typing import List, Union
-from .indicators import DEMAIndicator
+from .indicators import EMAIndicator
 from pandas.tseries.offsets import BDay
 
 
@@ -207,7 +207,7 @@ class EMACandlestickPlotter:
     Builds a Plotly Figure containing:
       - OHLC candlesticks (using the DataFrame’s DateTimeIndex)
       - EMA(5) starting at bar 5
-      - EMA(26) starting at bar 26
+      - EMA(25) starting at bar 25
       - Hides non-trading hours and weekends so days appear contiguous
       - Full zoom/pan/range-slider controls
     """
@@ -233,9 +233,21 @@ class EMACandlestickPlotter:
         self.df = df
         self.symbol = symbol
 
+    def get_holiday_gaps(self):
+        dates = self.df["timestamp"].dt.normalize().drop_duplicates().sort_values()
+        holidays = []
+        for prev, curr in zip(dates[:-1], dates[1:]):
+            delta = (curr - prev).days
+            if delta > 1:
+                # add all missing days (excluding weekends)
+                holidays.extend(
+                    pd.date_range(prev + pd.Timedelta(days=1), curr - pd.Timedelta(days=1), freq="B")
+                )
+        return [ts.strftime("%Y-%m-%d %H:%M:%S") for ts in holidays]
+
     def build_figure(self) -> go.Figure:
         # 1) Compute EMAs
-        df_ema = DEMAIndicator.add_emas(self.df, price_col="close")
+        df_ema = EMAIndicator.add_emas(self.df, price_col="close")
 
         # 2) Create subplot
         fig = make_subplots(rows=1, cols=1, shared_xaxes=True)
@@ -258,14 +270,14 @@ class EMACandlestickPlotter:
         )
 
         # 4) Plot EMA(5) only where it is not NaN (i.e. from the 5th bar onward)
-
+        print(df_ema.tail())
         fig.add_trace(
             go.Scatter(
                 x=df_ema["timestamp"],
                 y=df_ema["EMA5"].tolist(),
                 mode="lines",
                 name="EMA(5)",
-                line=dict(color="blue", width=1.5),
+                line=dict(color="red", width=2),
             ),
             row=1,
             col=1
@@ -276,43 +288,43 @@ class EMACandlestickPlotter:
         fig.add_trace(
             go.Scatter(
                 x=df_ema["timestamp"],
-                y=df_ema["EMA26"].tolist(),
+                y=df_ema["EMA25"].tolist(),
                 mode="lines",
-                name="EMA(26)",
-                line=dict(color="orange", width=1.5),
+                name="EMA(25)",
+                line=dict(color="yellow", width=2),
+
             ),
             row=1,
             col=1
         )
-
+        df_ema.sort_values("timestamp", inplace=True)
         # 6) Hide non-trading hours and weekends
+        print(self.get_holiday_gaps(), "self.get_holiday_gaps()")
         fig.update_xaxes(
             rangebreaks=[
-                dict(bounds=["sat", "mon"]),            # hide weekends
+                # dict(bounds=["sat", "mon"]),            # hide weekends
+                dict(values=self.get_holiday_gaps()),
                 dict(bounds=[16, 9.5], pattern="hour"),  # hide hours outside 09:30–16:00 IST
             ]
         )
 
         # 7) Layout & interactive controls
         fig.update_layout(
-            title=f"{self.symbol} — Intraday Candlestick + EMA(5/26)",
+            title=f"{self.symbol} — Intraday Candlestick + EMA(5/25)",
             xaxis=dict(
                 title="Date/Time",
                 type="date",
                 rangeslider=dict(visible=True),
-                rangeselector=dict(
-                    buttons=[
-                        dict(count=7,  label="1w",  step="day",   stepmode="backward"),
-                        dict(count=1,  label="1m",  step="month", stepmode="backward"),
-                        dict(count=3,  label="3m",  step="month", stepmode="backward"),
-                        dict(step="all"),
-                    ]
-                ),
+
             ),
-            yaxis=dict(title="Price"),
+            yaxis=dict(
+                title="Price",
+            ),
             hovermode="x unified",
+            dragmode="zoom",
             legend=dict(title="Indicators", orientation="h", y=1.02),
             margin=dict(l=50, r=50, t=60, b=50),
         )
 
         return fig
+

@@ -36,13 +36,18 @@ class TrendLine(models.Model):
 class TrendLineCheck(models.Model):
     trend_line = models.ForeignKey(TrendLine, on_delete=models.CASCADE, related_name="checks", help_text="The TrendLine being evaluated")
     date = models.DateField(help_text="Date for which the line was checked")
+
     line_price = models.DecimalField(max_digits=20, decimal_places=4, help_text="The trend-line price on this date")
     actual_price = models.DecimalField(max_digits=20, decimal_places=4, null=True, blank=True, help_text="The actual market close on this date")
+    stop_loss_price = models.DecimalField(max_digits=20, decimal_places=4, null=True, blank=True,  help_text="Stop Loss price sell stock when reached this price")
+    buy_above_high_price = models.DecimalField(max_digits=20, decimal_places=4, null=True, blank=True, help_text="The actual price of cross over candle high")
+    purchase_qty = models.IntegerField(null=True, blank=True, help_text="The actual qty bought")
+
     touched = models.BooleanField(default=False, help_text="Whether the actual price touched the trend line")
-    purchased = models.BooleanField(
-        default=False,
-        help_text="Whether the actual price purchased the trend line"
-    )
+    purchased = models.BooleanField(default=False, help_text="Whether the actual price purchased the trend line")
+    sold = models.BooleanField(default=False, help_text="Whether the stock was sold")
+    cross_over_ema = models.BooleanField(default=False, help_text="Whether the EMA cross over happened")
+
     checked_at = models.DateTimeField(auto_now_add=True, help_text="When this check was performed")  # TODO REMOVE
 
     class Meta:
@@ -51,6 +56,8 @@ class TrendLineCheck(models.Model):
 
     def __str__(self):
         status = "✔" if self.touched else "✘"
-        return f"{self.trend_line} on {self.date}: {status}"
+        purchased_status = "✔" if self.purchased else "✘"
+        cross_over_ema_status = "✔" if self.cross_over_ema else "✘"
+        return f"{self.trend_line} on {self.date}: Touched: {status} - Cross Over EMA: {cross_over_ema_status} - Purchased: {purchased_status}"
 
 
