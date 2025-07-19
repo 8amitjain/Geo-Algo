@@ -37,10 +37,13 @@
             <a class="nav-link" href="{% url 'market:stock_form' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'market:trendline_list' %}">Trend Lines</a>
+            <a class="nav-link" href="{% url 'market:trendline_list' %}?sort=distance&direction=asc">Trend Lines</a>
             {# TODO Page - Alert set on stocks #}
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'market:upload_trendlines_csv' %}">Bulk Upload</a>
+          </li>
 
           {% if user.is_authenticated %}
             <li class="nav-item">
@@ -64,6 +67,16 @@
 
   <!-- Main container -->
   <div class="container-fluid px-4 py-3">
+    {% if messages %}
+      <div class="container mt-3">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
     {% block content %}
     <!-- child templates inject their content here -->
     {% endblock %}

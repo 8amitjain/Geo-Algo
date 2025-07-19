@@ -76,10 +76,30 @@
           <th>Start Date</th>
           <th>Angles (°)</th>
           <th>Ratio</th>
+          <th>
+            <a href="?sort=distance&direction={% if current_sort == 'distance' and current_direction == 'asc' %}desc{% else %}asc{% endif %}&
+                      {% if filters.symbol %}symbol={{ filters.symbol }}&{% endif %}
+                      {% if filters.angle %}angle={{ filters.angle }}&{% endif %}
+                      {% if filters.start_date %}start_date={{ filters.start_date }}&{% endif %}
+                      {% if filters.created_at %}created_at={{ filters.created_at }}&{% endif %}
+                      {% if filters.touched %}touched={{ filters.touched }}&{% endif %}
+                      {% if filters.purchased %}purchased={{ filters.purchased }}&{% endif %}
+                      ">
+              Distance
+              {% if current_sort == "distance" %}
+                {% if current_direction == "asc" %}
+                  ↑
+                {% else %}
+                  ↓
+                {% endif %}
+              {% endif %}
+            </a>
+          </th>
           <th>Created</th>
           <th>Touched?</th>
           <th>Purchased?</th>
-          <th></th>
+          <th>Options</th>
+          <th>Manual</th>
         </tr>
       </thead>
       <tbody>
@@ -88,7 +108,14 @@
             <td>{{ tl.symbol }}</td>
             <td>{{ tl.start_date }}</td>
             <td>{{ tl.angles|join:", " }}</td>
-            <td>{{ tl.price_to_bar_ratio }}</td>
+            <td>{{ tl.price_to_bar_ratio}}</td>
+            <td>
+              {% if tl.percent_difference_cached is not None %}
+                {{ tl.percent_difference_cached }}%
+              {% else %}
+                —
+              {% endif %}
+            </td>
             <td>{{ tl.created_at|date:"Y-m-d H:i" }}</td>
             <td>
               {% if tl.is_touched %}
@@ -108,26 +135,31 @@
               <a
                 href="{% url 'market:stock_chart' %}?symbol={{ tl.symbol|urlencode }}&security_id={{ tl.security_id }}&start_price=low&start_date={{ tl.start_date }}&price_to_bar_ratio={{ tl.price_to_bar_ratio }}&angles={{ tl.angles|join:',' }}"
                 class="btn btn-sm btn-outline-primary"
-              >View Chart</a>
+              >Chart</a>
 
               <a
                 href="{% url 'market:stock_chart_ema' %}?symbol={{ tl.symbol|urlencode }}&security_id={{ tl.security_id }}&interval=15&date={{ tl.start_date }}"
                 class="btn btn-sm btn-outline-secondary"
-              >View EMA Crossover</a>
+              >EMA</a>
+             <!-- Delete Form -->
+            <form method="POST" action="{% url 'market:trendline_delete' tl.pk %}" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this trend line?');">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-sm btn-outline-danger">X</button>
+            </form>
             </td>
-<!--            <td>-->
-<!--              &lt;!&ndash; Add Buy & Sell buttons &ndash;&gt;-->
-<!--              <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#buyModal"-->
-<!--                      data-symbol="{{ tl.symbol }}"-->
-<!--                      data-security_id="{{ tl.security_id }}">-->
-<!--                Buy-->
-<!--              </button>-->
-<!--              <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#sellModal"-->
-<!--                      data-symbol="{{ tl.symbol }}"-->
-<!--                      data-security_id="{{ tl.security_id }}">-->
-<!--                Sell-->
-<!--              </button>-->
-<!--            </td>-->
+            <td>
+              <!-- Add Buy & Sell buttons -->
+              <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#buyModal"
+                      data-symbol="{{ tl.symbol }}"
+                      data-security_id="{{ tl.security_id }}">
+                Buy
+              </button>
+              <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#sellModal"
+                      data-symbol="{{ tl.symbol }}"
+                      data-security_id="{{ tl.security_id }}">
+                Sell
+              </button>
+            </td>
           </tr>
         {% empty %}
           <tr>
@@ -177,6 +209,47 @@
     const symbol = button.getAttribute('data-symbol');
     buyModal.querySelector('#buy-security-id').value = securityId;
     buyModal.querySelector('#buy-symbol').value = symbol;
+  });
+</script>
+
+
+<!-- Sell Modal -->
+<div class="modal fade" id="sellModal" tabindex="-1" aria-labelledby="sellModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form method="POST" action="{% url 'market:sell_stock' %}">
+      {% csrf_token %}
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="sellModalLabel">Sell Stock</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" name="security_id" id="sell-security-id">
+          <input type="hidden" name="symbol" id="sell-symbol">
+          <div class="mb-3">
+            <label for="risk_per_unit" class="form-label">Risk Per Unit</label>
+            <input type="number" step="0.01" name="risk_per_unit" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="sell_price" class="form-label">Sell Price</label>
+            <input type="number" step="0.01" name="sell_price" class="form-control" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger">Confirm Sell</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+  const sellModal = document.getElementById('sellModal');
+  sellModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget;
+    const securityId = button.getAttribute('data-security_id');
+    const symbol = button.getAttribute('data-symbol');
+    sellModal.querySelector('#sell-security-id').value = securityId;
+    sellModal.querySelector('#sell-symbol').value = symbol;
   });
 </script>
 

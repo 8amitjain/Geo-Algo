@@ -9,9 +9,10 @@ from geo_algo import settings
 from datetime import datetime, timedelta
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.shortcuts import render
-from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404, redirect, render
 
+import csv
+import io
 import matplotlib
 matplotlib.use("Agg")
 
@@ -101,6 +102,84 @@ def candlestick_chart(request):
 
 
 @login_required
+def upload_trendlines_csv(request):
+    if request.method == "POST" and request.FILES.get("csv_file"):
+        file = request.FILES["csv_file"]
+
+        if not file.name.endswith(".csv"):
+            messages.error(request, "Uploaded file is not a CSV.")
+            return redirect("market:upload_trendlines_csv")
+
+        try:
+            decoded_file = file.read().decode("utf-8")
+            reader = csv.DictReader(io.StringIO(decoded_file))
+            created = 0
+
+            client = DHANClient(access_token=settings.DATA_DHAN_ACCESS_TOKEN)
+            symbol_result = client.get_symbols()
+
+            if isinstance(symbol_result, dict) and "instrument_list" in symbol_result:
+                instrument_list = symbol_result["instrument_list"]
+            else:
+                messages.error(request, "Failed to fetch symbol data from DHAN.")
+                return redirect("market:upload_trendlines_csv")
+
+            # Build symbol to security_id lookup
+            symbol_lookup = {
+                item["symbol"].strip().upper(): item["security_id"].strip()
+                for item in instrument_list
+            }
+
+            for row in reader:
+                symbol = row["symbol"].strip().upper()
+
+                security_id = symbol_lookup.get(symbol)
+                if not security_id:
+                    messages.warning(request, f"Symbol not found in DHAN list: {symbol}")
+                    continue
+
+                try:
+                    angle_list = [float(a.strip()) for a in row["angles"].split(",")]
+                except Exception:
+                    messages.warning(request, f"Invalid angles for symbol: {symbol}")
+                    continue
+
+                for angle in angle_list:
+                    TrendLine.objects.create(
+                        symbol=symbol,
+                        security_id=security_id,
+                        start_date=row["start_date"],
+                        price_to_bar_ratio=row["price_to_bar_ratio"],
+                        angles=[angle],  # Store as single-element list
+                        start_price=row["start_price"]
+                    )
+                    created += 1
+
+            messages.success(request, f"{created} trend lines created (1 per angle).")
+            return redirect("market:trendline_list")
+
+        except Exception as e:
+            messages.error(request, f"Error processing file: {e}")
+            return redirect("market:upload_trendlines_csv")
+
+    return render(request, "market/upload_trendlines_csv.html")
+
+
+@login_required
+def trendline_delete(request, pk):
+    tl = get_object_or_404(TrendLine, pk=pk)
+
+    if request.method == "POST":
+        tl.delete()
+        messages.success(request, f"Trend line for {tl.symbol} deleted.")
+        return redirect("market:trendline_list")
+
+    # If GET, redirect back with warning (optional, you can show a confirm page too)
+    messages.error(request, "Deletion must be confirmed via POST.")
+    return redirect("market:trendline_list")
+
+
+@login_required
 def trendline_list(request):
     qs = TrendLine.objects.all()
 
@@ -146,9 +225,20 @@ def trendline_list(request):
     if angle:
         qs = qs.filter(angles__icontains=angle)
 
+    sort_by = request.GET.get("sort", "distance")
+    reverse = request.GET.get("direction") == "desc"
+
+    trendlines = list(qs)  # Force evaluation for sorting in Python
+
+    if sort_by == "distance":
+        trendlines.sort(
+            key=lambda tl: tl.percent_difference_cached if tl.percent_difference_cached is not None else float('-inf'),
+            reverse=reverse
+        )
+
     # pass current filter values back to template
     context = {
-        "trendlines": qs.order_by("-created_at"),
+        "trendlines": trendlines,
         "filters": {
             "symbol": symbol,
             "start_date": start_date,
@@ -156,11 +246,14 @@ def trendline_list(request):
             "touched": touched,
             "purchased": purchased,
             "angle": angle,
-        }
+        },
+        "current_sort": sort_by,
+        "current_direction": "desc" if reverse else "asc",
     }
     return render(request, "market/trendline_list.html", context)
 
 
+@login_required
 def buy_stock_view(request):
     if request.method == "POST":
         try:
@@ -177,11 +270,12 @@ def buy_stock_view(request):
     return redirect(request.META.get("HTTP_REFERER", "/"))
 
 
+@login_required
 def sell_stock_view(request):
     if request.method == "POST":
         try:
             risk = float(request.POST["risk_per_unit"])
-            price = float(request.POST["cross_price"])
+            price = float(request.POST["sell_price"])
             sec_id = request.POST["security_id"]
             symbol = request.POST["symbol"]
 
@@ -199,7 +293,10 @@ def sell_stock_view(request):
 # CRON Command
 # */15 9-15 * * MON-FRI /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py check_ema_crossover >> /home/ubuntu/Geo-Algo/logs/ema_crossover.log 2>&1
 # */15 9-15 * * MON-FRI /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py check_trend_lines >> /home/ubuntu/Geo-Algo/logs/check_trend_lines.log 2>&1
-
+# */15 9-15 * * MON-FRI /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py check_break_high >> /home/ubuntu/Geo-Algo/logs/check_break_high.log 2>&1
+# */15 9-15 * * MON-FRI /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py check_stop_loss >> /home/ubuntu/Geo-Algo/logs/check_stop_loss.log 2>&1
+# 0 16 * * MON-FRI /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py  update_trendline_percent_diff >> /path/to/logs/update_trendline_percent_diff.log 2>&1
+# 0 8 * * * /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py  check_dhan_tokens >> /path/to/logs/dhan_token_check.log 2>&1
 
 # Deploy and test cron jobs logic and function
 # http://13.126.174.197/market/

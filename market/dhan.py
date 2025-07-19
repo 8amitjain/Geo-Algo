@@ -1,23 +1,16 @@
 import math
 from datetime import datetime, timedelta
-from typing import List, Tuple, Union, Any, Dict
-import threading
-from dateutil.relativedelta import relativedelta
 from pandas.tseries.offsets import BDay
 
 import matplotlib
-import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-from matplotlib.dates import DateFormatter
-from mplfinance.original_flavor import candlestick_ohlc
 import pandas as pd
-import requests
-import io
-import csv
-import websocket
-import json
+import time
 from requests import HTTPError
-import uuid
+import csv
+import io
+import requests
+from typing import List, Dict, Union, Any, Tuple
 
 matplotlib.use("Agg")  # headless plotting
 
@@ -40,22 +33,64 @@ class DHANClient:
         early = "1900-01-01"
         return self.get_ticker_data(security_id, early)
 
-    def get_symbols(self) -> Union[List[Any], Dict[str, Union[int, Any]]]:
-        """Return union of available stock symbols."""
-        try:
-            # https://images.dhan.co/api-data/api-scrip-master.csv # TODO get short code name from here
-            # resp = self.session.get(f"{self.BASE_URL}instrument/NSE_EQ/")
-            resp = self.session.get(f"{self.BASE_URL}instrument/NSE_EQ/")
-            resp.raise_for_status()
-            text = resp.text
+    def get_symbols(self) -> Union[Dict[str, Union[int, Any]], List[Dict[str, str]]]:
+        """
+        Fetch and return a list of dicts with trading symbol and security ID from Dhan scrip master CSV.
+        Only includes NSE equity symbols (excludes futures/options).
+        """
+        url = "https://images.dhan.co/api-data/api-scrip-master.csv"
 
-            # 2a. parse as CSV into a list of dictionaries
-            reader = csv.DictReader(io.StringIO(text))
-            instrument_list = [{'symbol': row['SYMBOL_NAME'], 'security_id': row['SECURITY_ID']} for row in reader if
-                               any(row.values())]  # drop empty rows
-            return {'status_code': resp.status_code, 'instrument_list': instrument_list}
-        except HTTPError:
-            return {'status_code': resp.status_code, 'error_description': resp.text}
+        try:
+            resp = requests.get(url)
+            resp.raise_for_status()
+            csv_text = resp.text
+
+            reader = csv.DictReader(io.StringIO(csv_text))
+
+            instrument_list = []
+
+            for row in reader:
+                exch = row.get("SEM_EXM_EXCH_ID")
+                symbol = row.get("SEM_TRADING_SYMBOL", "").strip()
+                security_id = row.get("SEM_SMST_SECURITY_ID", "").strip()
+                segment = row.get("SEM_SEGMENT", "").strip()
+                instrument_type = row.get("SEM_EXCH_INSTRUMENT_TYPE", "").strip()
+
+                if not (exch == "NSE" and symbol and security_id):
+                    continue
+
+                # Exclude futures (common indicators)
+                if segment == "D" or "FUT" in symbol.upper() or "FUT" in instrument_type.upper():
+                    continue
+
+                instrument_list.append({
+                    "symbol": symbol,
+                    "security_id": security_id
+                })
+
+            return {'status_code': 200, 'instrument_list': instrument_list}
+
+        except requests.exceptions.HTTPError as http_err:
+            return {'status_code': 400, 'error_description': str(http_err)}
+        except Exception as e:
+            return {'status_code': 500, 'error_description': str(e)}
+
+    # def get_symbols(self) -> Union[List[Any], Dict[str, Union[int, Any]]]:
+    #     """Return union of available stock symbols."""
+    #     try:
+    #         # https://images.dhan.co/api-data/api-scrip-master.csv # TODO get short code name from here
+    #         # resp = self.session.get(f"{self.BASE_URL}instrument/NSE_EQ/")
+    #         resp = self.session.get(f"{self.BASE_URL}instrument/NSE_EQ/")
+    #         resp.raise_for_status()
+    #         text = resp.text
+    #
+    #         # 2a. parse as CSV into a list of dictionaries
+    #         reader = csv.DictReader(io.StringIO(text))
+    #         instrument_list = [{'symbol': row['SYMBOL_NAME'], 'security_id': row['SECURITY_ID']} for row in reader if
+    #                            any(row.values())]  # drop empty rows
+    #         return {'status_code': resp.status_code, 'instrument_list': instrument_list}
+    #     except HTTPError:
+    #         return {'status_code': resp.status_code, 'error_description': resp.text}
 
     def get_ticker_data(self, security_id: Union[str, int], from_date: str) -> pd.DataFrame:
         """
@@ -73,6 +108,8 @@ class DHANClient:
                 "toDate": datetime.today().strftime("%Y-%m-%d"),
             }
         )
+        data = resp.json()
+        # print(data)
         resp.raise_for_status()
         data = resp.json()
         df = pd.DataFrame(data)
@@ -88,44 +125,65 @@ class DHANClient:
         return df[["open", "high", "low", "close", "volume"]]
 
     def get_intraday_ohlc(
-        self,
-        security_id: Union[str, int],
-        start_date: str,
-        end_date: str,
-        interval: int = 15,
+            self,
+            security_id: Union[str, int],
+            start_date: str,
+            end_date: str,
+            interval: int = 15,
+            max_retries: int = 3,
+            retry_delay: int = 10,  # seconds
     ) -> pd.DataFrame:
         """
-        Returns a DataFrame of today's intraday OHLCV bars for the given
-        security_id, at the specified interval in minutes (default=15).
+        Returns a DataFrame of intraday OHLCV bars for the given security_id.
+        Handles rate limiting (HTTP 429) and known error codes like DH-905.
         """
+        url = f"{self.BASE_URL}charts/intraday"
+        payload = {
+            "securityId": str(security_id),
+            "exchangeSegment": "NSE_EQ",
+            "instrument": "EQUITY",
+            "oi": False,
+            "fromDate": start_date,
+            "toDate": end_date,
+            "interval": str(interval),
+        }
 
-        resp = self.session.post(
-            f"{self.BASE_URL}charts/intraday",
-            json={
-                "securityId": str(security_id),
-                "exchangeSegment": "NSE_EQ",
-                "instrument": "EQUITY",
-                "oi": False,
-                "fromDate": start_date,
-                "toDate": end_date,
-                "interval": str(interval),
-            },
-        )
+        for attempt in range(1, max_retries + 1):
+            try:
+                resp = self.session.post(url, json=payload)
 
-        # print(resp.json())
-        resp.raise_for_status()
-        data = resp.json()
+                if resp.status_code == 429:
+                    print(f"[Attempt {attempt}] Rate limit hit. Retrying in {retry_delay} sec...")
+                    time.sleep(retry_delay)
+                    continue
 
-        df = pd.DataFrame(data)
-        # convert UNIX seconds → IST local time, drop tzinfo
-        df["timestamp"] = (
-            pd.to_datetime(df["timestamp"], unit="s", utc=True)
-            .dt.tz_convert("Asia/Kolkata")
-            .dt.tz_localize(None)
-        )
-        df.set_index("timestamp", inplace=True)
+                data = resp.json()
 
-        return df[["open", "high", "low", "close", "volume"]]
+                if data.get("errorCode") == "DH-905":
+                    print("No data available (holiday or non-trading day).")
+                    return pd.DataFrame()
+
+                resp.raise_for_status()
+
+                df = pd.DataFrame(data)
+                if df.empty:
+                    return df
+
+                df["timestamp"] = (
+                    pd.to_datetime(df["timestamp"], unit="s", utc=True)
+                    .dt.tz_convert("Asia/Kolkata")
+                    .dt.tz_localize(None)
+                )
+                df.set_index("timestamp", inplace=True)
+                return df[["open", "high", "low", "close", "volume"]]
+
+            except requests.exceptions.RequestException as e:
+                print(f"[Attempt {attempt}] Request failed: {e}")
+                time.sleep(retry_delay)
+
+        # All retries failed
+        print("Failed to fetch intraday OHLC after retries.")
+        return pd.DataFrame()
 
     def place_order(
             self,
@@ -164,56 +222,6 @@ class DHANClient:
         else:
             print(f"Order placement failed: {response.status_code} – {response.text}")
             raise Exception(f"Order placement failed: {response.status_code} – {response.text}")
-
-    def sell_stock(
-            self,
-            risk_per_unit: float,
-            cross_price: float,
-            security_id: str,
-            symbol: str,
-            dhan_access_token: str,
-            dhan_client_id: str,
-            max_risk: float = 500.0,
-    ) -> None:
-        """
-        Places a SELL order using the Dhan API.
-
-        Args:
-            risk_per_unit (float): Difference between sell price and SL.
-            cross_price (float): Market price to sell at.
-            security_id (str): Dhan security ID.
-            symbol (str): Human-readable symbol (for logs/emails).
-            dhan_access_token (str): Auth token for Dhan client.
-            dhan_client_id (str): Dhan client ID.
-            max_risk (float): Total capital risked (default: ₹500).
-        """
-        try:
-            if risk_per_unit <= 0:
-                print(f"[❌] Invalid risk_per_unit={risk_per_unit}. Cannot sell {symbol}.")
-                return
-
-            qty = math.floor(max_risk / risk_per_unit)
-            if qty == 0:
-                print(f"[❌] Calculated quantity is 0 for {symbol}; skipping.")
-                return
-
-            client = DHANClient(access_token=dhan_access_token)
-            client.place_order(
-                dhan_client_id=dhan_client_id,
-                security_id=security_id,
-                transaction_type="SELL",
-                quantity=qty,
-                price=cross_price,
-                order_type="MARKET",  # Can change to "LIMIT"
-                product_type="CNC",  # Or INTRADAY/MARGIN if needed
-                exchange_segment="NSE_EQ",
-                validity="DAY"
-            )
-
-            print(f"[✅] SELL order placed for {qty} shares of {symbol} at approx ₹{cross_price:.2f}")
-
-        except Exception as e:
-            print(f"[⚠️] Failed to place SELL order for {symbol}: {e}")
 
 
 class TrendLine:
