@@ -495,3 +495,478 @@ Outside market hours; skipping crossover check.
 Outside market hours; skipping crossover check.
 Outside market hours; skipping crossover check.
 Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: OIL AND NATURAL GAS CORP. @ 2025-04-07 → [[45.0]]° on 2025-07-11: ✔>, <TrendLineCheck: VODAFONE IDEA LIMITED @ 2025-06-19 → [[45.0]]° on 2025-07-11: ✔>, <TrendLineCheck: MAZAGON DOCK SHIPBUIL LTD @ 2025-04-07 → [[45.0]]° on 2025-07-11: ✔>, <TrendLineCheck: NBCC (INDIA) LIMITED @ 2025-03-03 → [[45.0]]° on 2025-07-11: ✔>, <TrendLineCheck: MACROTECH DEVELOPERS LTD @ 2025-03-17 → [[45.0]]° on 2025-07-11: ✔>, <TrendLineCheck: DR. REDDY S LABORATORIES @ 2025-04-07 → [[45.0]]° on 2025-07-11: ✔>, <TrendLineCheck: BANDHAN BANK LIMITED @ 2025-02-18 → [[45.0]]° on 2025-07-10: ✔>, <TrendLineCheck: TITAN COMPANY LIMITED @ 2025-04-07 → [[45.0]]° on 2025-07-10: ✔>]> recent
+2025-07-14
+DEMA5 DEMA9
+5 9
+
+244.03673220257107 243.87550379442644
+INNN
+8amitjain@gmail.com | Risk per unit: ₹3.20 | Risk per trade: ₹500
+{'dhanClientId': '1102279413', 'transactionType': 'BUY', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '2475', 'quantity': 156, 'price': 244.0, 'triggerPrice': 244.0, 'afterMarketOrder': True}
+Order placement failed: 400 – {"errorType":"Input_Exception","errorCode":"DH-905","errorMessage":"Missing required fields, bad values for parameters etc."}
+Failed to place order for OIL AND NATURAL GAS CORP.: Order placement failed: 400 – {"errorType":"Input_Exception","errorCode":"DH-905","errorMessage":"Missing required fields, bad values for parameters etc."}
+Purchase OIL AND NATURAL GAS CORP. at 14/07/2025 01:45 PM
+2025-07-14
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 172, in handle
+    EMACrossoverChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 39, in run
+    df = self.client.get_intraday_ohlc(
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 116, in get_intraday_ohlc
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+False
+<QuerySet [<TrendLineCheck: VODAFONE IDEA LIMITED @ 2025-06-19 → [[45.0]]° on 2025-07-11: ✔>, <TrendLineCheck: MAZAGON DOCK SHIPBUIL LTD @ 2025-04-07 → [[45.0]]° on 2025-07-11: ✔>, <TrendLineCheck: NBCC (INDIA) LIMITED @ 2025-03-03 → [[45.0]]° on 2025-07-11: ✔>, <TrendLineCheck: MACROTECH DEVELOPERS LTD @ 2025-03-17 → [[45.0]]° on 2025-07-11: ✔>, <TrendLineCheck: DR. REDDY S LABORATORIES @ 2025-04-07 → [[45.0]]° on 2025-07-11: ✔>, <TrendLineCheck: BANDHAN BANK LIMITED @ 2025-02-18 → [[45.0]]° on 2025-07-10: ✔>, <TrendLineCheck: TITAN COMPANY LIMITED @ 2025-04-07 → [[45.0]]° on 2025-07-10: ✔>]> recent
+2025-07-14
+DEMA5 DEMA9
+5 9
+
+7.606069068188192 7.6355705349557335
+DEMA5 DEMA25
+5 25
+
+7.606069068188192 7.633008672772985
+2025-07-14
+DEMA5 DEMA9
+5 9
+
+3119.4993013078392 3118.9095747194424
+INNN
+8amitjain@gmail.com | Risk per unit: ₹31.20 | Risk per trade: ₹500
+{'dhanClientId': '1102279413', 'transactionType': 'BUY', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '509', 'quantity': 16, 'price': 3118.8, 'triggerPrice': 3118.8, 'afterMarketOrder': False}
+Order placed: 16 shares of MAZAGON DOCK SHIPBUIL LTD at approx ₹3118.80
+Purchase MAZAGON DOCK SHIPBUIL LTD at 14/07/2025 02:00 PM
+2025-07-14
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 172, in handle
+    EMACrossoverChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 39, in run
+    df = self.client.get_intraday_ohlc(
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 116, in get_intraday_ohlc
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: ACC LIMITED @ 2025-06-20 → [[63.75]]° on 2025-07-15: ✔>, <TrendLineCheck: LARSEN & TOUBRO LTD. @ 2025-04-07 → [[45.0]]° on 2025-07-15: ✔>, <TrendLineCheck: BANK OF INDIA @ 2025-03-11 → [[45.0]]° on 2025-07-15: ✔>, <TrendLineCheck: TATA STEEL LIMITED @ 2025-04-07 → [[45.0]]° on 2025-07-15: ✔>]> recent
+2025-07-15
+DEMA5 DEMA25
+5 25
+
+1987.4279078329764 1977.4288812894213
+INNN
+8amitjain@gmail.com | Risk per unit: ₹6.50 | Risk per trade: ₹500
+{'dhanClientId': '1102279413', 'transactionType': 'BUY', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '22', 'quantity': 76, 'price': 1986.6, 'triggerPrice': 1986.6, 'afterMarketOrder': False}
+Order placed: 76 shares of ACC LIMITED at approx ₹1986.60
+anandkene3073@gmail.com | Risk per unit: ₹6.50 | Risk per trade: ₹500
+{'dhanClientId': '1101861847', 'transactionType': 'BUY', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '22', 'quantity': 76, 'price': 1986.6, 'triggerPrice': 1986.6, 'afterMarketOrder': False}
+Order placed: 76 shares of ACC LIMITED at approx ₹1986.60
+Purchase ACC LIMITED at 15/07/2025 09:45 AM
+2025-07-15
+DEMA5 DEMA25
+5 25
+
+3493.999149285326 3486.0792191369765
+INNN
+8amitjain@gmail.com | Risk per unit: ₹1.70 | Risk per trade: ₹500
+{'dhanClientId': '1102279413', 'transactionType': 'BUY', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '11483', 'quantity': 294, 'price': 3491.8, 'triggerPrice': 3491.8, 'afterMarketOrder': False}
+Order placed: 294 shares of LARSEN & TOUBRO LTD. at approx ₹3491.80
+anandkene3073@gmail.com | Risk per unit: ₹1.70 | Risk per trade: ₹500
+{'dhanClientId': '1101861847', 'transactionType': 'BUY', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '11483', 'quantity': 294, 'price': 3491.8, 'triggerPrice': 3491.8, 'afterMarketOrder': False}
+Order placed: 294 shares of LARSEN & TOUBRO LTD. at approx ₹3491.80
+Purchase LARSEN & TOUBRO LTD. at 15/07/2025 09:45 AM
+2025-07-15
+DEMA5 DEMA25
+5 25
+
+115.08793683355233 115.02552944072278
+INNN
+8amitjain@gmail.com | Risk per unit: ₹0.06 | Risk per trade: ₹500
+{'dhanClientId': '1102279413', 'transactionType': 'BUY', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '4745', 'quantity': 8333, 'price': 115.04, 'triggerPrice': 115.04, 'afterMarketOrder': False}
+Order placed: 8333 shares of BANK OF INDIA at approx ₹115.04
+anandkene3073@gmail.com | Risk per unit: ₹0.06 | Risk per trade: ₹500
+{'dhanClientId': '1101861847', 'transactionType': 'BUY', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '4745', 'quantity': 8333, 'price': 115.04, 'triggerPrice': 115.04, 'afterMarketOrder': False}
+Order placed: 8333 shares of BANK OF INDIA at approx ₹115.04
+Purchase BANK OF INDIA at 15/07/2025 09:45 AM
+2025-07-15
+DEMA5 DEMA25
+5 25
+
+158.9629424325828 159.81295715288957
+DEMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: TATA STEEL LIMITED @ 2025-04-07 → [[45.0]]° on 2025-07-15: ✔>]> recent
+2025-07-15
+DEMA5 DEMA25
+5 25
+
+158.99688033763718 159.72917653441
+DEMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: TATA STEEL LIMITED @ 2025-04-07 → [[45.0]]° on 2025-07-15: ✔>]> recent
+2025-07-15
+DEMA5 DEMA25
+5 25
+
+158.96984134434362 159.61991719595432
+DEMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: TATA STEEL LIMITED @ 2025-04-07 → [[45.0]]° on 2025-07-15: ✔>]> recent
+2025-07-15
+DEMA5 DEMA25
+5 25
+
+158.72277991400216 159.44366947119767
+DEMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: TATA STEEL LIMITED @ 2025-04-07 → [[45.0]]° on 2025-07-15: ✔>]> recent
+2025-07-15
+DEMA5 DEMA25
+5 25
+
+158.7758758310601 159.35393014938438
+DEMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: TATA STEEL LIMITED @ 2025-04-07 → [[45.0]]° on 2025-07-15: ✔>]> recent
+2025-07-15
+DEMA5 DEMA25
+5 25
+
+158.9847470722272 159.3285836863441
+DEMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: TATA STEEL LIMITED @ 2025-04-07 → [[45.0]]° on 2025-07-15: ✔>]> recent
+2025-07-15
+DEMA5 DEMA25
+5 25
+
+159.10063152941206 159.29557951395728
+DEMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: TATA STEEL LIMITED @ 2025-04-07 → [[45.0]]° on 2025-07-15: ✔>]> recent
+2025-07-15
+DEMA5 DEMA25
+5 25
+
+159.13502852563363 159.2539765421753
+DEMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: TATA STEEL LIMITED @ 2025-04-07 → [[45.0]]° on 2025-07-15: ✔>]> recent
+2025-07-15
+DEMA5 DEMA25
+5 25
+
+159.40901661369872 159.30159385400214
+INNN
+8amitjain@gmail.com | Risk per unit: ₹1.54 | Risk per trade: ₹500
+{'dhanClientId': '1102279413', 'transactionType': 'BUY', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '3499', 'quantity': 324, 'price': 159.49, 'triggerPrice': 159.49, 'afterMarketOrder': False}
+Order placed: 324 shares of TATA STEEL LIMITED at approx ₹159.49
+Purchase TATA STEEL LIMITED at 15/07/2025 11:45 AM
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+<QuerySet []> recent
+DEMA crossover check complete.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
