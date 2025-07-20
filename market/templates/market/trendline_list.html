@@ -77,14 +77,7 @@
           <th>Angles (°)</th>
           <th>Ratio</th>
           <th>
-            <a href="?sort=distance&direction={% if current_sort == 'distance' and current_direction == 'asc' %}desc{% else %}asc{% endif %}&
-                      {% if filters.symbol %}symbol={{ filters.symbol }}&{% endif %}
-                      {% if filters.angle %}angle={{ filters.angle }}&{% endif %}
-                      {% if filters.start_date %}start_date={{ filters.start_date }}&{% endif %}
-                      {% if filters.created_at %}created_at={{ filters.created_at }}&{% endif %}
-                      {% if filters.touched %}touched={{ filters.touched }}&{% endif %}
-                      {% if filters.purchased %}purchased={{ filters.purchased }}&{% endif %}
-                      ">
+            <a href="?sort=distance&direction={% if current_sort == 'distance' and current_direction == 'asc' %}desc{% else %}asc{% endif %}&{% if filters.symbol %}symbol={{ filters.symbol }}&{% endif %}{% if filters.angle %}angle={{ filters.angle }}&{% endif %}{% if filters.start_date %}start_date={{ filters.start_date }}&{% endif %}{% if filters.created_at %}created_at={{ filters.created_at }}&{% endif %}{% if filters.touched %}touched={{ filters.touched }}&{% endif %}{% if filters.purchased %}purchased={{ filters.purchased }}&{% endif %}">
               Distance
               {% if current_sort == "distance" %}
                 {% if current_direction == "asc" %}

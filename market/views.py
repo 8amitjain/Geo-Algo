@@ -295,10 +295,10 @@ def sell_stock_view(request):
 # */15 9-15 * * MON-FRI /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py check_trend_lines >> /home/ubuntu/Geo-Algo/logs/check_trend_lines.log 2>&1
 # */15 9-15 * * MON-FRI /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py check_break_high >> /home/ubuntu/Geo-Algo/logs/check_break_high.log 2>&1
 # */15 9-15 * * MON-FRI /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py check_stop_loss >> /home/ubuntu/Geo-Algo/logs/check_stop_loss.log 2>&1
-# 0 16 * * MON-FRI /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py  update_trendline_percent_diff >> /path/to/logs/update_trendline_percent_diff.log 2>&1
-# 0 8 * * * /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py  check_dhan_tokens >> /path/to/logs/dhan_token_check.log 2>&1
-
-# Deploy and test cron jobs logic and function
+# 0 16 * * MON-FRI /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py  update_trendline_percent_diff >> /home/ubuntu/Geo-Algo/logs/update_trendline_percent_diff.log 2>&1
+# 0 8 * * * /home/ubuntu/Geo-Algo/venv/bin/python /home/ubuntu/Geo-Algo/manage.py  check_dhan_tokens >> /home/ubuntu/Geo-Algo/logs/dhan_token_check.log 2>&1
+#
+# # Deploy and test cron jobs logic and function
 # http://13.126.174.197/market/
 # http://13.126.174.197/market/chart.png?symbol=SBI+Life+Insurance&security_id=21808&start_price=low&start_date=2025-03-12&price_to_bar_ratio=4&angles=45,63.251&start_bar=1846
 # http://13.126.174.197/admin/market/trendlinecheck/
