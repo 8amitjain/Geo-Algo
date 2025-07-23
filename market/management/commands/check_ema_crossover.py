@@ -108,11 +108,11 @@ class EMACrossoverChecker:
                     f" – Price at cross over: {cross_price:.2f}\n"
                     f" – High to Break: {break_price:.2f}\n"
                 )
-                # send_notification_email(
-                #     subject=subject,
-                #     message=body,
-                #     recipient_list=settings.EMAIL_RECIPIENTS
-                # )
+                send_notification_email(
+                    subject=subject,
+                    message=body,
+                    recipient_list=settings.EMAIL_RECIPIENTS
+                )
                 print(subject)
 
 
