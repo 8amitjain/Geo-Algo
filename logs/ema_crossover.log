@@ -970,3 +970,776 @@ False
 Outside market hours; skipping crossover check.
 False
 Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: TATAMOTORS @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+681.5556982255196 680.5018811999137
+INNN
+EMA Cross OVER TATAMOTORS at 21/07/2025 11:33 AM
+2025-07-21
+EMA5 EMA25
+5 25
+
+376.588015536447 377.0777687009116
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: TATAMOTORS @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+376.5364548020758 377.0262243629716
+2025-07-21
+EMA5 EMA25
+5 25
+
+680.8260210392353 680.3751092732931
+INNN
+EMA Cross OVER TATAMOTORS at 21/07/2025 11:45 AM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: TATAMOTORS @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+376.6076365347172 377.0079349149324
+2025-07-21
+EMA5 EMA25
+5 25
+
+681.7229029150458 680.651284299608
+INNN
+EMA Cross OVER TATAMOTORS at 21/07/2025 12:00 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: TATAMOTORS @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+376.9328688009226 377.065016844553
+2025-07-21
+EMA5 EMA25
+5 25
+
+681.9486019433639 680.7858008919459
+INNN
+EMA Cross OVER TATAMOTORS at 21/07/2025 12:15 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: TATAMOTORS @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+683.0601790733538 681.165295497891
+INNN
+EMA Cross OVER TATAMOTORS at 21/07/2025 12:30 PM
+2025-07-21
+EMA5 EMA25
+5 25
+
+377.07746808950395 377.0901930636111
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+377.9238676152249 377.3101782125641
+INNN
+EMA Cross OVER RVNL at 21/07/2025 12:45 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+377.8603561879277 377.33188048023675
+INNN
+EMA Cross OVER RVNL at 21/07/2025 01:00 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+378.24579301417407 377.4723275438872
+INNN
+EMA Cross OVER RVNL at 21/07/2025 01:15 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+378.39719534278277 377.56676388666517
+INNN
+EMA Cross OVER RVNL at 21/07/2025 01:30 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+378.2036857840774 377.5761252444957
+INNN
+EMA Cross OVER RVNL at 21/07/2025 01:45 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+378.0413460782738 377.5800327700671
+INNN
+EMA Cross OVER RVNL at 21/07/2025 02:00 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+378.17756405218256 377.6528704859791
+INNN
+EMA Cross OVER RVNL at 21/07/2025 02:15 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+378.28504270145504 377.72099287463163
+INNN
+EMA Cross OVER RVNL at 21/07/2025 02:30 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-21
+EMA5 EMA25
+5 25
+
+378.2678062454145 377.7584312925594
+INNN
+EMA Cross OVER RVNL at 21/07/2025 02:45 PM
+EMA crossover check complete.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+377.1477495192865 377.6323571494278
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+377.1310828526198 377.6285109955816
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+376.57072190174654 377.45205748704575
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+376.29714793449773 377.32112998804223
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+375.96476528966514 377.1597412907372
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+376.01476528966515 377.17127975227567
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+375.6565623509623 376.9054099664361
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+375.4154860117527 376.74878079742035
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1213.4446091064679 1216.6087897573302
+2025-07-22
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+EMA5 EMA25
+5 25
+
+375.24365734116844 376.6036083100449
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1214.1408505154232 1216.559592912092
+2025-07-22
+EMA5 EMA25
+5 25
+
+375.08466044966787 376.4583603335326
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1214.0741838487565 1216.5442082967074
+2025-07-22
+EMA5 EMA25
+5 25
+
+375.07866252200085 376.3532793611307
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1213.9827892325045 1216.333115350807
+2025-07-22
+EMA5 EMA25
+5 25
+
+374.9413305702228 376.2195951499195
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1214.188526155003 1216.1997987853606
+2025-07-22
+EMA5 EMA25
+5 25
+
+374.83310926903744 376.0923481857245
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1214.2256841033354 1216.053660417256
+2025-07-22
+EMA5 EMA25
+5 25
+
+374.80540617935833 375.9890906329765
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1214.217122735557 1215.9110711543904
+2025-07-22
+EMA5 EMA25
+5 25
+
+374.6702707862389 375.860935732215
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1212.811415157038 1215.4563733732834
+2025-07-22
+EMA5 EMA25
+5 25
+
+374.60795830193706 375.75299393032867
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1213.093962292017 1215.1261406257565
+2025-07-22
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+EMA5 EMA25
+5 25
+
+374.5053055346247 375.6382665865756
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1211.9515304169004 1214.6608161989232
+2025-07-22
+EMA5 EMA25
+5 25
+
+374.1146481341943 375.45011590240114
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1415.9685140894526 1420.6303970213896
+2025-07-22
+EMA5 EMA25
+5 25
+
+1212.045464722378 1214.4780315208995
+2025-07-22
+EMA5 EMA25
+5 25
+
+374.00420986724066 375.3258466318023
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1415.9456760596352 1420.2606031676735
+2025-07-22
+EMA5 EMA25
+5 25
+
+1210.9191987038075 1213.991555723434
+2025-07-22
+EMA5 EMA25
+5 25
+
+373.8472510226049 375.18598860687075
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1415.4971173730903 1419.8074206754854
+2025-07-22
+EMA5 EMA25
+5 25
+
+1208.7683546914272 1213.1898384192646
+2025-07-22
+EMA5 EMA25
+5 25
+
+373.375945126181 374.9604391874073
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-22
+EMA5 EMA25
+5 25
+
+1415.320300470949 1419.431110209324
+2025-07-22
+EMA5 EMA25
+5 25
+
+1208.434458683174 1212.7746437479605
+2025-07-22
+EMA5 EMA25
+5 25
+
+373.0450745285651 374.75431072920435
+EMA crossover check complete.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+[Attempt 1] Request failed: HTTPSConnectionPool(host='api.dhan.co', port=443): Max retries exceeded with url: /v2/charts/intraday (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7583d00bae80>: Failed to resolve 'api.dhan.co' ([Errno -3] Temporary failure in name resolution)"))
+EMA5 EMA25
+5 25
+
+1416.1189970441856 1418.172673334057
+2025-07-23
+EMA5 EMA25
+5 25
+
+1211.7609163698007 1212.200671083153
+2025-07-23
+EMA5 EMA25
+5 25
+
+371.8620399927878 373.80917952539704
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+1416.1856637108524 1418.1880579494416
+2025-07-23
+EMA5 EMA25
+5 25
+
+1211.6275830364675 1212.1699018523839
+2025-07-23
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+EMA5 EMA25
+5 25
+
+371.91203999278775 373.8207179869355
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+1418.001553585013 1418.510278343863
+2025-07-23
+EMA5 EMA25
+5 25
+
+1214.2517220243117 1212.816595792733
+INNN
+EMA Cross OVER BHARATFORG at 23/07/2025 10:00 AM
+2025-07-23
+EMA5 EMA25
+5 25
+
+372.09135999519185 373.72119530155
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+1417.8232579455644 1418.4023871103116
+2025-07-23
+EMA5 EMA25
+5 25
+
+1212.8183886909783 1212.485826561964
+INNN
+EMA Cross OVER BHARATFORG at 23/07/2025 10:15 AM
+2025-07-23
+EMA5 EMA25
+5 25
+
+371.93868444123905 373.5556595682947
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+1418.0710608525985 1418.4169963858496
+2025-07-23
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+EMA5 EMA25
+5 25
+
+1213.0526171959905 1212.5985741119696
+INNN
+EMA Cross OVER BHARATFORG at 23/07/2025 10:30 AM
+2025-07-23
+EMA5 EMA25
+5 25
+
+371.4146785163816 373.29457332931344
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: BHARATFORG @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+1417.3584850128436 1418.1943871964058
+2025-07-23
+EMA5 EMA25
+5 25
+
+1211.619283862657 1212.2678048812004
+2025-07-23
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+EMA5 EMA25
+5 25
+
+370.8931190109211 373.01777183060887
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+1418.294545564118 1418.377659187215
+2025-07-23
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+EMA5 EMA25
+5 25
+
+370.90652378505854 372.86433376079873
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+1417.7074748205232 1418.2042297822816
+2025-07-23
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+EMA5 EMA25
+5 25
+
+369.5710158567057 372.36116015789713
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+1418.7605387692377 1418.4465079647096
+INNN
+EMA Cross OVER RELIANCE at 23/07/2025 11:30 AM
+2025-07-23
+EMA5 EMA25
+5 25
+
+368.83067723780385 371.96385198007073
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+1419.2848036239363 1418.6015103106195
+INNN
+EMA Cross OVER RELIANCE at 23/07/2025 11:45 AM
+2025-07-23
+EMA5 EMA25
+5 25
+
+368.35378482520264 371.6068692833789
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+1419.9787579715132 1418.8280213518144
+INNN
+EMA Cross OVER RELIANCE at 23/07/2025 12:00 PM
+2025-07-23
+EMA5 EMA25
+5 25
+
+368.8580787723573 371.49864856927286
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+1420.4636164254534 1419.032374738953
+INNN
+EMA Cross OVER RELIANCE at 23/07/2025 12:15 PM
+2025-07-23
+EMA5 EMA25
+5 25
+
+368.6664969593494 371.2434270816957
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RELIANCE @ 2025-04-07 → [[45.0]]° on 2025-07-22: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>, <TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+1421.0535220614133 1419.288464256075
+INNN
+EMA Cross OVER RELIANCE at 23/07/2025 12:30 PM
+2025-07-23
+EMA5 EMA25
+5 25
+
+368.9443313062329 371.1181930458256
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+369.9739986485997 371.2221190245491
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+371.4326657657332 371.5041453717731
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+[Attempt 1] Request failed: HTTPSConnectionPool(host='api.dhan.co', port=443): Max retries exceeded with url: /v2/charts/intraday (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x75b343bfad90>: Failed to resolve 'api.dhan.co' ([Errno -3] Temporary failure in name resolution)"))
+EMA5 EMA25
+5 25
+
+372.4126662662518 371.752030102849
+INNN
+EMA Cross OVER RVNL at 23/07/2025 01:15 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+372.4126662662518 371.752030102849
+INNN
+EMA Cross OVER RVNL at 23/07/2025 01:32 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+372.6528886219457 371.8563118109139
+INNN
+EMA Cross OVER RVNL at 23/07/2025 01:45 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+372.7797035257416 371.94487954143534
+INNN
+EMA Cross OVER RVNL at 23/07/2025 02:00 PM
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[45.0]]° on 2025-07-21: Touched: ✔ - Cross Over EMA: ✔ - Purchased: ✘>]> recent
+2025-07-23
+EMA5 EMA25
+5 25
+
+372.8809134616055 372.0334391033368
+INNN
+EMA Cross OVER RVNL at 23/07/2025 02:15 PM
+EMA crossover check complete.

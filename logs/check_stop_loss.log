@@ -1,0 +1,167 @@
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+[Attempt 1] Request failed: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[Attempt 2] Request failed: HTTPSConnectionPool(host='api.dhan.co', port=443): Max retries exceeded with url: /v2/charts/intraday (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7a2c21f3a220>: Failed to resolve 'api.dhan.co' ([Errno -3] Temporary failure in name resolution)"))
+[Attempt 3] Request failed: HTTPSConnectionPool(host='api.dhan.co', port=443): Max retries exceeded with url: /v2/charts/intraday (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7a2c21f79820>: Failed to resolve 'api.dhan.co' ([Errno -3] Temporary failure in name resolution)"))
+Failed to fetch intraday OHLC after retries.
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
