@@ -68,7 +68,7 @@ class BreakoutChecker:
 
             chk.purchased = True
             chk.stop_loss_price = low_of_day  # calculated earlier
-            chk.save(update_fields=["purchased", "stop_loss_price"])
+            chk.save()
 
             eligible_users = User.objects.filter(
                 trading_enabled=True,
@@ -80,7 +80,7 @@ class BreakoutChecker:
                 if qty <= 0:
                     continue
                 chk.purchase_qty = qty  # calculated earlier
-                chk.save(update_fields=["purchase_qty"])
+                chk.save()
 
                 symbol = chk.trend_line.symbol
                 subject = f"Purchase {symbol} triggered at {now.strftime('%d/%m/%Y %I:%M %p')}"
@@ -92,6 +92,9 @@ class BreakoutChecker:
                     f" – Risk/Unit: ₹{risk_per_unit:.2f}\n"
                     f" – Quantity: {qty}\n"
                     f" – Stop-loss: ₹{stop_loss:.2f}\n"
+                    
+                    f" FOR DEBUGGING \n"
+                    f" – Purchased: {chk.purchased}\n"
                 )
                 print(f"Order placed: {qty} shares of {symbol} at approx ₹{cross_price:.2f}")
 

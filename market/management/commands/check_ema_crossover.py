@@ -24,10 +24,12 @@ class EMACrossoverChecker:
         recent = TrendLineCheck.objects.filter(
             touched=True,
             purchased=False,
+            cross_over_ema=False
             # date=today,
         )
         print(recent, "recent")
         for chk in recent:
+            print(chk.id, chk.purchased, chk.trend_line.symbol, chk.trend_line.angles)
             # trade_date = ch#k.checked_at.date() #- timedelta(days=2)
             trade_date = today  # - timedelta(days=2)
             print(trade_date)
@@ -106,11 +108,11 @@ class EMACrossoverChecker:
                     f" – Price at cross over: {cross_price:.2f}\n"
                     f" – High to Break: {break_price:.2f}\n"
                 )
-                send_notification_email(
-                    subject=subject,
-                    message=body,
-                    recipient_list=settings.EMAIL_RECIPIENTS
-                )
+                # send_notification_email(
+                #     subject=subject,
+                #     message=body,
+                #     recipient_list=settings.EMAIL_RECIPIENTS
+                # )
                 print(subject)
 
 
