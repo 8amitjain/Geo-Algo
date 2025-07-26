@@ -5,14 +5,17 @@ from .utils import buy_sell_stock
 from .models import TrendLine, TrendLineCheck
 
 from geo_algo import settings
-
 from datetime import datetime, timedelta
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
+from django.utils import timezone
 
+import subprocess
 import csv
 import io
+# import pyodbc
+import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
 
@@ -103,16 +106,22 @@ def candlestick_chart(request):
 
 @login_required
 def upload_trendlines_csv(request):
-    if request.method == "POST" and request.FILES.get("csv_file"):
-        file = request.FILES["csv_file"]
+    if request.method == "POST":
+        csv_file = request.FILES.get("csv_file")
+        accdb_file = request.FILES.get("accdb_file")
 
-        if not file.name.endswith(".csv"):
-            messages.error(request, "Uploaded file is not a CSV.")
+        if not csv_file or not csv_file.name.endswith(".csv"):
+            messages.error(request, "Uploaded CSV file is missing or not valid.")
+            return redirect("market:upload_trendlines_csv")
+
+        if not accdb_file or not accdb_file.name.endswith(".accdb"):
+            messages.error(request, "Uploaded Access (.accdb) file is missing or not valid.")
             return redirect("market:upload_trendlines_csv")
 
         try:
-            decoded_file = file.read().decode("utf-8")
-            reader = csv.DictReader(io.StringIO(decoded_file))
+            # 🔹 Read CSV file and create trendlines
+            decoded_csv = csv_file.read().decode("utf-8")
+            reader = csv.DictReader(io.StringIO(decoded_csv))
             created = 0
 
             client = DHANClient(access_token=settings.DATA_DHAN_ACCESS_TOKEN)
@@ -124,42 +133,75 @@ def upload_trendlines_csv(request):
                 messages.error(request, "Failed to fetch symbol data from DHAN.")
                 return redirect("market:upload_trendlines_csv")
 
-            # Build symbol to security_id lookup
             symbol_lookup = {
                 item["symbol"].strip().upper(): item["security_id"].strip()
                 for item in instrument_list
             }
 
             for row in reader:
-                symbol = row["symbol"].strip().upper()
+                full_script = row["Scrip"].strip()
+                symbol = full_script.split()[0].upper()
+
+                try:
+                    days = int(row["Days"].strip())
+                except ValueError:
+                    messages.warning(request, f"Invalid Days for symbol: {symbol}")
+                    continue
+
+                try:
+                    start_date = (timezone.now().date() - timedelta(days=days)).isoformat()
+                except:
+                    messages.warning(request, f"Failed to calculate start date for symbol: {symbol}")
+                    continue
 
                 security_id = symbol_lookup.get(symbol)
                 if not security_id:
                     messages.warning(request, f"Symbol not found in DHAN list: {symbol}")
                     continue
 
-                try:
-                    angle_list = [float(a.strip()) for a in row["angles"].split(",")]
-                except Exception:
-                    messages.warning(request, f"Invalid angles for symbol: {symbol}")
-                    continue
+                # Store trendline
+                # TrendLine.objects.create(
+                #     symbol=symbol,
+                #     security_id=security_id,
+                #     start_date=start_date,
+                #     price_to_bar_ratio="1",  # default or parse from somewhere
+                #     angles=[45.0],  # default or update if needed
+                #     start_price=row["Plot Price"]
+                # )
+                # created += 1
 
-                for angle in angle_list:
-                    TrendLine.objects.create(
-                        symbol=symbol,
-                        security_id=security_id,
-                        start_date=row["start_date"],
-                        price_to_bar_ratio=row["price_to_bar_ratio"],
-                        angles=[angle],  # Store as single-element list
-                        start_price=row["start_price"]
+            messages.success(request, f"{created} trend lines created from CSV.")
+
+            # 🔹 Process .accdb file using mdbtools
+            accdb_path = f"/tmp/{accdb_file.name}"
+            with open(accdb_path, "wb") as f:
+                for chunk in accdb_file.chunks():
+                    f.write(chunk)
+
+            # 🔍 List tables in the .accdb file
+            result = subprocess.run(
+                ["mdb-tables", "-1", accdb_path],
+                capture_output=True,
+                text=True
+            )
+            table_names = result.stdout.strip().splitlines()
+
+            if not table_names:
+                messages.warning(request, "No tables found in the Access file.")
+            else:
+                for table in table_names[:2]:  # print only first 2 tables
+                    export_result = subprocess.run(
+                        ["mdb-export", accdb_path, table],
+                        capture_output=True,
+                        text=True
                     )
-                    created += 1
+                    print(f"Table {table} preview:")
+                    print(export_result.stdout[:1000])  # log sample
 
-            messages.success(request, f"{created} trend lines created (1 per angle).")
             return redirect("market:trendline_list")
 
         except Exception as e:
-            messages.error(request, f"Error processing file: {e}")
+            messages.error(request, f"Error processing files: {e}")
             return redirect("market:upload_trendlines_csv")
 
     return render(request, "market/upload_trendlines_csv.html")
