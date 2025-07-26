@@ -1743,3 +1743,780 @@ EMA5 EMA25
 INNN
 EMA Cross OVER RVNL at 23/07/2025 02:15 PM
 EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 129, in handle
+    EMACrossoverChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 30, in run
+    print(recent, "recent")
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 374, in __repr__
+    data = list(self[: REPR_OUTPUT_SIZE + 1])
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 329, in cursor
+    return self._cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 305, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 129, in handle
+    EMACrossoverChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 30, in run
+    print(recent, "recent")
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 374, in __repr__
+    data = list(self[: REPR_OUTPUT_SIZE + 1])
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 329, in cursor
+    return self._cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 305, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 129, in handle
+    EMACrossoverChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 30, in run
+    print(recent, "recent")
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 374, in __repr__
+    data = list(self[: REPR_OUTPUT_SIZE + 1])
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 329, in cursor
+    return self._cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 305, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 129, in handle
+    EMACrossoverChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 30, in run
+    print(recent, "recent")
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 374, in __repr__
+    data = list(self[: REPR_OUTPUT_SIZE + 1])
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 329, in cursor
+    return self._cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 305, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 129, in handle
+    EMACrossoverChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_ema_crossover.py", line 30, in run
+    print(recent, "recent")
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 374, in __repr__
+    data = list(self[: REPR_OUTPUT_SIZE + 1])
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 329, in cursor
+    return self._cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 305, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8187.729362896045 8294.054968700117
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14739.049606418434 14745.260865607082
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8163.430686375141 8279.982693001291
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14741.033070945623 14745.240799021924
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8113.564902027872 8258.276923717169
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14722.570253753613 14739.78505952164
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8105.32104579636 8245.637278697506
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14709.23692042028 14736.708136444719
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8094.269586086463 8232.135594537343
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14669.883075742348 14722.591548213251
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8089.513057390976 8220.462442294827
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14655.549742409014 14719.28385590556
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8091.619816038429 8211.062964485167
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14626.03316160601 14707.569713143594
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8094.135432914509 8202.564038222994
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14598.459182936007 14688.118572146022
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8097.25695527634 8195.032484986907
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14595.79251626934 14687.503187530638
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8104.7268590731155 8189.461938804482
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14557.352229453041 14663.689106534983
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8100.817906048744 8181.805103275143
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14553.568152968695 14654.991127925783
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8085.045270699163 8171.373349768771
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14554.90148630203 14655.298820233475
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8094.64129157722 8167.430429372357
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14545.267657534687 14645.352757138593
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8089.316416607036 8160.415070899929
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14536.511771689791 14635.633314281778
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8095.2664999602475 8156.60503586029
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14528.341181126529 14626.123059337027
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8092.010999973499 8150.928317125475
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14529.227454084354 14618.805900926487
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8096.451777760111 8147.578801606947
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14522.989979593047 14603.893785404818
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8090.634518506741 8142.037236986296
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14536.326653062031 14601.280653983147
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8078.867456782273 8134.992952484392
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14529.9933197287 14599.819115521608
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8071.133860077071 8128.733139571392
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14526.441475434978 14588.591435710721
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+8071.633860077071 8128.848524186777
+73 False SOLARINDS [45.0]
+2025-07-25
+EMA5 EMA25
+5 25
+
+14526.108142101646 14588.514512633797
+EMA crossover check complete.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
