@@ -36,7 +36,12 @@ class TrendLine(models.Model):
         null=True, blank=True,
         help_text="Date of last update for percent difference"
     )
-    
+
+    class Meta:
+        unique_together = ("symbol", "start_date", "angle")
+        verbose_name = "Trend Line"
+        verbose_name_plural = "Trend Lines"
+
     def __str__(self):
         # angles_str = ", ".join(str(a) for a in self.angles)
         return f"{self.symbol} @ {self.start_date} → [{self.angles}]°"
