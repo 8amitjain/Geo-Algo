@@ -1,33 +1,22 @@
 {% extends "market/base.html" %}
 
 {% block content %}
-  <div class="container mt-4">
-    <h2>Upload TrendLines CSV & Access File</h2>
+<div class="container mt-4">
+    <h2>Upload Trendlines (Sheet 1 + Sheet 2)</h2>
 
-    {% if messages %}
-      <div class="mt-3">
-        {% for message in messages %}
-          <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-          </div>
-        {% endfor %}
-      </div>
-    {% endif %}
-
-    <form method="post" action="{% url 'market:upload_trendlines_csv' %}" enctype="multipart/form-data">
-      {% csrf_token %}
-
-      <div class="mb-3">
-        <label for="csvFile" class="form-label">Upload CSV File</label>
-        <input type="file" name="csv_file" id="csvFile" class="form-control" accept=".csv" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="accdbFile" class="form-label">Upload Access (.accdb) File</label>
-        <input type="file" name="accdb_file" id="accdbFile" class="form-control" accept=".accdb" required>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Upload Files</button>
+    <form method="post" enctype="multipart/form-data" class="mt-3">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            <label for="sheet1">Upload Sheet 1 (Dream45Calc)</label>
+            <input type="file" name="sheet1" class="form-control" required>
+        </div>
+        <div class="form-group mb-3">
+            <label for="sheet2">Upload Sheet 2 (Dream45)</label>
+            <input type="file" name="sheet2" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload Trendlines</button>
     </form>
-  </div>
+</div>
 {% endblock %}
+
+

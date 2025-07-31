@@ -1,22 +1,23 @@
-from .plotters import InteractiveChartPlotter, EMACandlestickPlotter
-from .services import TrendLinePersistenceService
-from .dhan import DHANClient
-from .utils import buy_sell_stock
-from .models import TrendLine, TrendLineCheck
-
-from geo_algo import settings
+import csv
+import io
+import subprocess
 from datetime import datetime, timedelta
-from django.contrib.auth.decorators import login_required
+
+import matplotlib
+import pandas as pd
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 
-import subprocess
-import csv
-import io
-# import pyodbc
-import pandas as pd
-import matplotlib
+from geo_algo import settings
+
+from .dhan import DHANClient
+from .models import TrendLine, TrendLineCheck
+from .plotters import EMACandlestickPlotter, InteractiveChartPlotter
+from .services import TrendLinePersistenceService
+from .utils import buy_sell_stock
+
 matplotlib.use("Agg")
 
 
@@ -106,98 +107,90 @@ def candlestick_chart(request):
 
 @login_required
 def upload_trendlines_csv(request):
-    if request.method == "POST":
-        csv_file = request.FILES.get("csv_file")
-        accdb_file = request.FILES.get("accdb_file")
+    if request.method == "POST" and request.FILES.get("sheet1") and request.FILES.get("sheet2"):
+        file1 = request.FILES["sheet1"]
+        file2 = request.FILES["sheet2"]
 
-        if not csv_file or not csv_file.name.endswith(".csv"):
-            messages.error(request, "Uploaded CSV file is missing or not valid.")
-            return redirect("market:upload_trendlines_csv")
-
-        if not accdb_file or not accdb_file.name.endswith(".accdb"):
-            messages.error(request, "Uploaded Access (.accdb) file is missing or not valid.")
-            return redirect("market:upload_trendlines_csv")
+        def read_file(file):
+            if file.name.lower().endswith(".csv"):
+                return pd.read_csv(io.StringIO(file.read().decode("utf-8")))
+            else:
+                return pd.read_excel(file)
 
         try:
-            # 🔹 Read CSV file and create trendlines
-            decoded_csv = csv_file.read().decode("utf-8")
-            reader = csv.DictReader(io.StringIO(decoded_csv))
+            df1 = read_file(file1)
+            df2 = read_file(file2)
             created = 0
 
             client = DHANClient(access_token=settings.DATA_DHAN_ACCESS_TOKEN)
             symbol_result = client.get_symbols()
 
-            if isinstance(symbol_result, dict) and "instrument_list" in symbol_result:
-                instrument_list = symbol_result["instrument_list"]
-            else:
+            if not isinstance(symbol_result, dict) or "instrument_list" not in symbol_result:
                 messages.error(request, "Failed to fetch symbol data from DHAN.")
                 return redirect("market:upload_trendlines_csv")
 
+            instrument_list = symbol_result["instrument_list"]
             symbol_lookup = {
                 item["symbol"].strip().upper(): item["security_id"].strip()
                 for item in instrument_list
             }
 
-            for row in reader:
-                full_script = row["Scrip"].strip()
-                symbol = full_script.split()[0].upper()
+            for _, row in df1.iterrows():
+                raw_symbol = str(row["txtName"]).strip()
+                symbol = raw_symbol.split()[0].upper()
 
-                try:
-                    days = int(row["Days"].strip())
-                except ValueError:
-                    messages.warning(request, f"Invalid Days for symbol: {symbol}")
+                # Match symbol in df2 for scale and startDay
+                meta = df2[df2["scrip"].str.upper() == symbol]
+                if meta.empty:
+                    messages.warning(request, f"Metadata not found for {symbol}")
                     continue
 
                 try:
-                    start_date = (timezone.now().date() - timedelta(days=days)).isoformat()
-                except:
-                    messages.warning(request, f"Failed to calculate start date for symbol: {symbol}")
+                    scale = float(meta.iloc[0]["scale"])
+                    start_day = int(meta.iloc[0]["startDay"])
+                    days_offset = int(row["days"])
+                except Exception:
+                    messages.warning(request, f"Invalid data for {symbol}, skipping.")
                     continue
 
                 security_id = symbol_lookup.get(symbol)
                 if not security_id:
-                    messages.warning(request, f"Symbol not found in DHAN list: {symbol}")
+                    messages.warning(request, f"Symbol not found in DHAN: {symbol}")
                     continue
 
-                # Store trendline
-                # TrendLine.objects.create(
-                #     symbol=symbol,
-                #     security_id=security_id,
-                #     start_date=start_date,
-                #     price_to_bar_ratio="1",  # default or parse from somewhere
-                #     angles=[45.0],  # default or update if needed
-                #     start_price=row["Plot Price"]
-                # )
-                # created += 1
+                hist_df = client.get_full_history(security_id)
+                if hist_df.empty or len(hist_df) < days_offset:
+                    messages.warning(request, f"Not enough data for {symbol}")
+                    continue
 
-            messages.success(request, f"{created} trend lines created from CSV.")
+                # Set index to timestamp and ensure date sorting
+                # hist_df.index = pd.to_datetime(hist_df["timestamp"])
+                print(hist_df.head())
+                hist_df = hist_df.sort_index()
 
-            # 🔹 Process .accdb file using mdbtools
-            accdb_path = f"/tmp/{accdb_file.name}"
-            with open(accdb_path, "wb") as f:
-                for chunk in accdb_file.chunks():
-                    f.write(chunk)
+                # Reverse to count days back
+                hist_df = hist_df[::-1].reset_index()
 
-            # 🔍 List tables in the .accdb file
-            result = subprocess.run(
-                ["mdb-tables", "-1", accdb_path],
-                capture_output=True,
-                text=True
-            )
-            table_names = result.stdout.strip().splitlines()
+                if days_offset >= len(hist_df):
+                    messages.warning(request, f"Insufficient bars to offset {days_offset} days for {symbol}")
+                    continue
 
-            if not table_names:
-                messages.warning(request, "No tables found in the Access file.")
-            else:
-                for table in table_names[:2]:  # print only first 2 tables
-                    export_result = subprocess.run(
-                        ["mdb-export", accdb_path, table],
-                        capture_output=True,
-                        text=True
+                target_row = hist_df.iloc[days_offset]
+                start_date = target_row["timestamp"].date()
+                start_price = target_row["low"]
+
+                for angle in [45, 63.75, 26.25]:
+                    TrendLine.objects.create(
+                        symbol=symbol,
+                        security_id=security_id,
+                        start_date=start_date,
+                        price_to_bar_ratio=scale,
+                        angles=[angle],
+                        start_price=start_price,
                     )
-                    print(f"Table {table} preview:")
-                    print(export_result.stdout[:1000])  # log sample
+                    created += 1
 
+            messages.success(request, f"{created} trend lines created.")
             return redirect("market:trendline_list")
 
         except Exception as e:
