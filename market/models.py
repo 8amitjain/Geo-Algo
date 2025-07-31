@@ -38,7 +38,7 @@ class TrendLine(models.Model):
     )
 
     class Meta:
-        unique_together = ("symbol", "start_date", "angle")
+        unique_together = ("symbol", "start_date", "angles")
         verbose_name = "Trend Line"
         verbose_name_plural = "Trend Lines"
 

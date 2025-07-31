@@ -165,7 +165,7 @@ def upload_trendlines_csv(request):
 
                 # Set index to timestamp and ensure date sorting
                 # hist_df.index = pd.to_datetime(hist_df["timestamp"])
-                print(hist_df.head())
+                # print(hist_df.head())
                 hist_df = hist_df.sort_index()
 
                 # Reverse to count days back
@@ -180,16 +180,18 @@ def upload_trendlines_csv(request):
                 start_price = target_row["low"]
 
                 for angle in [45, 63.75, 26.25]:
-                    TrendLine.objects.create(
+                    _, created_obj = TrendLine.objects.get_or_create(
                         symbol=symbol,
                         security_id=security_id,
                         start_date=start_date,
-                        price_to_bar_ratio=scale,
                         angles=[angle],
-                        start_price=start_price,
+                        defaults={
+                            "price_to_bar_ratio": scale,
+                            "start_price": start_price,
+                        },
                     )
-                    created += 1
-
+                    if created_obj:
+                        created += 1
             messages.success(request, f"{created} trend lines created.")
             return redirect("market:trendline_list")
 
@@ -297,7 +299,7 @@ def buy_stock_view(request):
             sec_id = request.POST["security_id"]
             symbol = request.POST["symbol"]
 
-            print(risk, price, sec_id, symbol)
+            # print(risk, price, sec_id, symbol)
             buy_sell_stock(risk_per_unit=risk, cross_price=price, security_id=sec_id, symbol=symbol, transaction_type="BUY")
             messages.success(request, f"Buy order placed for {symbol}")
         except Exception as e:
