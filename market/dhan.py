@@ -109,7 +109,9 @@ class DHANClient:
             }
         )
         data = resp.json()
-        # print(data)
+        print(data)
+        print("ERRORS")
+        print(data.json())
         resp.raise_for_status()
         data = resp.json()
         df = pd.DataFrame(data)
