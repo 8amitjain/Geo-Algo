@@ -1,0 +1,813 @@
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+[Attempt 1] Request failed: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[Attempt 2] Request failed: HTTPSConnectionPool(host='api.dhan.co', port=443): Max retries exceeded with url: /v2/charts/intraday (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7a2c21f3a220>: Failed to resolve 'api.dhan.co' ([Errno -3] Temporary failure in name resolution)"))
+[Attempt 3] Request failed: HTTPSConnectionPool(host='api.dhan.co', port=443): Max retries exceeded with url: /v2/charts/intraday (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7a2c21f79820>: Failed to resolve 'api.dhan.co' ([Errno -3] Temporary failure in name resolution)"))
+Failed to fetch intraday OHLC after retries.
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss hit. Selling 44 of RELIANCE at ₹1401.00
+{'dhanClientId': '1100991549', 'transactionType': 'SELL', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '2885', 'quantity': 44, 'price': 1401.0, 'triggerPrice': 1401.0, 'afterMarketOrder': False}
+SELL order placed for geometriya.analysis@gmail.com
+Stop-loss hit. Selling 44 of RELIANCE at ₹1401.00
+{'dhanClientId': '1102279413', 'transactionType': 'SELL', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '2885', 'quantity': 44, 'price': 1401.0, 'triggerPrice': 1401.0, 'afterMarketOrder': False}
+SELL order placed for 8amitjain@gmail.com
+[Attempt 1] Request failed: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+[Attempt 2] Request failed: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+[Attempt 3] Request failed: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+Failed to fetch intraday OHLC after retries.
+[Attempt 1] Request failed: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+[Attempt 2] Request failed: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+[Attempt 3] Request failed: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+Failed to fetch intraday OHLC after retries.
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 103, in handle
+    StopLossChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 23, in run
+    for chk in checks:
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 398, in __iter__
+    self._fetch_all()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 329, in cursor
+    return self._cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 305, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 103, in handle
+    StopLossChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 23, in run
+    for chk in checks:
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 398, in __iter__
+    self._fetch_all()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 329, in cursor
+    return self._cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 305, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 103, in handle
+    StopLossChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 23, in run
+    for chk in checks:
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 398, in __iter__
+    self._fetch_all()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 329, in cursor
+    return self._cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 305, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 103, in handle
+    StopLossChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 23, in run
+    for chk in checks:
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 398, in __iter__
+    self._fetch_all()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 329, in cursor
+    return self._cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 305, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 103, in handle
+    StopLossChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 23, in run
+    for chk in checks:
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 398, in __iter__
+    self._fetch_all()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 329, in cursor
+    return self._cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 305, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 103, in handle
+    StopLossChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 23, in run
+    for chk in checks:
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 398, in __iter__
+    self._fetch_all()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 329, in cursor
+    return self._cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 305, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 103, in handle
+    StopLossChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_stop_loss.py", line 23, in run
+    for chk in checks:
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 398, in __iter__
+    self._fetch_all()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 329, in cursor
+    return self._cursor()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 305, in _cursor
+    self.ensure_connection()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 288, in ensure_connection
+    self.connect()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/base/base.py", line 269, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "13.126.174.197", port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Stop-loss check complete.
+False
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+Stop-loss hit. Selling 188 of RVNL at ₹370.20
+{'dhanClientId': '1100991549', 'transactionType': 'SELL', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '9552', 'quantity': 188, 'price': 370.2, 'triggerPrice': 370.2, 'afterMarketOrder': False}
+SELL order placed for geometriya.analysis@gmail.com
+Stop-loss hit. Selling 188 of RVNL at ₹370.20
+{'dhanClientId': '1102279413', 'transactionType': 'SELL', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '9552', 'quantity': 188, 'price': 370.2, 'triggerPrice': 370.2, 'afterMarketOrder': False}
+SELL order placed for 8amitjain@gmail.com
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss hit. Selling 44 of BHARATFORG at ₹1202.70
+{'dhanClientId': '1100991549', 'transactionType': 'SELL', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '422', 'quantity': 44, 'price': 1202.7, 'triggerPrice': 1202.7, 'afterMarketOrder': False}
+SELL order placed for geometriya.analysis@gmail.com
+Stop-loss hit. Selling 44 of BHARATFORG at ₹1202.70
+{'dhanClientId': '1102279413', 'transactionType': 'SELL', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '422', 'quantity': 44, 'price': 1202.7, 'triggerPrice': 1202.7, 'afterMarketOrder': False}
+SELL order placed for 8amitjain@gmail.com
+[Attempt 1] Request failed: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+[Attempt 2] Request failed: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+[Attempt 3] Request failed: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+Failed to fetch intraday OHLC after retries.
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
