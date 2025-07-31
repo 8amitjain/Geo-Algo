@@ -92,39 +92,64 @@ class DHANClient:
     #     except HTTPError:
     #         return {'status_code': resp.status_code, 'error_description': resp.text}
 
-    def get_ticker_data(self, security_id: Union[str, int], from_date: str) -> pd.DataFrame:
+    def get_ticker_data(
+            self,
+            security_id: Union[str, int],
+            from_date: str,
+            max_retries: int = 3,
+            retry_delay: int = 10  # seconds
+    ) -> pd.DataFrame:
         """
         Fetches OHLC data from `from_date` until today.
+        Retries on HTTP 429 and handles DH-905 gracefully.
         """
-        resp = self.session.post(
-            f"{self.BASE_URL}charts/historical",
-            json={
-                "securityId": str(security_id),
-                "exchangeSegment": "NSE_EQ",
-                "instrument": "EQUITY",
-                "expiryCode": 0,
-                "oi": False,
-                "fromDate": from_date,
-                "toDate": datetime.today().strftime("%Y-%m-%d"),
-            }
-        )
-        data = resp.json()
-        print(data)
-        print("ERRORS")
-        # print(data.json())
-        resp.raise_for_status()
-        data = resp.json()
-        df = pd.DataFrame(data)
-        # df["timestamp"] = pd.to_datetime(df["timestamp"], unit="s")
-        # df.set_index("timestamp", inplace=True)
-        df["timestamp"] = (
-            pd.to_datetime(df["timestamp"], unit="s", utc=True)
-            .dt.tz_convert("Asia/Kolkata")
-            .dt.tz_localize(None)
-        )
+        url = f"{self.BASE_URL}charts/historical"
+        payload = {
+            "securityId": str(security_id),
+            "exchangeSegment": "NSE_EQ",
+            "instrument": "EQUITY",
+            "expiryCode": 0,
+            "oi": False,
+            "fromDate": from_date,
+            "toDate": datetime.today().strftime("%Y-%m-%d"),
+        }
 
-        df.set_index("timestamp", inplace=True)
-        return df[["open", "high", "low", "close", "volume"]]
+        for attempt in range(1, max_retries + 1):
+            try:
+                resp = self.session.post(url, json=payload)
+
+                if resp.status_code == 429:
+                    print(f"[Attempt {attempt}] Rate limit hit (429). Retrying in {retry_delay} sec...")
+                    time.sleep(retry_delay)
+                    continue
+
+                data = resp.json()
+
+                if data.get("errorCode") == "DH-905":
+                    print("No data available (holiday or non-trading day).")
+                    return pd.DataFrame()
+
+                resp.raise_for_status()  # Raises error for non-2xx responses
+
+                if not isinstance(data, list) or not data:
+                    print("No OHLC data returned.")
+                    return pd.DataFrame()
+
+                df = pd.DataFrame(data)
+                df["timestamp"] = (
+                    pd.to_datetime(df["timestamp"], unit="s", utc=True)
+                    .dt.tz_convert("Asia/Kolkata")
+                    .dt.tz_localize(None)
+                )
+                df.set_index("timestamp", inplace=True)
+                return df[["open", "high", "low", "close", "volume"]]
+
+            except requests.exceptions.RequestException as e:
+                print(f"[Attempt {attempt}] Request failed: {e}")
+                time.sleep(retry_delay)
+
+        print("All retries failed. Returning empty DataFrame.")
+        return pd.DataFrame()
 
     def get_intraday_ohlc(
             self,
