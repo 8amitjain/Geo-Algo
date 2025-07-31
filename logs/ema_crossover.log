@@ -2520,3 +2520,673 @@ False
 Outside market hours; skipping crossover check.
 False
 Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+8107.048491862003 8119.176691912975
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14514.590372622442 14564.440060027242
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+8099.698994574669 8115.926413836831
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14531.060248414962 14565.116268427515
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+8102.243774160892 8115.245683778376
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14542.373498943309 14565.28483949522
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+8118.329182773929 8118.490098635661
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14545.582332628874 14564.085413971921
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: BAJAJ-AUTO @ 2025-04-07 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>, <TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+69 False BAJAJ-AUTO [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+8132.775010738176 8122.156540752445
+INNN
+EMA Cross OVER BAJAJ-AUTO at 28/07/2025 10:30 AM
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14552.248999295542 14565.623875510382
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14542.499332863696 14562.345115855738
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14519.44414793942 14553.270394575306
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14520.777481272755 14553.578086882997
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14511.184987515171 14548.84131096892
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14503.123325010116 14544.084287048236
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14472.943700004498 14530.012646952344
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14468.610366671164 14529.012646952344
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14454.382385187186 14516.288882610283
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14453.382385187186 14516.058113379513
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14424.281060083194 14499.037682406213
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14422.631817833242 14493.123541156032
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14417.310100777719 14486.433564617404
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14413.206733851814 14480.169444262221
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14417.873400518482 14481.246367339143
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14412.582267012322 14475.15049292844
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14404.703229783256 14463.808704033701
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-28
+EMA5 EMA25
+5 25
+
+14445.246597633282 14470.13702857549
+EMA crossover check complete.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14446.600150972832 14463.973063103906
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14454.600150972832 14465.819216950058
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14460.044511543481 14465.62110793378
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14439.251896584545 14459.644336317575
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14431.501264389697 14456.227908080129
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14424.445287370909 14452.618660713018
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14423.445287370909 14452.387891482249
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14410.420127720407 14444.638203393162
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14403.502307369161 14440.311004315581
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14395.168974035827 14438.387927392505
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14392.852877349258 14431.377878961663
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14399.01302934395 14430.112124958696
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14393.453130673746 14426.180423038797
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14412.190976004722 14428.65766860386
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14416.571761780926 14428.382226640253
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14420.270063409509 14428.406079028873
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: SOLARINDS @ 2025-02-28 → [[45.0]]° on 2025-07-25: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+73 False SOLARINDS [45.0]
+2025-07-29
+EMA5 EMA25
+5 25
+
+14437.402264495227 14432.226913186414
+INNN
+EMA Cross OVER SOLARINDS at 29/07/2025 01:30 PM
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet []> recent
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+352.42537488099055 355.6592381652181
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+352.5391388095493 355.44462221168067
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+352.4816480952551 355.2068702072319
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+351.97665428572566 354.86492161140933
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+351.7455473015949 354.58744243420034
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+351.9748093121744 354.4345622469542
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+352.1554284303385 354.29492136405247
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+352.3925078424479 354.19294516445086
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+352.2838941171875 354.0224819269488
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+352.7059294114584 354.00093006274557
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+352.81506405208336 353.92748573839236
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+352.8544871458334 353.84904008987695
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+352.4752136527778 353.6692322723125
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+351.66680910185187 353.364202570892
+EMA crossover check complete.
+False
+<QuerySet [<TrendLineCheck: RVNL @ 2025-04-07 → [[26.25]]° on 2025-07-31: Touched: ✔ - Cross Over EMA: ✘ - Purchased: ✘>]> recent
+93 False RVNL [26.25]
+2025-07-31
+EMA5 EMA25
+5 25
+
+351.03342829012354 353.0746485269772
+EMA crossover check complete.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.

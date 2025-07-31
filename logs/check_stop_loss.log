@@ -811,3 +811,243 @@ False
 Outside market hours; skipping stop-loss check.
 False
 Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss hit. Selling 71 of SOLARINDS at ₹14444.00
+{'dhanClientId': '1102279413', 'transactionType': 'SELL', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '13332', 'quantity': 71, 'price': 14444.0, 'triggerPrice': 14444.0, 'afterMarketOrder': False}
+SELL order placed for 8amitjain@gmail.com
+Stop-loss hit. Selling 71 of SOLARINDS at ₹14444.00
+{'dhanClientId': '1100991549', 'transactionType': 'SELL', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '13332', 'quantity': 71, 'price': 14444.0, 'triggerPrice': 14444.0, 'afterMarketOrder': False}
+SELL order placed for geometriya.analysis@gmail.com
+[Attempt 1] Request failed: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+[Attempt 2] Request failed: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+[Attempt 3] Request failed: 401 Client Error:  for url: https://api.dhan.co/v2/charts/intraday
+Failed to fetch intraday OHLC after retries.
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Stop-loss hit. Selling 38 of TATAMOTORS at ₹668.55
+{'dhanClientId': '1102279413', 'transactionType': 'SELL', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '3456', 'quantity': 38, 'price': 668.55, 'triggerPrice': 668.55, 'afterMarketOrder': False}
+SELL order placed for 8amitjain@gmail.com
+Stop-loss hit. Selling 38 of TATAMOTORS at ₹668.55
+{'dhanClientId': '1100991549', 'transactionType': 'SELL', 'exchangeSegment': 'NSE_EQ', 'productType': 'CNC', 'orderType': 'MARKET', 'validity': 'DAY', 'securityId': '3456', 'quantity': 38, 'price': 668.55, 'triggerPrice': 668.55, 'afterMarketOrder': False}
+SELL order placed for geometriya.analysis@gmail.com
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Stop-loss check complete.
+False
+Outside market hours; skipping stop-loss check.
+False
+Outside market hours; skipping stop-loss check.
