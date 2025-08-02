@@ -125,14 +125,22 @@ class DHANClient:
 
                 resp.raise_for_status()
 
-                data = resp.json()
-                if isinstance(data, dict) and data.get("errorCode") == "DH-905":
-                    print("No data available (holiday or non-trading day).")
+                try:
+                    data = resp.json()
+                except Exception as e:
+                    print(f"Failed to parse JSON: {e}")
+                    print(resp.text)
                     return pd.DataFrame()
 
-                if not isinstance(data, list) or not data:
-                    print("Empty or invalid OHLC data received.")
-                    return pd.DataFrame()
+                # if isinstance(data, dict) and data.get("errorCode"):
+                #     print(f"Dhan API error: {data.get('errorCode')} - {data.get('errorMessage')}")
+                #     return pd.DataFrame()
+
+                # if not isinstance(data, list) or not data:
+                #     print("Empty or invalid OHLC data received.")
+                #     print(f"Full response: {data}")
+                #     time.sleep(retry_delay)
+                #     continue
 
                 df = pd.DataFrame(data)
                 df["timestamp"] = (
