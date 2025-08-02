@@ -93,15 +93,15 @@ class DHANClient:
     #         return {'status_code': resp.status_code, 'error_description': resp.text}
 
     def get_ticker_data(
-            self,
-            security_id: Union[str, int],
-            from_date: str,
-            max_retries: int = 3,
-            retry_delay: int = 10  # seconds
+        self,
+        security_id: Union[str, int],
+        from_date: str,
+        max_retries: int = 3,
+        retry_delay: int = 10  # seconds
     ) -> pd.DataFrame:
         """
-        Fetches OHLC data from `from_date` until today.
-        Retries on HTTP 429 and handles DH-905 gracefully.
+        Fetches OHLC data from `from_date` until today with retry handling.
+        Returns a DataFrame or empty DataFrame on failure.
         """
         url = f"{self.BASE_URL}charts/historical"
         payload = {
@@ -119,20 +119,19 @@ class DHANClient:
                 resp = self.session.post(url, json=payload)
 
                 if resp.status_code == 429:
-                    print(f"[Attempt {attempt}] Rate limit hit (429). Retrying in {retry_delay} sec...")
+                    print(f"[Attempt {attempt}] Rate limit hit. Retrying in {retry_delay}s...")
                     time.sleep(retry_delay)
                     continue
 
-                data = resp.json()
+                resp.raise_for_status()
 
-                if data.get("errorCode") == "DH-905":
+                data = resp.json()
+                if isinstance(data, dict) and data.get("errorCode") == "DH-905":
                     print("No data available (holiday or non-trading day).")
                     return pd.DataFrame()
 
-                resp.raise_for_status()  # Raises error for non-2xx responses
-
                 if not isinstance(data, list) or not data:
-                    print("No OHLC data returned.")
+                    print("Empty or invalid OHLC data received.")
                     return pd.DataFrame()
 
                 df = pd.DataFrame(data)
@@ -148,7 +147,7 @@ class DHANClient:
                 print(f"[Attempt {attempt}] Request failed: {e}")
                 time.sleep(retry_delay)
 
-        print("All retries failed. Returning empty DataFrame.")
+        print("All retry attempts failed. Returning empty DataFrame.")
         return pd.DataFrame()
 
     def get_intraday_ohlc(
