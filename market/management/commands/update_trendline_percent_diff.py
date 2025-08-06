@@ -70,7 +70,7 @@ class Command(BaseCommand):
                 percent_diff = ((bar_close - trendline_price) / trendline_price) * 100
                 tl.percent_difference_cached = round(percent_diff, 2)
                 tl.percent_diff_updated_date = trendline_date
-                tl.save(update_fields=["percent_difference_cached", "percent_diff_updated_date"])
+                tl.save()
                 updated += 1
 
             except Exception as e:

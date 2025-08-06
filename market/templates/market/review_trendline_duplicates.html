@@ -1,0 +1,57 @@
+{% extends "market/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Review Trendline Upload</h2>
+  <p>Select the entries you want to skip (do not create). Unchecked ones will be created.</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Symbol</th>
+          <th>Start Date</th>
+          <th>Angle</th>
+          <th>Price/Bar Ratio</th>
+          <th>Start Price</th>
+          <th>Duplicate?</th>
+          <th>Skip?</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in entries %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ item.symbol }}</td>
+          <td>{{ item.start_date }}</td>
+          <td>{{ item.angle }}</td>
+          <td>{{ item.price_to_bar_ratio }}</td>
+          <td>{{ item.start_price }}</td>
+          <td>
+            {% if item.is_duplicate %}<span class="text-danger">Yes</span>{% else %}<span class="text-success">No</span>{% endif %}
+          </td>
+          <td>
+            <input type="checkbox" name="skip_{{ forloop.counter0 }}">
+            <input type="hidden" name="symbol_{{ forloop.counter0 }}" value="{{ item.symbol }}">
+            <input type="hidden" name="start_date_{{ forloop.counter0 }}" value="{{ item.start_date }}">
+            <input type="hidden" name="angle_{{ forloop.counter0 }}" value="{{ item.angle }}">
+            <input type="hidden" name="scale_{{ forloop.counter0 }}" value="{{ item.price_to_bar_ratio }}">
+            <input type="hidden" name="start_price_{{ forloop.counter0 }}" value="{{ item.start_price }}">
+            <input type="hidden" name="security_id_{{ forloop.counter0 }}" value="{{ item.security_id }}">
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <input type="hidden" name="total" value="{{ entries|length }}">
+    <div class="mt-3 d-flex gap-3">
+      <button class="btn btn-primary" type="submit">Create Unchecked</button>
+      <button class="btn btn-secondary" name="skip_all" value="1">Skip All</button>
+<!--      <button class="btn btn-danger" name="delete_all" value="1">Delete All</button>-->
+    </div>
+  </form>
+</div>
+{% endblock %}

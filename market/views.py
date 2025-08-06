@@ -2,13 +2,19 @@ import csv
 import io
 import subprocess
 from datetime import datetime, timedelta
-
+import decimal
+from decimal import Decimal
+import json
 import matplotlib
 import pandas as pd
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
+from django.http import HttpResponse
+
+import threading
+from django.core.management import call_command
 
 from geo_algo import settings
 
@@ -104,6 +110,11 @@ def candlestick_chart(request):
         "symbol": symbol,
     })
 
+# TODO filter based on angle and script
+# Test delete
+# Need option delete all
+# Need to show old and new - option to choose from either.
+
 
 @login_required
 def upload_trendlines_csv(request):
@@ -120,7 +131,6 @@ def upload_trendlines_csv(request):
         try:
             df1 = read_file(file1)
             df2 = read_file(file2)
-            created = 0
 
             client = DHANClient(access_token=settings.DATA_DHAN_ACCESS_TOKEN)
             symbol_result = client.get_symbols()
@@ -135,14 +145,18 @@ def upload_trendlines_csv(request):
                 for item in instrument_list
             }
 
+            # Create set of existing (symbol, angle) pairs
+            existing_keys = set(
+                (obj.symbol, obj.angles[0]) for obj in TrendLine.objects.all()
+            )
+
+            new_entries = []
             for _, row in df1.iterrows():
                 raw_symbol = str(row["txtName"]).strip()
                 symbol = raw_symbol.split()[0].upper()
 
-                # Match symbol in df2 for scale and startDay
                 meta = df2[df2["scrip"].str.upper() == symbol]
                 if meta.empty:
-                    messages.warning(request, f"Metadata not found for {symbol}")
                     continue
 
                 try:
@@ -150,29 +164,18 @@ def upload_trendlines_csv(request):
                     start_day = int(meta.iloc[0]["startDay"])
                     days_offset = int(row["days"])
                 except Exception:
-                    messages.warning(request, f"Invalid data for {symbol}, skipping.")
                     continue
 
                 security_id = symbol_lookup.get(symbol)
                 if not security_id:
-                    messages.warning(request, f"Symbol not found in DHAN: {symbol}")
                     continue
 
                 hist_df = client.get_full_history(security_id)
                 if hist_df.empty or len(hist_df) < days_offset:
-                    messages.warning(request, f"Not enough data for {symbol}")
                     continue
 
-                # Set index to timestamp and ensure date sorting
-                # hist_df.index = pd.to_datetime(hist_df["timestamp"])
-                # print(hist_df.head())
-                hist_df = hist_df.sort_index()
-
-                # Reverse to count days back
-                hist_df = hist_df[::-1].reset_index()
-
+                hist_df = hist_df.sort_index()[::-1].reset_index()
                 if days_offset >= len(hist_df):
-                    messages.warning(request, f"Insufficient bars to offset {days_offset} days for {symbol}")
                     continue
 
                 target_row = hist_df.iloc[days_offset]
@@ -180,26 +183,84 @@ def upload_trendlines_csv(request):
                 start_price = target_row["low"]
 
                 for angle in [45, 63.75, 26.25]:
-                    _, created_obj = TrendLine.objects.get_or_create(
-                        symbol=symbol,
-                        security_id=security_id,
-                        start_date=start_date,
-                        angles=[angle],
-                        defaults={
-                            "price_to_bar_ratio": scale,
-                            "start_price": start_price,
-                        },
-                    )
-                    if created_obj:
-                        created += 1
-            messages.success(request, f"{created} trend lines created.")
-            return redirect("market:trendline_list")
+                    new_entry = {
+                        "symbol": symbol,
+                        "start_date": str(start_date),
+                        "angle": float(angle),
+                        "price_to_bar_ratio": float(scale),
+                        "start_price": float(start_price),
+                        "security_id": security_id
+                    }
+                    key = (symbol, angle)
+                    if key in existing_keys:
+                        new_entry["is_duplicate"] = True
+                    else:
+                        new_entry["is_duplicate"] = False
+                    new_entries.append(new_entry)
+
+            request.session["review_entries"] = json.loads(json.dumps(new_entries, default=str))
+            return redirect("market:resolve_trendline_duplicates")
 
         except Exception as e:
             messages.error(request, f"Error processing files: {e}")
             return redirect("market:upload_trendlines_csv")
 
     return render(request, "market/upload_trendlines_csv.html")
+
+
+@login_required
+def resolve_trendline_duplicates(request):
+    if request.method == "POST":
+        total = int(request.POST.get("total", 0))
+        skip_all = request.POST.get("skip_all")
+
+        entries = request.session.get("review_entries", [])
+        created = 0
+
+        for i in range(total):
+            if skip_all or request.POST.get(f"skip_{i}"):
+                continue
+
+            try:
+                symbol = request.POST.get(f"symbol_{i}")
+                angle = float(request.POST.get(f"angle_{i}"))
+                start_date = request.POST.get(f"start_date_{i}")
+                scale = float(request.POST.get(f"scale_{i}"))
+                start_price = float(request.POST.get(f"start_price_{i}"))
+                security_id = request.POST.get(f"security_id_{i}")
+
+                TrendLine.objects.create(
+                    symbol=symbol,
+                    security_id=security_id,
+                    start_date=start_date,
+                    angles=[angle],
+                    price_to_bar_ratio=scale,
+                    start_price=start_price
+                )
+                created += 1
+            except Exception as e:
+                print("Error creating:", e)
+
+        # Clear session and start background update
+        request.session.pop("review_entries", None)
+        threading.Thread(target=lambda: call_command("update_trendline_percent_diff")).start()
+
+        messages.success(request, f"{created} trend lines created.")
+        return redirect("market:trendline_list")
+
+    entries = request.session.get("review_entries", [])
+    return render(request, "market/review_trendline_duplicates.html", {"entries": entries})
+
+
+def json_safe(data):
+    # Convert Decimal to float, datetime to string, etc.
+    safe = []
+    for item in data:
+        safe.append({
+            k: float(v) if isinstance(v, decimal.Decimal) else str(v) if hasattr(v, "isoformat") else v
+            for k, v in item.items()
+        })
+    return safe
 
 
 @login_required
@@ -276,6 +337,7 @@ def trendline_list(request):
     # pass current filter values back to template
     context = {
         "trendlines": trendlines,
+        "trendlines_count": qs.count(),
         "filters": {
             "symbol": symbol,
             "start_date": start_date,

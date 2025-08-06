@@ -7,9 +7,11 @@ urlpatterns = [
     path("", views.stock_form, name="stock_form"),
     path("chart.png", views.stock_chart, name="stock_chart"),
 
-    path("trendlines/upload/", views.upload_trendlines_csv, name="upload_trendlines_csv"),
     path("trendlines/", views.trendline_list, name="trendline_list"),
     path("trendline/<int:pk>/delete/", views.trendline_delete, name="trendline_delete"),
+    path("trendlines/upload/", views.upload_trendlines_csv, name="upload_trendlines_csv"),
+    path("trendlines/resolve-duplicates/", views.resolve_trendline_duplicates, name="resolve_trendline_duplicates"),
+    # path("trendlines/download-duplicates/", views.download_duplicates_csv, name="download_duplicates_csv"),
 
     path("ema_crossover_chart", views.candlestick_chart, name="stock_chart_ema"),
 
