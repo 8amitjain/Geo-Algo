@@ -448,7 +448,7 @@ def trendline_list(request):
 
     if sort_by == "distance":
         trendlines.sort(
-            key=lambda tl: tl.percent_difference_cached if tl.percent_difference_cached is not None else float('-inf'),
+            key=lambda tl: abs(tl.percent_difference_cached) if tl.percent_difference_cached is not None else float('-inf'),
             reverse=reverse
         )
 
