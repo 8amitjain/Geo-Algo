@@ -204,7 +204,7 @@ def upload_trendlines_csv(request):
             df2["_SCRIP_NORM_"] = df2["scrip"].astype(str).str.strip().str.upper()
             meta_map = df2.set_index("_SCRIP_NORM_")[["scale", "startDay"]]
 
-            ANGLES = [45.0]
+            ANGLES = [45.0, 63.75, 26.25]
             now_naive = timezone.now().replace(tzinfo=None)
 
             new_entries = []
