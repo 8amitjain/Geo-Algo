@@ -10004,3 +10004,3255 @@ False
 Outside market hours; skipping crossover check.
 False
 Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8137.5 8134.0 8134.0
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 7689.014838054066} rec
+7689.014838054066 line_price
+8106.5 8104.5 8104.5
+7496.789438054066 7881.240238054066
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 7689.014838054066} rec
+7689.014838054066 line_price
+8108.0 8104.0 8104.0
+7496.789438054066 7881.240238054066
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 7689.014838054066} rec
+7689.014838054066 line_price
+8134.0 8132.5 8134.0
+7496.789438054066 7881.240238054066
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 7689.014838054066} rec
+7689.014838054066 line_price
+8150.0 8149.0 8149.5
+7496.789438054066 7881.240238054066
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+8153.0 8149.0 8149.5
+9316.275172818897 9794.032972818897
+False
+{'date': '2025-07-28', 'value': 11638.630726600346} rec
+11638.630726600346 line_price
+14581.0 14581.0 14581.0
+11347.664926600346 11929.596526600346
+False
+{'date': '2025-07-28', 'value': 1535.5510182047244} rec
+1535.5510182047244 line_price
+1221.9 1221.3 1221.3
+1497.1622182047244 1573.9398182047244
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8114.5 8110.0 8114.5
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 7689.014838054066} rec
+7689.014838054066 line_price
+8127.0 8125.0 8127.0
+7496.789438054066 7881.240238054066
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 7689.014838054066} rec
+7689.014838054066 line_price
+8129.0 8128.0 8129.0
+7496.789438054066 7881.240238054066
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8116.0 8116.0 8116.0
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8125.0 8124.0 8124.0
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8145.0 8143.5 8145.0
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8143.5 8123.0 8142.5
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8131.5 8130.0 8131.5
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8105.0 8105.0 8105.0
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8100.0 8100.0 8100.0
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8095.0 8095.0 8095.0
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8112.0 8082.5 8096.5
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8087.5 8087.0 8087.5
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8088.0 8088.0 8088.0
+9316.275172818897 9794.032972818897
+False
+{'date': '2025-07-28', 'value': 7689.014838054066} rec
+7689.014838054066 line_price
+8088.0 8088.0 8088.0
+7496.789438054066 7881.240238054066
+False
+{'date': '2025-07-28', 'value': 1535.5510182047244} rec
+1535.5510182047244 line_price
+1191.4 1187.4 1188.3
+1497.1622182047244 1573.9398182047244
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8090.0 8089.5 8089.5
+9316.275172818897 9794.032972818897
+False
+{'date': '2025-07-28', 'value': 7689.014838054066} rec
+7689.014838054066 line_price
+8090.0 8089.5 8089.5
+7496.789438054066 7881.240238054066
+False
+{'date': '2025-07-28', 'value': 1535.5510182047244} rec
+1535.5510182047244 line_price
+1187.4 1187.0 1187.4
+1497.1622182047244 1573.9398182047244
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8081.0 8080.0 8081.0
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-28', 'value': 9555.154072818897} rec
+9555.154072818897 line_price
+8103.0 8098.5 8103.0
+9316.275172818897 9794.032972818897
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8114.0 8110.5 8110.5
+7504.482564870567 7889.327764870567
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 1070.9887912176416} rec
+1070.9887912176416 line_price
+1195.0 1195.0 1195.0
+1044.2140912176416 1097.7634912176416
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 1070.9887912176416} rec
+1070.9887912176416 line_price
+1199.3 1198.7 1199.1
+1044.2140912176416 1097.7634912176416
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8095.0 8095.0 8095.0
+7504.482564870567 7889.327764870567
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8077.5 8075.5 8077.5
+7504.482564870567 7889.327764870567
+False
+{'date': '2025-07-29', 'value': 1070.9887912176416} rec
+1070.9887912176416 line_price
+1196.6 1191.1 1194.7
+1044.2140912176416 1097.7634912176416
+False
+{'date': '2025-07-29', 'value': 9587.598863250725} rec
+9587.598863250725 line_price
+8077.5 8075.5 8077.5
+9347.908863250725 9827.288863250725
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 1070.9887912176416} rec
+1070.9887912176416 line_price
+1190.3 1190.3 1190.3
+1044.2140912176416 1097.7634912176416
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8072.0 8072.0 8072.0
+7504.482564870567 7889.327764870567
+False
+{'date': '2025-07-29', 'value': 9587.598863250725} rec
+9587.598863250725 line_price
+8072.0 8072.0 8072.0
+9347.908863250725 9827.288863250725
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8097.0 8097.0 8097.0
+7504.482564870567 7889.327764870567
+False
+{'date': '2025-07-29', 'value': 9587.598863250725} rec
+9587.598863250725 line_price
+8097.0 8097.0 8097.0
+9347.908863250725 9827.288863250725
+False
+{'date': '2025-07-29', 'value': 1070.9887912176416} rec
+1070.9887912176416 line_price
+1187.5 1187.5 1187.5
+1044.2140912176416 1097.7634912176416
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 9587.598863250725} rec
+9587.598863250725 line_price
+8096.0 8096.0 8096.0
+9347.908863250725 9827.288863250725
+False
+{'date': '2025-07-29', 'value': 1070.9887912176416} rec
+1070.9887912176416 line_price
+1191.0 1186.5 1187.1
+1044.2140912176416 1097.7634912176416
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8096.0 8096.0 8096.0
+7504.482564870567 7889.327764870567
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 1070.9887912176416} rec
+1070.9887912176416 line_price
+1189.2 1189.2 1189.2
+1044.2140912176416 1097.7634912176416
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8089.0 8089.0 8089.0
+7504.482564870567 7889.327764870567
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8104.0 8102.0 8102.0
+7504.482564870567 7889.327764870567
+False
+{'date': '2025-07-29', 'value': 1070.9887912176416} rec
+1070.9887912176416 line_price
+1191.9 1189.0 1191.3
+1044.2140912176416 1097.7634912176416
+False
+{'date': '2025-07-29', 'value': 9587.598863250725} rec
+9587.598863250725 line_price
+8104.0 8102.0 8102.0
+9347.908863250725 9827.288863250725
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 1070.9887912176416} rec
+1070.9887912176416 line_price
+1193.6 1193.6 1193.6
+1044.2140912176416 1097.7634912176416
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8104.0 8102.5 8102.5
+7504.482564870567 7889.327764870567
+False
+{'date': '2025-07-29', 'value': 9587.598863250725} rec
+9587.598863250725 line_price
+8104.0 8102.5 8102.5
+9347.908863250725 9827.288863250725
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8112.5 8109.0 8109.0
+7504.482564870567 7889.327764870567
+False
+{'date': '2025-07-29', 'value': 9587.598863250725} rec
+9587.598863250725 line_price
+8112.5 8109.0 8109.0
+9347.908863250725 9827.288863250725
+False
+{'date': '2025-07-29', 'value': 1070.9887912176416} rec
+1070.9887912176416 line_price
+1195.0 1195.0 1195.0
+1044.2140912176416 1097.7634912176416
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 9587.598863250725} rec
+9587.598863250725 line_price
+8117.0 8117.0 8117.0
+9347.908863250725 9827.288863250725
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 1070.9887912176416} rec
+1070.9887912176416 line_price
+1197.6 1197.5 1197.5
+1044.2140912176416 1097.7634912176416
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8122.5 8120.0 8122.0
+7504.482564870567 7889.327764870567
+False
+{'date': '2025-07-29', 'value': 9587.598863250725} rec
+9587.598863250725 line_price
+8122.5 8120.0 8122.0
+9347.908863250725 9827.288863250725
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 1070.9887912176416} rec
+1070.9887912176416 line_price
+1202.0 1201.5 1202.0
+1044.2140912176416 1097.7634912176416
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8124.0 8124.0 8124.0
+7504.482564870567 7889.327764870567
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8121.0 8121.0 8121.0
+7504.482564870567 7889.327764870567
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8125.5 8125.5 8125.5
+7504.482564870567 7889.327764870567
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8139.0 8120.0 8125.0
+7504.482564870567 7889.327764870567
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8143.0 8128.0 8128.0
+7504.482564870567 7889.327764870567
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-29', 'value': 7696.905164870567} rec
+7696.905164870567 line_price
+8123.0 8121.5 8123.0
+7504.482564870567 7889.327764870567
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+{'date': '2025-07-30', 'value': 7704.795491687068} rec
+7704.795491687068 line_price
+8107.0 8107.0 8107.0
+7512.175591687068 7897.415391687068
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+8107.0 8106.5 8107.0
+9379.542553682553 9860.544753682553
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1193.2 1190.6 1193.2
+1046.137372921767 1099.785372921767
+False
+{'date': '2025-07-30', 'value': 1551.7734134206382} rec
+1551.7734134206382 line_price
+1193.2 1190.6 1193.2
+1512.9791134206382 1590.5677134206382
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8132.5 8131.0 8131.0
+9379.542553682553 9860.544753682553
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1194.0 1193.5 1193.5
+1046.137372921767 1099.785372921767
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1191.2 1190.5 1191.2
+1046.137372921767 1099.785372921767
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8107.0 8107.0 8107.0
+9379.542553682553 9860.544753682553
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8118.0 8102.0 8109.5
+9379.542553682553 9860.544753682553
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1195.0 1194.8 1194.8
+1046.137372921767 1099.785372921767
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1194.7 1194.7 1194.7
+1046.137372921767 1099.785372921767
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8097.5 8094.0 8097.5
+9379.542553682553 9860.544753682553
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8094.0 8093.0 8093.0
+9379.542553682553 9860.544753682553
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1190.7 1190.7 1190.7
+1046.137372921767 1099.785372921767
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1189.8 1189.0 1189.0
+1046.137372921767 1099.785372921767
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8101.0 8101.0 8101.0
+9379.542553682553 9860.544753682553
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8107.0 8107.0 8107.0
+9379.542553682553 9860.544753682553
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1191.8 1191.7 1191.7
+1046.137372921767 1099.785372921767
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1191.5 1190.9 1191.5
+1046.137372921767 1099.785372921767
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8107.0 8107.0 8107.0
+9379.542553682553 9860.544753682553
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8103.0 8078.0 8103.0
+9379.542553682553 9860.544753682553
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1193.1 1193.1 1193.1
+1046.137372921767 1099.785372921767
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1188.5 1188.1 1188.5
+1046.137372921767 1099.785372921767
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8095.0 8082.0 8090.0
+9379.542553682553 9860.544753682553
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8090.0 8090.0 8090.0
+9379.542553682553 9860.544753682553
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1188.5 1188.1 1188.5
+1046.137372921767 1099.785372921767
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1188.6 1188.4 1188.4
+1046.137372921767 1099.785372921767
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8095.5 8095.5 8095.5
+9379.542553682553 9860.544753682553
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8088.0 8085.5 8085.5
+9379.542553682553 9860.544753682553
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1187.0 1186.8 1186.9
+1046.137372921767 1099.785372921767
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1185.7 1185.5 1185.5
+1046.137372921767 1099.785372921767
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8082.0 8082.0 8082.0
+9379.542553682553 9860.544753682553
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8057.0 8054.0 8057.0
+9379.542553682553 9860.544753682553
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1183.0 1182.4 1182.6
+1046.137372921767 1099.785372921767
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1179.5 1179.4 1179.5
+1046.137372921767 1099.785372921767
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8047.5 8047.0 8047.5
+9379.542553682553 9860.544753682553
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8045.5 8045.0 8045.0
+9379.542553682553 9860.544753682553
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1182.4 1182.2 1182.4
+1046.137372921767 1099.785372921767
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1180.6 1180.6 1180.6
+1046.137372921767 1099.785372921767
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8043.0 8040.0 8040.0
+9379.542553682553 9860.544753682553
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8034.5 8032.5 8032.5
+9379.542553682553 9860.544753682553
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1183.1 1183.1 1183.1
+1046.137372921767 1099.785372921767
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1187.6 1186.8 1187.0
+1046.137372921767 1099.785372921767
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8036.5 8035.0 8036.5
+9379.542553682553 9860.544753682553
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-30', 'value': 9620.043653682553} rec
+9620.043653682553 line_price
+8050.0 8050.0 8050.0
+9379.542553682553 9860.544753682553
+False
+{'date': '2025-07-30', 'value': 1072.961372921767} rec
+1072.961372921767 line_price
+1190.0 1189.8 1189.8
+1046.137372921767 1099.785372921767
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+{'date': '2025-07-31', 'value': 1074.933954625892} rec
+1074.933954625892 line_price
+1157.1 1155.2 1157.1
+1048.060654625892 1101.807254625892
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+7957.0 7955.0 7957.0
+7519.868718503569 7905.502918503569
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+7974.5 7974.5 7974.5
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 1559.8846110285951} rec
+1559.8846110285951 line_price
+1156.5 1156.1 1156.1
+1520.8875110285951 1598.8817110285951
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+7976.0 7976.0 7976.0
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 1559.8846110285951} rec
+1559.8846110285951 line_price
+1155.9 1155.5 1155.9
+1520.8875110285951 1598.8817110285951
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+7955.5 7955.5 7955.5
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 1559.8846110285951} rec
+1559.8846110285951 line_price
+1148.8 1148.8 1148.8
+1520.8875110285951 1598.8817110285951
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+7966.0 7966.0 7966.0
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 1559.8846110285951} rec
+1559.8846110285951 line_price
+1155.9 1155.7 1155.9
+1520.8875110285951 1598.8817110285951
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+7977.0 7975.5 7975.5
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 1559.8846110285951} rec
+1559.8846110285951 line_price
+1161.4 1160.9 1160.9
+1520.8875110285951 1598.8817110285951
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8051.5 8048.0 8051.5
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 343.95848865647304} rec
+343.95848865647304 line_price
+352.4 352.3 352.3
+335.35948865647304 352.55748865647304
+True
+[11:00] TrendLine 65 touched at 343.95848865647304 (bar 2025-07-31 10:45:06–2025-07-31 11:00:06)
+{'date': '2025-07-31', 'value': 1074.933954625892} rec
+1074.933954625892 line_price
+1164.1 1163.0 1163.3
+1048.060654625892 1101.807254625892
+False
+{'date': '2025-07-31', 'value': 1270.683954625892} rec
+1270.683954625892 line_price
+1389.9 1389.7 1389.8
+1238.916854625892 1302.451054625892
+False
+{'date': '2025-07-31', 'value': 1559.8846110285951} rec
+1559.8846110285951 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+1164.2 1163.0 1163.3
+1520.8875110285951 1598.8817110285951
+False
+{'date': '2025-07-31', 'value': 465.19615275714875} rec
+465.19615275714875 line_price
+352.45 352.3 352.3
+453.56625275714875 476.82605275714875
+False
+{'date': '2025-07-31', 'value': 5108.549999999999} rec
+5108.549999999999 line_price
+1888.9 1888.0 1888.9
+4980.836299999999 5236.263699999999
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8049.0 8049.0 8049.0
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 1074.933954625892} rec
+1074.933954625892 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+1165.2 1164.7 1164.7
+1048.060654625892 1101.807254625892
+False
+{'date': '2025-07-31', 'value': 1559.8846110285951} rec
+1559.8846110285951 line_price
+1165.2 1164.7 1164.7
+1520.8875110285951 1598.8817110285951
+False
+{'date': '2025-07-31', 'value': 5108.549999999999} rec
+5108.549999999999 line_price
+1880.4 1880.1 1880.3
+4980.836299999999 5236.263699999999
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8082.0 8082.0 8082.0
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 1074.933954625892} rec
+1074.933954625892 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+1167.7 1166.5 1166.5
+1048.060654625892 1101.807254625892
+False
+{'date': '2025-07-31', 'value': 1559.8846110285951} rec
+1559.8846110285951 line_price
+1167.7 1166.5 1166.5
+1520.8875110285951 1598.8817110285951
+False
+{'date': '2025-07-31', 'value': 9855.199999999999} rec
+9855.199999999999 line_price
+6491.5 6491.5 6491.5
+9608.819999999999 10101.579999999999
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8074.5 8068.0 8073.5
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 1074.933954625892} rec
+1074.933954625892 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+1170.9 1169.9 1169.9
+1048.060654625892 1101.807254625892
+False
+{'date': '2025-07-31', 'value': 1559.8846110285951} rec
+1559.8846110285951 line_price
+1170.9 1169.9 1169.9
+1520.8875110285951 1598.8817110285951
+False
+{'date': '2025-07-31', 'value': 1270.683954625892} rec
+1270.683954625892 line_price
+1395.1 1394.3 1395.1
+1238.916854625892 1302.451054625892
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8047.0 8047.0 8047.0
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 5108.549999999999} rec
+5108.549999999999 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+1905.0 1904.2 1904.2
+4980.836299999999 5236.263699999999
+False
+{'date': '2025-07-31', 'value': 2809.457652477996} rec
+2809.457652477996 line_price
+1905.0 1904.2 1904.2
+2739.221252477996 2879.694052477996
+False
+{'date': '2025-07-31', 'value': 9855.199999999999} rec
+9855.199999999999 line_price
+6509.5 6498.0 6506.0
+9608.819999999999 10101.579999999999
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8028.0 8028.0 8028.0
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 5108.549999999999} rec
+5108.549999999999 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+1888.6 1888.5 1888.5
+4980.836299999999 5236.263699999999
+False
+{'date': '2025-07-31', 'value': 2809.457652477996} rec
+2809.457652477996 line_price
+1888.6 1888.5 1888.5
+2739.221252477996 2879.694052477996
+False
+{'date': '2025-07-31', 'value': 9855.199999999999} rec
+9855.199999999999 line_price
+6507.0 6500.0 6500.5
+9608.819999999999 10101.579999999999
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8039.5 8039.5 8039.5
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 5108.549999999999} rec
+5108.549999999999 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+1888.3 1888.2 1888.2
+4980.836299999999 5236.263699999999
+False
+{'date': '2025-07-31', 'value': 12733.038325569829} rec
+12733.038325569829 line_price
+6509.0 6502.0 6502.0
+12414.712325569829 13051.364325569829
+False
+{'date': '2025-07-31', 'value': 8436.007192887651} rec
+8436.007192887651 line_price
+6509.0 6502.0 6502.0
+8225.106992887651 8646.907392887651
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8048.0 8048.0 8048.0
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 5108.549999999999} rec
+5108.549999999999 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+1887.3 1886.9 1887.3
+4980.836299999999 5236.263699999999
+False
+{'date': '2025-07-31', 'value': 12733.038325569829} rec
+12733.038325569829 line_price
+6552.0 6508.5 6508.5
+12414.712325569829 13051.364325569829
+False
+{'date': '2025-07-31', 'value': 8436.007192887651} rec
+8436.007192887651 line_price
+6552.0 6508.5 6508.5
+8225.106992887651 8646.907392887651
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8051.5 8051.5 8051.5
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 5108.549999999999} rec
+5108.549999999999 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+1890.0 1888.2 1888.2
+4980.836299999999 5236.263699999999
+False
+{'date': '2025-07-31', 'value': 12733.038325569829} rec
+12733.038325569829 line_price
+6575.0 6527.5 6532.5
+12414.712325569829 13051.364325569829
+False
+{'date': '2025-07-31', 'value': 8436.007192887651} rec
+8436.007192887651 line_price
+6575.0 6527.5 6532.5
+8225.106992887651 8646.907392887651
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8045.0 8045.0 8045.0
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 9770.648087423124} rec
+9770.648087423124 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+1893.0 1893.0 1893.0
+9526.381887423124 10014.914287423124
+False
+{'date': '2025-07-31', 'value': 11733.314648398356} rec
+11733.314648398356 line_price
+14478.0 14478.0 14478.0
+11439.981748398356 12026.647548398356
+False
+{'date': '2025-07-31', 'value': 2809.457652477996} rec
+2809.457652477996 line_price
+1893.0 1893.0 1893.0
+2739.221252477996 2879.694052477996
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8058.0 8058.0 8058.0
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 9855.199999999999} rec
+9855.199999999999 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+6578.0 6550.0 6552.0
+9608.819999999999 10101.579999999999
+False
+{'date': '2025-07-31', 'value': 5108.549999999999} rec
+5108.549999999999 line_price
+1896.1 1896.0 1896.1
+4980.836299999999 5236.263699999999
+False
+{'date': '2025-07-31', 'value': 12733.038325569829} rec
+12733.038325569829 line_price
+6578.0 6550.0 6552.0
+12414.712325569829 13051.364325569829
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8076.5 8074.0 8074.0
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 9855.199999999999} rec
+9855.199999999999 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+6559.5 6559.5 6559.5
+9608.819999999999 10101.579999999999
+False
+{'date': '2025-07-31', 'value': 5108.549999999999} rec
+5108.549999999999 line_price
+1893.0 1893.0 1893.0
+4980.836299999999 5236.263699999999
+False
+{'date': '2025-07-31', 'value': 12733.038325569829} rec
+12733.038325569829 line_price
+6559.5 6559.5 6559.5
+12414.712325569829 13051.364325569829
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8060.0 8053.0 8055.0
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 12733.038325569829} rec
+12733.038325569829 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+6584.5 6551.0 6554.0
+12414.712325569829 13051.364325569829
+False
+{'date': '2025-07-31', 'value': 9855.199999999999} rec
+9855.199999999999 line_price
+6584.5 6551.0 6554.0
+9608.819999999999 10101.579999999999
+False
+{'date': '2025-07-31', 'value': 5108.549999999999} rec
+5108.549999999999 line_price
+1893.1 1893.0 1893.0
+4980.836299999999 5236.263699999999
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8068.0 8068.0 8068.0
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 12733.038325569829} rec
+12733.038325569829 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+6598.0 6591.5 6598.0
+12414.712325569829 13051.364325569829
+False
+{'date': '2025-07-31', 'value': 9855.199999999999} rec
+9855.199999999999 line_price
+6598.0 6591.5 6598.0
+9608.819999999999 10101.579999999999
+False
+{'date': '2025-07-31', 'value': 5108.549999999999} rec
+5108.549999999999 line_price
+1894.5 1893.8 1894.2
+4980.836299999999 5236.263699999999
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8045.5 8045.0 8045.0
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 5108.549999999999} rec
+5108.549999999999 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+1894.3 1894.2 1894.3
+4980.836299999999 5236.263699999999
+False
+{'date': '2025-07-31', 'value': 12733.038325569829} rec
+12733.038325569829 line_price
+6572.5 6565.5 6572.5
+12414.712325569829 13051.364325569829
+False
+{'date': '2025-07-31', 'value': 9855.199999999999} rec
+9855.199999999999 line_price
+6572.5 6565.5 6572.5
+9608.819999999999 10101.579999999999
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+{'date': '2025-07-31', 'value': 7712.685818503569} rec
+7712.685818503569 line_price
+8041.0 8038.5 8038.5
+7519.868718503569 7905.502918503569
+False
+{'date': '2025-07-31', 'value': 5108.549999999999} rec
+5108.549999999999 line_price
+[Attempt 1] Rate limit hit. Retrying in 10 sec...
+1893.3 1893.0 1893.0
+4980.836299999999 5236.263699999999
+False
+{'date': '2025-07-31', 'value': 12733.038325569829} rec
+12733.038325569829 line_price
+6589.5 6555.5 6558.5
+12414.712325569829 13051.364325569829
+False
+{'date': '2025-07-31', 'value': 9855.199999999999} rec
+9855.199999999999 line_price
+6589.5 6555.5 6558.5
+9608.819999999999 10101.579999999999
+False
+{'date': '2025-07-31', 'value': 8436.007192887651} rec
+8436.007192887651 line_price
+6589.5 6555.5 6558.5
+8225.106992887651 8646.907392887651
+False
+{'date': '2025-07-31', 'value': 9770.648087423124} rec
+9770.648087423124 line_price
+1893.8 1893.0 1893.0
+9526.381887423124 10014.914287423124
+False
+{'date': '2025-07-31', 'value': 11733.314648398356} rec
+11733.314648398356 line_price
+14450.0 14449.0 14450.0
+11439.981748398356 12026.647548398356
+False
+{'date': '2025-07-31', 'value': 2809.457652477996} rec
+2809.457652477996 line_price
+1893.8 1893.0 1893.0
+2739.221252477996 2879.694052477996
+False
+{'date': '2025-07-31', 'value': 1559.8846110285951} rec
+1559.8846110285951 line_price
+1177.0 1176.0 1176.3
+1520.8875110285951 1598.8817110285951
+False
+Traceback (most recent call last):
+  File "/home/ubuntu/Geo-Algo/manage.py", line 22, in <module>
+    main()
+  File "/home/ubuntu/Geo-Algo/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 138, in handle
+    TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+  File "/home/ubuntu/Geo-Algo/market/management/commands/check_trend_lines.py", line 42, in run
+    full_df = self.client.get_full_history(tl.security_id)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 34, in get_full_history
+    return self.get_ticker_data(security_id, early)
+  File "/home/ubuntu/Geo-Algo/market/dhan.py", line 113, in get_ticker_data
+    resp.raise_for_status()
+  File "/home/ubuntu/Geo-Algo/venv/lib/python3.8/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 429 Client Error:  for url: https://api.dhan.co/v2/charts/historical
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
+False
+Outside market hours; skipping crossover check.
