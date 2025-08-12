@@ -7,8 +7,8 @@ env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, "geo_algo/local_env.env"))
 
 SECRET_KEY = 'django-insecure-j2e(v&w4(rjfgcp-*&@4-j@)$efxhhg2(tfp951amhb=4^r#+%'
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 print(DEBUG)
 ALLOWED_HOSTS = ['*']
 
@@ -110,7 +110,7 @@ AMIT_TRADING_DHAN_ACCESS_TOKEN = env("AMIT_TRADING_DHAN_ACCESS_TOKEN")
 AMIT_CLIENT_ID = env("AMIT_CLIENT_ID")
 ANAND_TRADING_DHAN_ACCESS_TOKEN = env("ANAND_TRADING_DHAN_ACCESS_TOKEN")
 ANAND_CLIENT_ID = env("ANAND_CLIENT_ID")
-DATA_DHAN_ACCESS_TOKEN = env("DATA_DHAN_ACCESS_TOKEN")
+DATA_DHAN_ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaGFuIiwicGFydG5lcklkIjoiIiwiZXhwIjoxNzU2OTkwMjI1LCJ0b2tlbkNvbnN1bWVyVHlwZSI6IlNFTEYiLCJ3ZWJob29rVXJsIjoiIiwiZGhhbkNsaWVudElkIjoiMTEwMDk5MTU0OSJ9.AQewSOSc2blwsGHssjwfPq7wWQZAkl_VxFS31Vz9d61r9ja5vFyRas20VCpo60ziLs-3PQ1FqPVysHPaNsQnkw"
 DATA_CLIENT_ID = env("DATA_CLIENT_ID")
 
 

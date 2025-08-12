@@ -1,5 +1,5 @@
 import math
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from pandas.tseries.offsets import BDay
 
 import matplotlib
@@ -112,6 +112,7 @@ class DHANClient:
             "oi": False,
             "fromDate": from_date,
             "toDate": datetime.today().strftime("%Y-%m-%d"),
+            # "toDate": (datetime.today() - timedelta(days=1)).strftime("%Y-%m-%d"),
         }
 
         for attempt in range(1, max_retries + 1):
@@ -153,6 +154,7 @@ class DHANClient:
 
             except requests.exceptions.RequestException as e:
                 print(f"[Attempt {attempt}] Request failed: {e}")
+                print(resp.text)
                 time.sleep(retry_delay)
 
         print("All retry attempts failed. Returning empty DataFrame.")

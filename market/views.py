@@ -1,7 +1,7 @@
 import csv
 import io
-import subprocess
-from datetime import datetime, timedelta
+import re
+from datetime import timedelta, date, datetime
 import decimal
 from decimal import Decimal
 import json
@@ -110,10 +110,34 @@ def candlestick_chart(request):
         "symbol": symbol,
     })
 
-# TODO filter based on angle and script
-# Test delete
-# Need option delete all
-# Need to show old and new - option to choose from either.
+
+SYMBOL_TOKEN_RE = re.compile(r"^[A-Z0-9]+")
+WEEKEND = {5, 6}  # Sat=5, Sun=6
+
+
+def _debug(msg, **kw):
+    print("DEBUG:", json.dumps({"msg": msg, **kw}, default=str, indent=2))
+
+
+def weekday_only_back(anchor: date, n: int) -> date:
+    d = anchor
+    count = 0
+    while count < n:
+        d -= timedelta(days=1)
+        if d.weekday() not in WEEKEND:
+            count += 1
+    return d
+
+
+def list_exchange_sessions_back(anchor: date, n: int, holidays: set) -> list:
+    """List the last `n` exchange sessions prior to `anchor` (skip weekends + holidays)."""
+    sessions = []
+    d = anchor
+    while len(sessions) < n:
+        d -= timedelta(days=1)
+        if d.weekday() not in WEEKEND and d not in holidays:
+            sessions.append(d)
+    return sessions  # newest -> older
 
 
 @login_required
@@ -122,47 +146,92 @@ def upload_trendlines_csv(request):
         file1 = request.FILES["sheet1"]
         file2 = request.FILES["sheet2"]
 
-        def read_file(file):
-            if file.name.lower().endswith(".csv"):
-                return pd.read_csv(io.StringIO(file.read().decode("utf-8")))
-            else:
-                return pd.read_excel(file)
+        def read_file(uploaded):
+            name = (uploaded.name or "").lower()
+            raw = uploaded.read()
+            if name.endswith(".csv"):
+                return pd.read_csv(io.StringIO(raw.decode("utf-8")))
+            return pd.read_excel(io.BytesIO(raw))
 
         try:
             df1 = read_file(file1)
             df2 = read_file(file2)
 
-            client = DHANClient(access_token=settings.DATA_DHAN_ACCESS_TOKEN)
-            symbol_result = client.get_symbols()
+            # Required columns
+            c_txtname = next((c for c in df1.columns if c.strip().lower() in {"txtname", "name", "symbol"}), None)
+            c_days = next((c for c in df1.columns if c.strip().lower() in {"days", "offset", "daysoffset"}), None)
+            if not c_txtname or not c_days:
+                messages.error(request, "Sheet1 must contain symbol (txtName/name/symbol) and days (days/offset).")
+                return redirect("market:upload_trendlines_csv")
+
+            need_cols_df2 = {"scrip", "scale", "startDay"}
+            if not need_cols_df2.issubset({c.strip() for c in df2.columns}):
+                messages.error(request, "Sheet2 must contain 'scrip', 'scale', and 'startDay'.")
+                return redirect("market:upload_trendlines_csv")
+
+            # DHAN symbol map
+            try:
+                client = DHANClient(access_token=settings.DATA_DHAN_ACCESS_TOKEN)
+                symbol_result = client.get_symbols()
+            except Exception as e:
+                messages.error(request, f"DHAN symbols error: {e}")
+                return redirect("market:upload_trendlines_csv")
 
             if not isinstance(symbol_result, dict) or "instrument_list" not in symbol_result:
                 messages.error(request, "Failed to fetch symbol data from DHAN.")
                 return redirect("market:upload_trendlines_csv")
 
-            instrument_list = symbol_result["instrument_list"]
             symbol_lookup = {
-                item["symbol"].strip().upper(): item["security_id"].strip()
-                for item in instrument_list
+                (item.get("symbol") or "").strip().upper(): (item.get("security_id") or "").strip()
+                for item in symbol_result["instrument_list"]
+                if item.get("symbol") and item.get("security_id")
             }
 
-            # Create set of existing (symbol, angle) pairs
-            existing_keys = set(
-                (obj.symbol, obj.angles[0]) for obj in TrendLine.objects.all()
-            )
+            # Existing (symbol, angle)
+            try:
+                existing_keys = set(
+                    (obj.symbol.strip().upper(), float(obj.angles[0]))
+                    for obj in TrendLine.objects.all()
+                    if getattr(obj, "angles", None)
+                )
+            except Exception:
+                existing_keys = set(
+                    (obj.symbol.strip().upper(), float(getattr(obj, "angle", 0.0)))
+                    for obj in TrendLine.objects.all()
+                )
+
+            # Meta lookup
+            df2["_SCRIP_NORM_"] = df2["scrip"].astype(str).str.strip().str.upper()
+            meta_map = df2.set_index("_SCRIP_NORM_")[["scale", "startDay"]]
+
+            ANGLES = [45.0]
+            now_naive = timezone.now().replace(tzinfo=None)
 
             new_entries = []
-            for _, row in df1.iterrows():
-                raw_symbol = str(row["txtName"]).strip()
-                symbol = raw_symbol.split()[0].upper()
+            duplicates = 0
+            prepared = 0
 
-                meta = df2[df2["scrip"].str.upper() == symbol]
-                if meta.empty:
+            for _, row in df1.iterrows():
+                raw_symbol = str(row[c_txtname]).strip() if pd.notna(row[c_txtname]) else ""
+                if not raw_symbol:
+                    continue
+
+                token = SYMBOL_TOKEN_RE.findall(raw_symbol.upper())
+                symbol = token[0] if token else raw_symbol.split()[0].upper()
+
+                if symbol not in meta_map.index:
                     continue
 
                 try:
-                    scale = float(meta.iloc[0]["scale"])
-                    start_day = int(meta.iloc[0]["startDay"])
-                    days_offset = int(row["days"])
+                    meta = meta_map.loc[symbol]
+                    scale = float(meta["scale"])
+                except Exception:
+                    continue
+
+                try:
+                    days_offset = int(row[c_days])
+                    if days_offset < 0:
+                        continue
                 except Exception:
                     continue
 
@@ -170,35 +239,84 @@ def upload_trendlines_csv(request):
                 if not security_id:
                     continue
 
-                hist_df = client.get_full_history(security_id)
-                if hist_df.empty or len(hist_df) < days_offset:
+                # History fetch + normalize
+                try:
+                    hist_df = client.get_full_history(security_id)
+                except Exception:
                     continue
 
-                hist_df = hist_df.sort_index()[::-1].reset_index()
-                if days_offset >= len(hist_df):
+                if hist_df is None or len(hist_df) == 0:
                     continue
 
-                target_row = hist_df.iloc[days_offset]
-                start_date = target_row["timestamp"].date()
-                start_price = target_row["low"]
+                hist_df = hist_df.copy()
+                hist_df.columns = [str(c).strip().lower() for c in hist_df.columns]
 
-                for angle in [45, 63.75, 26.25]:
-                    new_entry = {
+                if "timestamp" in hist_df.columns:
+                    hist_df = hist_df.reset_index(drop=True)
+                else:
+                    idx_name = (hist_df.index.name or "").strip()
+                    hist_df = hist_df.reset_index()
+                    src_name = (idx_name if idx_name else "index")
+                    src_name_lc = str(src_name).strip().lower()
+                    if src_name_lc not in hist_df.columns:
+                        candidate = next((c for c in ["index", idx_name, "timestamp", "date", "datetime"] if c and c in hist_df.columns), None)
+                        if candidate is None:
+                            continue
+                        src_name_lc = candidate
+                    hist_df = hist_df.rename(columns={src_name_lc: "timestamp"})
+
+                if "low" not in hist_df.columns:
+                    for alt in ("l", "lo", "min", "lowprice"):
+                        if alt in hist_df.columns:
+                            hist_df["low"] = hist_df[alt]
+                            break
+                if "low" not in hist_df.columns:
+                    continue
+
+                hist_df["timestamp"] = pd.to_datetime(hist_df["timestamp"], errors="coerce")
+                hist_df = hist_df.dropna(subset=["timestamp"])
+                hist_df = hist_df[hist_df["timestamp"] <= pd.Timestamp(now_naive)]
+                if hist_df.empty:
+                    continue
+
+                # Sort latest→oldest and dedupe to one row per date
+                hist_df = hist_df.sort_values("timestamp", ascending=False).reset_index(drop=True)
+                hist_df["date_only"] = hist_df["timestamp"].dt.date
+                hist_df = hist_df.drop_duplicates(subset=["date_only"], keep="first").reset_index(drop=True)
+
+                # --- Symbol-days pick (fixed off-by-one) ---
+                idx_pick = max(int(days_offset) - 1, 0)
+                if idx_pick > len(hist_df) - 1:
+                    continue
+
+                target_row = hist_df.iloc[idx_pick]
+                start_date = target_row["date_only"]
+                start_price = float(target_row["low"])
+
+                for angle in ANGLES:
+                    key = (symbol, float(angle))
+                    is_dup = key in existing_keys
+                    if is_dup:
+                        duplicates += 1
+
+                    new_entries.append({
                         "symbol": symbol,
                         "start_date": str(start_date),
                         "angle": float(angle),
                         "price_to_bar_ratio": float(scale),
-                        "start_price": float(start_price),
-                        "security_id": security_id
-                    }
-                    key = (symbol, angle)
-                    if key in existing_keys:
-                        new_entry["is_duplicate"] = True
-                    else:
-                        new_entry["is_duplicate"] = False
-                    new_entries.append(new_entry)
+                        "start_price": start_price,
+                        "security_id": security_id,
+                        "is_duplicate": is_dup,
+                        "index_used": int(idx_pick),
+                    })
+                    prepared += 1
+
+            if not new_entries:
+                messages.warning(request, "No entries prepared.")
+                return redirect("market:upload_trendlines_csv")
 
             request.session["review_entries"] = json.loads(json.dumps(new_entries, default=str))
+            messages.success(request, f"Prepared {prepared} entries (duplicates: {duplicates}).")
             return redirect("market:resolve_trendline_duplicates")
 
         except Exception as e:
