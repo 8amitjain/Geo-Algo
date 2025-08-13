@@ -9,6 +9,7 @@ import time
 from requests import HTTPError
 import csv
 import io
+import numpy as np
 import requests
 from typing import List, Dict, Union, Any, Tuple
 
@@ -280,7 +281,8 @@ class TrendLine:
 
         # 2) find the nearest bar for the user’s start_date
         ts = pd.to_datetime(start_date)
-        self.start_bar = df.index.get_indexer([ts], method="nearest")[0]
+        # self.start_bar = df.index.get_indexer([ts], method="nearest")[0]
+        self.start_bar = self._nearest_pos_to_timestamp(df.index, ts)
         self.start_ts = df.index[self.start_bar]
         self.start_price = float(df["low"].iat[self.start_bar])
 
@@ -304,6 +306,39 @@ class TrendLine:
         # 7) combine historical + future
         #    this will be used by get_points()
         self.dates = hist_dates.append(future_dates)
+
+    def _nearest_pos_to_timestamp(self, index, ts) -> int:
+        """
+        Return the integer row position in `index` nearest to `ts`.
+        Works even if the index has duplicates and even if it's not sorted.
+        """
+        idx = pd.to_datetime(index, errors="coerce")
+
+        # Align timezone between index and ts
+        ts = pd.Timestamp(ts)
+        if isinstance(idx, pd.DatetimeIndex):
+            if idx.tz is not None:
+                if ts.tzinfo is None:
+                    ts = ts.tz_localize(idx.tz)
+                elif ts.tzinfo != idx.tz:
+                    ts = ts.tz_convert(idx.tz)
+            else:
+                if ts.tzinfo is not None:
+                    ts = ts.tz_localize(None)
+
+            # Compute absolute nanosecond distance and take argmin
+            # .asi8 gives int64 nanoseconds since epoch; may contain NaT (-9223372036854775808)
+            vals = idx.asi8
+            # Replace NaT with a very large number to avoid breaking argmin
+            nat_mask = (vals == np.iinfo(np.int64).min)
+            if nat_mask.any():
+                vals = vals.copy()
+                vals[nat_mask] = np.iinfo(np.int64).max
+
+            return int(np.abs(vals - ts.value).argmin())
+
+        # If index couldn't be converted to datetime, just fall back to the first row.
+        return 0
 
     def get_points(self) -> Tuple[List[float], List[float]]:
         """

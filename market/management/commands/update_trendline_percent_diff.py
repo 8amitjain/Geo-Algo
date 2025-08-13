@@ -17,8 +17,9 @@ class Command(BaseCommand):
         client = DHANClient(access_token=settings.DATA_DHAN_ACCESS_TOKEN)
         updated = 0
 
-        for tl in TrendLine.objects.all():
-            try:
+        # for tl in TrendLine.objects.all():
+        for tl in TrendLine.objects.filter(percent_difference_cached=None):
+            # try:
                 # Step 1: Determine last available trading day
                 bar_close = None
                 trendline_date = None
@@ -73,7 +74,7 @@ class Command(BaseCommand):
                 tl.save()
                 updated += 1
 
-            except Exception as e:
-                print(f"Failed to update trend line {tl.pk}: {e}")
+            # except Exception as e:
+            #     print(f"Failed to update trend line {tl.pk}: {e}")
 
         self.stdout.write(self.style.SUCCESS(f"{updated} trend lines updated."))
