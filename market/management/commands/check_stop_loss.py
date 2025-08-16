@@ -95,12 +95,12 @@ class Command(BaseCommand):
     help = "Sell stocks if stop-loss has been breached."
 
     def handle(self, *args, **options):
-        now = timezone.localtime()
-        if settings.DEBUG:
-            StopLossChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
-        else:
-            if time(9, 30) <= now.time() <= time(15, 30):
-                StopLossChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
-                self.stdout.write(self.style.SUCCESS("Stop-loss check complete."))
-            else:
-                self.stdout.write("Outside market hours; skipping stop-loss check.")
+        # now = timezone.localtime()
+        # if settings.DEBUG:
+        StopLossChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+        # else:
+        #     if time(9, 30) <= now.time() <= time(15, 30):
+        #         StopLossChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+        #         self.stdout.write(self.style.SUCCESS("Stop-loss check complete."))
+        #     else:
+        #         self.stdout.write("Outside market hours; skipping stop-loss check.")

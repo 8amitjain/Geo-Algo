@@ -152,6 +152,7 @@ class TrendLineCheck(models.Model):
     purchased = models.BooleanField(default=False, help_text="Whether the actual price purchased the trend line")
     sold = models.BooleanField(default=False, help_text="Whether the stock was sold")
     cross_over_ema = models.BooleanField(default=False, help_text="Whether the EMA cross over happened")
+    ema5_ever_below_ema25 = models.BooleanField(default=False)
 
     checked_at = models.DateTimeField(auto_now_add=True, help_text="When this check was performed")  # TODO REMOVE
 

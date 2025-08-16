@@ -24,7 +24,7 @@ class BreakoutChecker:
             purchased=False,
             cross_over_ema=True,
         )
-
+        print(recent)
         for chk in recent:
             trade_date = today
             window_start = datetime.combine(today - timedelta(days=90), datetime.min.time()).replace(hour=9, minute=30, second=0)
@@ -76,6 +76,7 @@ class BreakoutChecker:
             )
 
             for user in eligible_users:
+                print("INNN")
                 qty = math.floor(user.risk_per_trade / risk_per_unit)
                 if qty <= 0:
                     continue
@@ -87,8 +88,8 @@ class BreakoutChecker:
                 body = (
                     f"TrendLineCheck ID {chk.id} triggered buy:\n"
                     f" – Symbol: {symbol}\n"
-                    f" – Price Trigger: ₹{price_trigger:.2f}\n"
-                    f" – Executed Price: ₹{cross_price:.2f} at {cross_time.strftime('%H:%M')}\n"
+                    f" – Price to buy above: ₹{price_trigger:.2f}\n"
+                    f" – TradeTaken at Price: ₹{cross_price:.2f} at {cross_time.strftime('%H:%M')}\n"
                     f" – Risk/Unit: ₹{risk_per_unit:.2f}\n"
                     f" – Quantity: {qty}\n"
                     f" – Stop-loss: ₹{stop_loss:.2f}\n"
@@ -125,13 +126,13 @@ class Command(BaseCommand):
     help = "Check for Breakout after cross over TrendLineChecks."
 
     def handle(self, *args, **options):
-        now = timezone.localtime()
-        if settings.DEBUG:
-            BreakoutChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
-        else:
-            # # only run during market hours
-            if time(9, 30) <= now.time() <= time(15, 0):
-                BreakoutChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
-                self.stdout.write(self.style.SUCCESS("Breakout check complete."))
-            else:
-                self.stdout.write("Outside market hours; skipping crossover check.")
+        # now = timezone.localtime()
+        # if settings.DEBUG:
+        BreakoutChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+        # else:
+        #     # # only run during market hours
+        #     if time(9, 30) <= now.time() <= time(15, 0):
+        #         BreakoutChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
+        #         self.stdout.write(self.style.SUCCESS("Breakout check complete."))
+        #     else:
+        #         self.stdout.write("Outside market hours; skipping crossover check.")
