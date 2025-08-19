@@ -285,7 +285,7 @@ def upload_trendlines_csv(request):
                 hist_df = hist_df.drop_duplicates(subset=["date_only"], keep="first").reset_index(drop=True)
 
                 # --- Symbol-days pick (fixed off-by-one) ---
-                idx_pick = max(int(days_offset) - 1, 0)
+                idx_pick = max(int(days_offset) - 2, 0)
                 if idx_pick > len(hist_df) - 1:
                     continue
 
