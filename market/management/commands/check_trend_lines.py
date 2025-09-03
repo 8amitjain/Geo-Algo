@@ -1,7 +1,5 @@
-# market/management/commands/check_trend_lines.py
-
 from decimal import Decimal
-from datetime import timedelta, time
+from datetime import timedelta
 
 from django.core.management.base import BaseCommand
 from django.utils import timezone
@@ -17,28 +15,26 @@ class TrendLineChecker:
     """
     Recomputes each stored TrendLine’s line_data through the last bar,
     then, every 15 min during market hours, fetches the most-recent 15m
-    bar and marks whether it touched the trend line (±0.5% tolerance).
+    bar and marks whether it touched the trend line (± vibration tolerance),
+    only if previous 10 EOD candles were above the trendline (with tolerance).
     """
 
     def __init__(self, api_token_data: str):
-        # only need the history & intraday client
         self.client = DHANClient(access_token=api_token_data)
 
     def run(self) -> None:
         now = timezone.localtime()
-
-        # 1) Which lines we care about: those that start on/before today,
-        #    and for which *today’s* check hasn’t yet been marked touched
         today = now.date()
+
         to_check = TrendLine.objects.filter(
             start_date__lte=today
         ).exclude(
-            # checks__date=today,
             checks__touched=True
         )
+        print(to_check, "to_check")
 
-        # 2) For each line, recompute its full line_data (so the last price is up-to-date)
         for tl in to_check:
+            print(tl.symbol)
             full_df = self.client.get_full_history(tl.security_id)
             angle = tl.angles[0]
             ratio = tl.price_to_bar_ratio
@@ -58,67 +54,106 @@ class TrendLineChecker:
             ]
             tl.save(update_fields=["line_data"])
 
-            # 3) figure out today’s theoretical line‐price at *this* bar
-            #    find the entry in line_data for today (if it exists)
+            # today's theoretical trendline price
             rec = next(
                 (pt for pt in tl.line_data if pt["date"] == today.strftime("%Y-%m-%d")),
                 None
             )
-            print(rec, "rec")
             if not rec:
-                # no price point for today → skip
                 continue
 
             line_price = Decimal(str(rec["value"]))
-            print(line_price, "line_price")
+            vibration_point = Decimal(str(vibration_point_detail()))
+            tol = (line_price * vibration_point).quantize(Decimal("0.01"))
+            lower_bnd = line_price - tol
+            upper_bnd = line_price + tol
 
-            # 4) Fetch the latest 15-minute bar (end = now, start = now-15m)
+            # fetch most recent 15-min candle
             end_ts = now.strftime("%Y-%m-%d %H:%M:%S")
             start_ts = (now - timedelta(minutes=15)).strftime("%Y-%m-%d %H:%M:%S")
-
             intraday = self.client.get_intraday_ohlc(
                 security_id=tl.security_id,
                 interval=15,
                 start_date=start_ts,
                 end_date=end_ts,
             )
+
             if intraday.empty:
                 continue
 
-            # assume the *last* row is the most-recent 15m bar
             bar_low = Decimal(str(intraday["low"].iat[-1]))
             bar_high = Decimal(str(intraday["high"].iat[-1]))
-            bar_close = Decimal(str(intraday["open"].iat[-1]))
-            print(bar_high, bar_low, bar_close)
+            bar_close = Decimal(str(intraday["close"].iat[-1]))
 
-            # 5) ±0.5% tolerance
-            vibration_point = vibration_point_detail()  # TODO add checks if in decimal or throw error over mail
-            tol = (line_price * Decimal(vibration_point)).quantize(Decimal("0.0001"))
-            lower_bnd = line_price - tol
-            upper_bnd = line_price + tol
-            print(lower_bnd, upper_bnd)
-            # touched = (bar_low <= upper_bnd) or (bar_high >= lower_bnd)
-            touched = (bar_high >= lower_bnd) and (bar_low <= upper_bnd)
-            print(touched)
+            # check current bar touch
+            current_touched = (bar_high >= lower_bnd) and (bar_low <= upper_bnd)
 
-            # 6) Record the check for *today*
+            # validate EOD condition only if current touched
+            touched = False
+            if current_touched:
+                # fetch last 10 EOD candles before today
+                eod_history = self.client.get_ticker_data(
+                    security_id=tl.security_id,
+                    from_date=(today - timedelta(days=30)).strftime("%Y-%m-%d"),
+                )
+
+                if not eod_history.empty:
+                    last_10_eod = eod_history.tail(5)
+
+                    # map of date -> trendline value
+                    line_map = {pt["date"]: Decimal(str(pt["value"])) for pt in tl.line_data}
+
+                    def get_date_str(val):
+                        if hasattr(val, "strftime"):
+                            return val.strftime("%Y-%m-%d")
+                        return str(val).split(" ")[0]
+
+                    all_above = True
+                    for idx, row in last_10_eod.iterrows():
+                        # get timestamp from column if present, else from index
+                        if "timestamp" in last_10_eod.columns:
+                            ts_val = row["timestamp"]
+                        else:
+                            ts_val = idx  # fallback: index is datetime
+                        row_date = get_date_str(ts_val)
+
+                        trend_price = line_map.get(row_date)
+                        if not trend_price:
+                            all_above = False
+                            break
+
+                        tol_eod = (trend_price * Decimal(vibration_point)).quantize(Decimal("0.01"))
+                        upper_bnd_eod = trend_price + tol_eod
+
+                        low_i = Decimal(str(row["low"]))
+                        if low_i <= upper_bnd_eod:
+                            all_above = False
+                            break
+
+                    # print(all_above, "all_above")
+                    if all_above:
+                        touched = True
+
+            # print(current_touched, "TOUCHED")
+            # print("___________")
+            # store TrendLineCheck entry
             TrendLineCheck.objects.update_or_create(
                 trend_line=tl,
                 date=today,
                 defaults={
-                    "line_price":   line_price,
-                    "actual_price":   bar_close,
-                    "touched":      touched,
+                    "line_price": line_price,
+                    "actual_price": bar_close,
+                    "touched": touched,
                 },
             )
+
             if touched:
                 subject = f"Trend Line Touched: {tl.symbol} @ {now.strftime('%d/%m/%Y %I:%M %p')}"
                 body = (
-                    f"The price bar from {start_ts}–{end_ts}"
-                    f"touched your {angle}° line at {line_price}.\n"
-                    f"Actual low/high: {bar_low}/{bar_high}."
+                    f"The price bar from {start_ts}–{end_ts} touched your {angle}° line at {line_price}.\n"
+                    f"Actual low/high: {bar_low}/{bar_high}.\n"
+                    f"Confirmed: Last 10 EOD bars were above trendline (with vibration tolerance)."
                 )
-                # replace with whoever should get notified
                 recipients = settings.EMAIL_RECIPIENTS
                 send_notification_email(subject, body, recipients)
 
@@ -129,14 +164,4 @@ class Command(BaseCommand):
     help = "Recompute trend-lines and check every 15 min whether the latest 15m bar touches them."
 
     def handle(self, *args, **options):
-        # now = timezone.localtime()
-        # if settings.DEBUG:
         TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
-        # else:
-        #     # # only run during market hours
-        #     if time(9, 30) <= now.time() <= time(15, 0):
-        #         TrendLineChecker(settings.DATA_DHAN_ACCESS_TOKEN).run()
-        #         self.stdout.write(self.style.SUCCESS("Trend lines re-computed and checked."))
-        #     else:
-        #         self.stdout.write("Outside market hours; skipping crossover check.")
-

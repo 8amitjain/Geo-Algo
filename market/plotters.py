@@ -29,6 +29,7 @@ class InteractiveChartPlotter:
         if isinstance(df.index, pd.DatetimeIndex):
             df = df.reset_index().rename(columns={"index": "timestamp"})
         df["timestamp"] = pd.to_datetime(df["timestamp"])
+        # df.sort_index(inplace=True)
         self.df = df
         self.symbol = symbol
 
@@ -277,7 +278,7 @@ class EMACandlestickPlotter:
                 y=df_ema["EMA5"].tolist(),
                 mode="lines",
                 name="EMA(5)",
-                line=dict(color="red", width=2),
+                line=dict(color="red", width=3),
             ),
             row=1,
             col=1
@@ -291,7 +292,7 @@ class EMACandlestickPlotter:
                 y=df_ema["EMA25"].tolist(),
                 mode="lines",
                 name="EMA(25)",
-                line=dict(color="yellow", width=2),
+                line=dict(color="#FDDA0D", width=3),
 
             ),
             row=1,
@@ -309,22 +310,135 @@ class EMACandlestickPlotter:
         )
 
         # 7) Layout & interactive controls
+        # fig.update_layout(
+        #     title=f"{self.symbol} — Intraday Candlestick + EMA(5/25)",
+        #     xaxis=dict(
+        #         title="Date/Time",
+        #         type="date",
+        #         rangeslider=dict(visible=True),
+        #
+        #     ),
+        #     yaxis=dict(
+        #         title="Price",
+        #     ),
+        #     hovermode="x unified",
+        #     dragmode="zoom",
+        #     legend=dict(
+        #         title="Indicators",
+        #         orientation="h",
+        #         y=1.05,
+        #         x=0.5,
+        #         xanchor="center"
+        #     ),
+        #     margin=dict(l=50, r=50, t=60, b=50),
+        # )
         fig.update_layout(
-            title=f"{self.symbol} — Intraday Candlestick + EMA(5/25)",
+            title=f"{self.symbol} EMA5 / EMA25 on 15-min candles",
+            xaxis_title="Date",
+            yaxis_title="Price",
+            margin=dict(t=50, b=40),
             xaxis=dict(
-                title="Date/Time",
+                rangeslider=dict(visible=False),  # ✅ free zoom, no scrollbar
                 type="date",
-                rangeslider=dict(visible=True),
-
+                showspikes=True
             ),
-            yaxis=dict(
-                title="Price",
-            ),
+            yaxis=dict(showspikes=True),
             hovermode="x unified",
-            dragmode="zoom",
-            legend=dict(title="Indicators", orientation="h", y=1.02),
-            margin=dict(l=50, r=50, t=60, b=50),
         )
-
         return fig
 
+#
+#
+# class EMACandlestickPlotter:
+#     def __init__(self, df: pd.DataFrame, symbol: str) -> None:
+#         # Ensure timestamp is proper
+#         if "timestamp" in df.columns:
+#             df["timestamp"] = pd.to_datetime(df["timestamp"])
+#             df.set_index("timestamp", inplace=True)
+#
+#         elif not isinstance(df.index, pd.DatetimeIndex):
+#             raise ValueError("DataFrame must have a DateTimeIndex or a 'timestamp' column.")
+#
+#         df.sort_index(inplace=True)
+#
+#         # Add EMA columns
+#         df["EMA_5"] = df["close"].ewm(span=5, adjust=False).mean()
+#         df["EMA_25"] = df["close"].ewm(span=25, adjust=False).mean()
+#
+#         # Keep a copy with timestamp column for plotting
+#         self.df = df.reset_index()
+#         self.symbol = symbol
+#
+#     def get_holiday_gaps(self):
+#         """Find missing business days in the dataset (exchange holidays)."""
+#         dates = self.df["timestamp"].dt.normalize().drop_duplicates().sort_values()
+#         holidays = []
+#         for prev, curr in zip(dates[:-1], dates[1:]):
+#             delta = (curr - prev).days
+#             if delta > 1:
+#                 # Add all missing business days (skip weekends automatically)
+#                 holidays.extend(
+#                     pd.date_range(prev + pd.Timedelta(days=1), curr - pd.Timedelta(days=1), freq="B")
+#                 )
+#         return [ts.strftime("%Y-%m-%d %H:%M:%S") for ts in holidays]
+#
+#     def build_figure(self):
+#         df = self.df
+#
+#         fig = go.Figure()
+#
+#         # --- Candlestick ---
+#         fig.add_trace(go.Candlestick(
+#             x=df["timestamp"],
+#             open=df["open"],
+#             high=df["high"],
+#             low=df["low"],
+#             close=df["close"],
+#             name=f"{self.symbol} Candlestick",
+#             increasing_line_color="green",
+#             decreasing_line_color="red",
+#             showlegend=True
+#         ))
+#
+#         # --- EMA 5 ---
+#         fig.add_trace(go.Scatter(
+#             x=df["timestamp"],
+#             y=df["EMA_5"],
+#             line=dict(color="blue", width=1.5),
+#             name="EMA 5"
+#         ))
+#
+#         # --- EMA 25 ---
+#         fig.add_trace(go.Scatter(
+#             x=df["timestamp"],
+#             y=df["EMA_25"],
+#             line=dict(color="orange", width=1.5),
+#             name="EMA 25"
+#         ))
+#
+#         # --- Layout ---
+#         holiday_gaps = self.get_holiday_gaps()
+#         print(holiday_gaps, "self.get_holiday_gaps()")
+#
+#         fig.update_layout(
+#             title=f"{self.symbol} Candlestick + EMA",
+#             xaxis_title="Date",
+#             yaxis_title="Price",
+#             template="plotly_dark",
+#             xaxis_rangeslider_visible=False,
+#             height=700,
+#             width=1200,
+#             dragmode="zoom",
+#             hovermode="x unified"
+#         )
+#
+#         # --- Hide holidays, weekends, and non-trading hours ---
+#         fig.update_xaxes(
+#             rangebreaks=[
+#                 dict(values=holiday_gaps),                # holidays
+#                 dict(bounds=["sat", "mon"]),              # weekends
+#                 dict(bounds=[16, 9.5], pattern="hour"),   # non-trading hours (09:30–16:00)
+#             ]
+#         )
+#
+#         return fig
