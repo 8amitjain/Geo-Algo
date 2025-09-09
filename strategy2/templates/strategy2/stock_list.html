@@ -1,0 +1,26 @@
+{% extends "market/base.html" %}
+{% block content %}
+<h2>Tracked Stocks</h2>
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Name</th>
+        <th>Security ID</th>
+        <th>Reversal High</th>
+        <th>Entry Price</th>
+        <th>Stop Loss</th>
+        <th>Actions</th>
+    </tr>
+    {% for stock in stocks %}
+    <tr>
+        <td>{{ stock.name }}</td>
+        <td>{{ stock.security_id }}</td>
+        <td>{{ stock.reversal_bar_high }}</td>
+        <td>{{ stock.entry_price }}</td>
+        <td>{{ stock.stop_loss }}</td>
+        <td>
+            <a href="{% url 'strategy2:stock_chart' stock.id %}">View Chart</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

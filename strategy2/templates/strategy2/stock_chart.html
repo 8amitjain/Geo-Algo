@@ -1,0 +1,12 @@
+{% extends "market/base.html" %}
+{% block content %}
+
+<h2>{{ stock.name }} – Chart</h2>
+<a href="{% url 'strategy2:stock_list' %}">← Back to list</a>
+<hr>
+{% if plot_div %}
+    {{ plot_div|safe }}
+{% else %}
+    <p>No data available for this stock.</p>
+{% endif %}
+{% endblock %}

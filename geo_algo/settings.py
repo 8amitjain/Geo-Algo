@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'home',
     'users',
     'variables',
+    'strategy2',
 ]
 
 MIDDLEWARE = [
@@ -65,8 +66,8 @@ WSGI_APPLICATION = 'geo_algo.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-host = '127.0.0.1' if DEBUG else '13.126.174.197'
-# host = '13.126.174.197' if DEBUG else '13.126.174.197'
+# host = '127.0.0.1' if DEBUG else '13.126.174.197'
+host = '13.126.174.197' if DEBUG else '13.126.174.197'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -109,7 +110,7 @@ AMIT_TRADING_DHAN_ACCESS_TOKEN = env("AMIT_TRADING_DHAN_ACCESS_TOKEN")
 AMIT_CLIENT_ID = env("AMIT_CLIENT_ID")
 ANAND_TRADING_DHAN_ACCESS_TOKEN = env("ANAND_TRADING_DHAN_ACCESS_TOKEN")
 ANAND_CLIENT_ID = env("ANAND_CLIENT_ID")
-DATA_DHAN_ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaGFuIiwicGFydG5lcklkIjoiIiwiZXhwIjoxNzU2OTkwMjI1LCJ0b2tlbkNvbnN1bWVyVHlwZSI6IlNFTEYiLCJ3ZWJob29rVXJsIjoiIiwiZGhhbkNsaWVudElkIjoiMTEwMDk5MTU0OSJ9.AQewSOSc2blwsGHssjwfPq7wWQZAkl_VxFS31Vz9d61r9ja5vFyRas20VCpo60ziLs-3PQ1FqPVysHPaNsQnkw"
+DATA_DHAN_ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaGFuIiwicGFydG5lcklkIjoiIiwiZXhwIjoxNzU5NDk2MDgxLCJpYXQiOjE3NTY5MDQwODEsInRva2VuQ29uc3VtZXJUeXBlIjoiU0VMRiIsIndlYmhvb2tVcmwiOiIiLCJkaGFuQ2xpZW50SWQiOiIxMTAwOTkxNTQ5In0._d8R7Q8BqF28YFnBNUz8n-I9yel8c8Tf6MUthBgtuEdLq3p2EjJnfHT7TCU9TB8847bCO9VcW-sv6f8nZ1DyLg"
 DATA_CLIENT_ID = env("DATA_CLIENT_ID")
 
 
