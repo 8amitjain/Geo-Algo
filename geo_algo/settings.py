@@ -7,8 +7,8 @@ env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, "geo_algo/local_env.env"))
 
 SECRET_KEY = 'django-insecure-j2e(v&w4(rjfgcp-*&@4-j@)$efxhhg2(tfp951amhb=4^r#+%'
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 
