@@ -1,15 +1,71 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import StrategyStock
 import plotly.graph_objects as go
 from django.utils import timezone
 from market.dhan import DHANClient
 from django.conf import settings
 import pandas as pd
+from django.contrib import messages
 
 
 def stock_list(request):
-    stocks = StrategyStock.objects.filter(active=True)
-    return render(request, "strategy2/stock_list.html", {"stocks": stocks})
+    qs = StrategyStock.objects.filter(active=True)
+
+    # filters
+    symbol = request.GET.get("symbol", "").strip()
+    reversal = request.GET.get("reversal", "")
+    purchased = request.GET.get("purchased", "")
+
+    if symbol:
+        qs = qs.filter(name__icontains=symbol)
+    if reversal == "yes":
+        qs = qs.filter(reversal_bar_found=True)
+    elif reversal == "no":
+        qs = qs.filter(reversal_bar_found=False)
+    if purchased == "yes":
+        qs = qs.filter(is_purchased=True)
+    elif purchased == "no":
+        qs = qs.filter(is_purchased=False)
+
+    context = {
+        "stocks": qs,
+        "filters": {
+            "symbol": symbol,
+            "reversal": reversal,
+            "purchased": purchased,
+        }
+    }
+
+    client = DHANClient(settings.DATA_DHAN_ACCESS_TOKEN)
+    resp = client.get_symbols()
+    if resp['status_code'] != 200:
+        return render(request, 'market/error.html', resp)
+    context['instrument_list'] = resp['instrument_list']
+    return render(request, "strategy2/stock_list.html", context)
+
+
+def add_stock(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        security_id = request.POST.get("security_id")
+
+        if name and security_id:
+            StrategyStock.objects.get_or_create(
+                name=name.strip(),
+                security_id=security_id.strip(),
+                defaults={"active": True}
+            )
+        return redirect("strategy2:stock_list")
+
+    return redirect("strategy2:stock_list")
+
+
+def delete_stock(request, stock_id):
+    stock = get_object_or_404(StrategyStock, id=stock_id)
+    if request.method == "POST":
+        stock.delete()
+        messages.success(request, f"Stock {stock.name} deleted successfully.")
+    return redirect("strategy2:stock_list")  # replace with your list view name
 
 
 def stock_chart(request, stock_id):
@@ -37,16 +93,13 @@ def stock_chart(request, stock_id):
         )
     ])
 
-    # === Reversal Bar(s) ===
-    if stock.reversal_bar_high and stock.reversal_bar_date:
-        r1_date = pd.to_datetime(stock.reversal_bar_date)
+    # === Reversal Bar 1 ===
+    if stock.reversal_bar1_date and stock.reversal_bar1_high:
+        r1_date = pd.to_datetime(stock.reversal_bar1_date)
         if r1_date in df.index:
-            r1_price = df.loc[r1_date, "high"]
-
-            # Add marker
             fig.add_trace(go.Scatter(
                 x=[r1_date],
-                y=[r1_price],
+                y=[stock.reversal_bar1_high],
                 mode="markers+text",
                 marker=dict(color="blue", size=12, symbol="triangle-up"),
                 text=["R1"],
@@ -54,14 +107,13 @@ def stock_chart(request, stock_id):
                 name="Reversal 1"
             ))
 
-    # Optional: If you track second reversal bar (store separately in model)
-    if hasattr(stock, "reversal_bar2_date") and stock.reversal_bar2_date:
+    # === Reversal Bar 2 ===
+    if stock.reversal_bar2_date and stock.reversal_bar2_high:
         r2_date = pd.to_datetime(stock.reversal_bar2_date)
         if r2_date in df.index:
-            r2_price = df.loc[r2_date, "high"]
             fig.add_trace(go.Scatter(
                 x=[r2_date],
-                y=[r2_price],
+                y=[stock.reversal_bar2_high],
                 mode="markers+text",
                 marker=dict(color="purple", size=12, symbol="triangle-up"),
                 text=["R2"],

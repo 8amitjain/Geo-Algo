@@ -10,7 +10,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         client = DHANClient(access_token=settings.DATA_DHAN_ACCESS_TOKEN)
 
-        for stock in StrategyStock.objects.filter(active=True, tsl_active=True):
+        for stock in StrategyStock.objects.filter(active=True, reversal_bar_found=True):
             df = client.get_ticker_data(stock.security_id, "2024-01-01")
 
             last10 = df.tail(10)

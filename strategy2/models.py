@@ -9,8 +9,13 @@ class StrategyStock(models.Model):
     active = models.BooleanField(default=True)
 
     # Strategy state
-    reversal_bar_high = models.FloatField(null=True, blank=True)
-    reversal_bar_date = models.DateField(null=True, blank=True)
+    reversal_bar1_date = models.DateField(null=True, blank=True)
+    reversal_bar1_high = models.FloatField(null=True, blank=True)
+    reversal_bar2_date = models.DateField(null=True, blank=True)
+    reversal_bar2_high = models.FloatField(null=True, blank=True)
+    reversal_bar_found = models.BooleanField(default=False)
+    is_purchased = models.BooleanField(default=False)
+
     entry_price = models.FloatField(null=True, blank=True)
     stop_loss = models.FloatField(null=True, blank=True)
     tsl_active = models.BooleanField(default=False)

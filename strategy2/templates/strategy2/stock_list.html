@@ -1,26 +1,163 @@
 {% extends "market/base.html" %}
+{% block title %}Tracked Stocks{% endblock %}
+
 {% block content %}
-<h2>Tracked Stocks</h2>
-<table border="1" cellpadding="8">
-    <tr>
-        <th>Name</th>
-        <th>Security ID</th>
-        <th>Reversal High</th>
-        <th>Entry Price</th>
-        <th>Stop Loss</th>
-        <th>Actions</th>
-    </tr>
-    {% for stock in stocks %}
-    <tr>
-        <td>{{ stock.name }}</td>
-        <td>{{ stock.security_id }}</td>
-        <td>{{ stock.reversal_bar_high }}</td>
-        <td>{{ stock.entry_price }}</td>
-        <td>{{ stock.stop_loss }}</td>
-        <td>
-            <a href="{% url 'strategy2:stock_chart' stock.id %}">View Chart</a>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
+<div class="container-fluid px-4 py-3">
+  <h1 class="mb-4">Tracked Stocks (Strategy 2)</h1>
+
+  <!-- ADD STOCK FORM -->
+  <div class="card mb-4">
+    <div class="card-header">Add Stock</div>
+    <div class="card-body">
+      <form method="post" action="{% url 'strategy2:add_stock' %}" class="row g-3">
+        {% csrf_token %}
+
+        <!-- Search Symbol -->
+        <div class="col-md-4">
+          <label for="symbol-search" class="form-label">Search Symbol</label>
+          <input
+            type="text"
+            id="symbol-search"
+            class="form-control"
+            placeholder="Type to filter…"
+          >
+        </div>
+
+        <!-- Symbol Select -->
+        <div class="col-md-4">
+          <label for="symbol-select" class="form-label">Symbol</label>
+          <select
+            name="name"
+            id="symbol-select"
+            class="form-select"
+            size="5"
+            required
+          >
+            {% for sym in instrument_list %}
+              <option
+                value="{{ sym.symbol }}"
+                data-security-id="{{ sym.security_id }}"
+              >
+                {{ sym.symbol }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Hidden Security ID -->
+        <input type="hidden" name="security_id" id="security-id">
+
+        <div class="col-md-2 d-flex align-items-end">
+          <button type="submit" class="btn btn-success w-100">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FILTER FORM -->
+  <div class="card mb-4">
+    <div class="card-header">Filter Stocks</div>
+    <div class="card-body">
+      <form method="get" class="row g-3">
+        <div class="col-md-3">
+          <label class="form-label">Symbol</label>
+          <input type="text" name="symbol" value="{{ filters.symbol }}" class="form-control" placeholder="e.g. TCS">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Reversal Found?</label>
+          <select name="reversal" class="form-select">
+            <option value="">Any</option>
+            <option value="yes" {% if filters.reversal == 'yes' %}selected{% endif %}>Yes</option>
+            <option value="no"  {% if filters.reversal == 'no' %}selected{% endif %}>No</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Purchased?</label>
+          <select name="purchased" class="form-select">
+            <option value="">Any</option>
+            <option value="yes" {% if filters.purchased == 'yes' %}selected{% endif %}>Yes</option>
+            <option value="no"  {% if filters.purchased == 'no' %}selected{% endif %}>No</option>
+          </select>
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+          <button type="submit" class="btn btn-primary w-100">Filter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- STOCK TABLE -->
+  <div class="card">
+    <div class="card-header">Tracked Stocks</div>
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>Name</th>
+              <th>Reversal Found</th>
+              <th>Entry Price</th>
+              <th>Stop Loss</th>
+              <th>Purchased?</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for stock in stocks %}
+              <tr>
+                <td>{{ stock.name }}</td>
+                <td>{% if stock.reversal_bar_found %}✔{% else %}✘{% endif %}</td>
+                <td>{{ stock.entry_price }}</td>
+                <td>{{ stock.stop_loss }}</td>
+                <td>{% if stock.is_purchased %}✔{% else %}✘{% endif %}</td>
+                <td>
+                  <a href="{% url 'strategy2:stock_chart' stock.id %}" class="btn btn-sm btn-outline-primary">
+                    View Chart
+                  </a>
+
+                <!-- Delete Form -->
+                <form method="POST" action="{% url 'strategy2:delete_stock' stock.pk %}" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this trend line?');">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                </form>
+                </td>
+
+              </tr>
+            {% empty %}
+              <tr>
+                <td colspan="6" class="text-center">No stocks found.</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('symbol-search');
+  const selectEl    = document.getElementById('symbol-select');
+  const hiddenInput = document.getElementById('security-id');
+
+  // 1) Filter dropdown as user types
+  searchInput.addEventListener('input', () => {
+    const filter = searchInput.value.toLowerCase();
+    Array.from(selectEl.options).forEach(opt => {
+      opt.hidden = !opt.text.toLowerCase().includes(filter);
+    });
+  });
+
+  // 2) Sync selected symbol's security_id
+  function updateSecurityId() {
+    const sel = selectEl.options[ selectEl.selectedIndex ];
+    hiddenInput.value = sel?.dataset.securityId || '';
+  }
+  selectEl.addEventListener('change', updateSecurityId);
+
+  // 3) Initialize on load
+  if (selectEl.selectedIndex >= 0) updateSecurityId();
+});
+</script>
 {% endblock %}
