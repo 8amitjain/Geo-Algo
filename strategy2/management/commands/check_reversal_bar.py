@@ -8,7 +8,7 @@ from django.conf import settings
 
 
 class Command(BaseCommand):
-    help = "Check daily Bullish Two-Bar Reversal (require 2 full reversals before marking entry, entry from R2)"
+    help = "Check daily bullish reversal (10-bar logic with R1 lowest low, R2 confirmation, and SL calculation)"
 
     def handle(self, *args, **options):
         client = DHANClient(access_token=settings.DATA_DHAN_ACCESS_TOKEN)
@@ -23,67 +23,66 @@ class Command(BaseCommand):
                 continue
 
             last10 = df.tail(10)
-            reversal_bars = []
 
-            # Loop backward through last 10 bars
-            for i in range(len(last10) - 2, -1, -1):  # need bearish + bullish
-                bar1 = last10.iloc[i]  # bearish candidate
-                if bar1["close"] >= bar1["open"]:
-                    continue  # not bearish
+            # --- Step 1: Find the lowest candle (R1) ---
+            r1_idx = last10["low"].idxmin()
+            r1 = last10.loc[r1_idx]
 
-                # Look ahead up to 4 bars for bullish bar2
-                for j in range(i + 1, min(i + 5, len(last10))):
-                    bar2 = last10.iloc[j]
-                    if bar2["close"] <= bar2["open"]:
-                        continue  # not bullish
+            # --- Step 2: Look ahead up to 4 candles for R2 ---
+            r1_position = last10.index.get_loc(r1_idx)
+            r2 = None
 
-                    # Conditions
-                    if bar2["low"] >= bar1["low"]:
-                        continue
-                    if bar2["close"] <= bar1["close"]:
-                        continue
+            for i in range(r1_position + 1, min(r1_position + 5, len(last10))):
+                candidate = last10.iloc[i]
 
-                    # Bars in between must not close above bar1.close
-                    if any(last10.iloc[k]["close"] > bar1["close"] for k in range(i + 1, j)):
-                        continue
+                # Condition A: R2 high > R1 high
+                if candidate["high"] <= r1["high"]:
+                    continue
 
-                    # ✅ Found a valid reversal (bear + bull)
-                    reversal_bars.append((bar1, bar2))
+                # Condition B: R2 low >= R1 low
+                if candidate["low"] < r1["low"]:
+                    continue
 
-                    if len(reversal_bars) == 2:
-                        break
-                if len(reversal_bars) == 2:
-                    break
+                # ✅ Found valid R2
+                r2 = candidate
+                break
 
-            # Save only if 2 reversals found
-            if len(reversal_bars) == 2:
-                stock.reversal_bar_found = True
-
-                # Latest reversal (R1)
-                r1_bear, r1_bull = reversal_bars[0]
-                stock.reversal_bar1_high = r1_bull["high"]
-                stock.reversal_bar1_date = r1_bull.name.date()
-
-                # Second reversal (R2) → used for entry
-                r2_bear, r2_bull = reversal_bars[1]
-                stock.reversal_bar2_high = r2_bull["high"]
-                stock.reversal_bar2_date = r2_bull.name.date()
-
-                # ✅ Entry price based on R2 (older bullish bar)
-                stock.entry_price = math.ceil(r2_bull["high"] * 1.003) + 0.20
-
-                stock.save()
-
-                msg = f"{stock.name} ✅ Two-Bar Reversal Confirmed | R1: {stock.reversal_bar1_date} | R2: {stock.reversal_bar2_date} | Entry {stock.entry_price}"
-                self.stdout.write(self.style.SUCCESS(msg))
-
-            else:
-                # Not enough reversals → clear fields
+            if r2 is None:
+                # No valid reversal setup
                 stock.reversal_bar_found = False
                 stock.entry_price = None
+                stock.stop_loss = None
                 stock.reversal_bar1_high = None
                 stock.reversal_bar2_high = None
                 stock.reversal_bar1_date = None
                 stock.reversal_bar2_date = None
                 stock.save()
-                self.stdout.write(self.style.WARNING(f"{stock.name} ❌ Less than 2 reversals found"))
+                self.stdout.write(self.style.WARNING(f"{stock.name} ❌ No valid bullish reversal in last 10 candles"))
+                continue
+
+            # --- Step 3: Save setup ---
+            stock.reversal_bar_found = True
+
+            # R1 (lowest candle)
+            stock.reversal_bar1_high = r1["high"]
+            stock.reversal_bar1_date = r1.name.date()
+
+            # R2 (confirmation candle)
+            stock.reversal_bar2_high = r2["high"]
+            stock.reversal_bar2_date = r2.name.date()
+
+            # Entry = R2 high + buffer
+            stock.entry_price = math.ceil(r2["high"] * 1.003) + 0.20
+
+            # Stop Loss = R1 low × 0.9967
+            stock.stop_loss = round(r1["low"] * 0.9967, 2)
+
+            stock.save()
+
+            msg = (
+                f"{stock.name} ✅ Bullish Reversal Setup | "
+                f"R1: {stock.reversal_bar1_date} (Low {r1['low']}, High {r1['high']}) | "
+                f"R2: {stock.reversal_bar2_date} (High {r2['high']}) | "
+                f"Entry {stock.entry_price} | SL {stock.stop_loss}"
+            )
+            self.stdout.write(self.style.SUCCESS(msg))
